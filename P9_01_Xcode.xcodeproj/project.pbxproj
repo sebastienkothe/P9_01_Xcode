@@ -9,11 +9,19 @@
 /* Begin PBXBuildFile section */
 		36B423E924BB6CB5004CB8E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B423E824BB6CB5004CB8E7 /* AppDelegate.swift */; };
 		36B423EB24BB6CB5004CB8E7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B423EA24BB6CB5004CB8E7 /* SceneDelegate.swift */; };
-		36B423ED24BB6CB5004CB8E7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B423EC24BB6CB5004CB8E7 /* ViewController.swift */; };
 		36B423F024BB6CB5004CB8E7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36B423EE24BB6CB5004CB8E7 /* Main.storyboard */; };
 		36B423F224BB6CBA004CB8E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36B423F124BB6CBA004CB8E7 /* Assets.xcassets */; };
 		36B423F524BB6CBA004CB8E7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36B423F324BB6CBA004CB8E7 /* LaunchScreen.storyboard */; };
 		36B4240024BB6CBA004CB8E7 /* P9_01_XcodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B423FF24BB6CBA004CB8E7 /* P9_01_XcodeTests.swift */; };
+		36B4242E24BC7C14004CB8E7 /* CurrencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B4242D24BC7C14004CB8E7 /* CurrencyViewController.swift */; };
+		36B4243024BC7C2E004CB8E7 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B4242F24BC7C2E004CB8E7 /* WeatherViewController.swift */; };
+		36B4243224BC7C40004CB8E7 /* TranslateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B4243124BC7C40004CB8E7 /* TranslateViewController.swift */; };
+		36B4243424BC83E0004CB8E7 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B4243324BC83E0004CB8E7 /* NetworkManager.swift */; };
+		36B4243624BC8544004CB8E7 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B4243524BC8544004CB8E7 /* NetworkError.swift */; };
+		36B4243924BC8C11004CB8E7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 36B4243B24BC8C11004CB8E7 /* Localizable.strings */; };
+		36B4243E24BDB1FC004CB8E7 /* CurrencyNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B4243D24BDB1FC004CB8E7 /* CurrencyNetworkManager.swift */; };
+		36B4244024BDB2BD004CB8E7 /* WeatherNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B4243F24BDB2BD004CB8E7 /* WeatherNetworkManager.swift */; };
+		36B4244224BDB3A4004CB8E7 /* TranslateNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B4244124BDB3A4004CB8E7 /* TranslateNetworkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,7 +38,6 @@
 		36B423E524BB6CB5004CB8E7 /* P9_01_Xcode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = P9_01_Xcode.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		36B423E824BB6CB5004CB8E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		36B423EA24BB6CB5004CB8E7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		36B423EC24BB6CB5004CB8E7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		36B423EF24BB6CB5004CB8E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		36B423F124BB6CBA004CB8E7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		36B423F424BB6CBA004CB8E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -38,6 +45,16 @@
 		36B423FB24BB6CBA004CB8E7 /* P9_01_XcodeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = P9_01_XcodeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		36B423FF24BB6CBA004CB8E7 /* P9_01_XcodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = P9_01_XcodeTests.swift; sourceTree = "<group>"; };
 		36B4240124BB6CBA004CB8E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		36B4242D24BC7C14004CB8E7 /* CurrencyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyViewController.swift; sourceTree = "<group>"; };
+		36B4242F24BC7C2E004CB8E7 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
+		36B4243124BC7C40004CB8E7 /* TranslateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateViewController.swift; sourceTree = "<group>"; };
+		36B4243324BC83E0004CB8E7 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		36B4243524BC8544004CB8E7 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		36B4243A24BC8C11004CB8E7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		36B4243C24BC8C37004CB8E7 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		36B4243D24BDB1FC004CB8E7 /* CurrencyNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyNetworkManager.swift; sourceTree = "<group>"; };
+		36B4243F24BDB2BD004CB8E7 /* WeatherNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherNetworkManager.swift; sourceTree = "<group>"; };
+		36B4244124BDB3A4004CB8E7 /* TranslateNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateNetworkManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +78,7 @@
 		36B423DC24BB6CB5004CB8E7 = {
 			isa = PBXGroup;
 			children = (
+				36B4243B24BC8C11004CB8E7 /* Localizable.strings */,
 				36B423E724BB6CB5004CB8E7 /* P9_01_Xcode */,
 				36B423FE24BB6CBA004CB8E7 /* P9_01_XcodeTests */,
 				36B423E624BB6CB5004CB8E7 /* Products */,
@@ -79,12 +97,12 @@
 		36B423E724BB6CB5004CB8E7 /* P9_01_Xcode */ = {
 			isa = PBXGroup;
 			children = (
+				36B4242C24BC7892004CB8E7 /* Model */,
+				36B4242B24BC7887004CB8E7 /* View */,
+				36B4242A24BC7875004CB8E7 /* Controller */,
 				36B423E824BB6CB5004CB8E7 /* AppDelegate.swift */,
 				36B423EA24BB6CB5004CB8E7 /* SceneDelegate.swift */,
-				36B423EC24BB6CB5004CB8E7 /* ViewController.swift */,
-				36B423EE24BB6CB5004CB8E7 /* Main.storyboard */,
 				36B423F124BB6CBA004CB8E7 /* Assets.xcassets */,
-				36B423F324BB6CBA004CB8E7 /* LaunchScreen.storyboard */,
 				36B423F624BB6CBA004CB8E7 /* Info.plist */,
 			);
 			path = P9_01_Xcode;
@@ -97,6 +115,45 @@
 				36B4240124BB6CBA004CB8E7 /* Info.plist */,
 			);
 			path = P9_01_XcodeTests;
+			sourceTree = "<group>";
+		};
+		36B4242A24BC7875004CB8E7 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				36B4242F24BC7C2E004CB8E7 /* WeatherViewController.swift */,
+				36B4242D24BC7C14004CB8E7 /* CurrencyViewController.swift */,
+				36B4243124BC7C40004CB8E7 /* TranslateViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		36B4242B24BC7887004CB8E7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				36B423EE24BB6CB5004CB8E7 /* Main.storyboard */,
+				36B423F324BB6CBA004CB8E7 /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		36B4242C24BC7892004CB8E7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				36B4244324BDB553004CB8E7 /* DataModel */,
+				36B4243324BC83E0004CB8E7 /* NetworkManager.swift */,
+				36B4243524BC8544004CB8E7 /* NetworkError.swift */,
+				36B4243D24BDB1FC004CB8E7 /* CurrencyNetworkManager.swift */,
+				36B4243F24BDB2BD004CB8E7 /* WeatherNetworkManager.swift */,
+				36B4244124BDB3A4004CB8E7 /* TranslateNetworkManager.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		36B4244324BDB553004CB8E7 /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DataModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -163,6 +220,7 @@
 			knownRegions = (
 				en,
 				Base,
+				fr,
 			);
 			mainGroup = 36B423DC24BB6CB5004CB8E7;
 			productRefGroup = 36B423E624BB6CB5004CB8E7 /* Products */;
@@ -181,6 +239,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				36B423F524BB6CBA004CB8E7 /* LaunchScreen.storyboard in Resources */,
+				36B4243924BC8C11004CB8E7 /* Localizable.strings in Resources */,
 				36B423F224BB6CBA004CB8E7 /* Assets.xcassets in Resources */,
 				36B423F024BB6CB5004CB8E7 /* Main.storyboard in Resources */,
 			);
@@ -200,9 +259,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				36B423ED24BB6CB5004CB8E7 /* ViewController.swift in Sources */,
+				36B4244024BDB2BD004CB8E7 /* WeatherNetworkManager.swift in Sources */,
+				36B4243424BC83E0004CB8E7 /* NetworkManager.swift in Sources */,
+				36B4243624BC8544004CB8E7 /* NetworkError.swift in Sources */,
 				36B423E924BB6CB5004CB8E7 /* AppDelegate.swift in Sources */,
+				36B4243224BC7C40004CB8E7 /* TranslateViewController.swift in Sources */,
+				36B4243024BC7C2E004CB8E7 /* WeatherViewController.swift in Sources */,
+				36B4242E24BC7C14004CB8E7 /* CurrencyViewController.swift in Sources */,
+				36B4244224BDB3A4004CB8E7 /* TranslateNetworkManager.swift in Sources */,
 				36B423EB24BB6CB5004CB8E7 /* SceneDelegate.swift in Sources */,
+				36B4243E24BDB1FC004CB8E7 /* CurrencyNetworkManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -241,6 +307,15 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
+		36B4243B24BC8C11004CB8E7 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				36B4243A24BC8C11004CB8E7 /* en */,
+				36B4243C24BC8C37004CB8E7 /* fr */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -248,6 +323,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -308,6 +384,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -365,6 +442,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3CQSNJZ5Q2;
 				INFOPLIST_FILE = P9_01_Xcode/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -372,7 +450,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "fr.sebastienkothe.P9-01-Xcode";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -383,6 +461,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3CQSNJZ5Q2;
 				INFOPLIST_FILE = P9_01_Xcode/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -390,7 +469,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "fr.sebastienkothe.P9-01-Xcode";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

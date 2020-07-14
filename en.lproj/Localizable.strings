@@ -1,0 +1,12 @@
+/* 
+  Localizable.strings
+  P9_01_Xcode
+
+  Created by Sébastien Kothé on 13/07/2020.
+  Copyright © 2020 Sébastien Kothé. All rights reserved.
+*/
+
+"error_unknown_error_title" = "Unknown error";
+"error_failed_to_decode_json_title" = "Cannot decode JSON";
+"error_no_data_title" = "No data recovered";
+"error_cannot_create_url_title" = "Cannot create URL";
