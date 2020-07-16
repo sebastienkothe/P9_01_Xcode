@@ -10,3 +10,5 @@
 "error_failed_to_decode_json_title" = "Cannot decode JSON";
 "error_no_data_title" = "No data recovered";
 "error_cannot_create_url_title" = "Cannot create URL";
+"error_message" = "ERROR";
+"validation_message" = "Alright!";

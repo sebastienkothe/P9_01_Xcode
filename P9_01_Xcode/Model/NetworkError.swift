@@ -16,10 +16,10 @@ enum NetworkError: Error {
     
     var title: String {
         switch self {
-        case .unknownError: return "error_divide_by_zero_title"
-        case .failedToDecodeJSON: return "error_add_operator_title"
-        case .noData: return "error_add_equal_sign_title"
-        case .failedToCreateURL: return "error_convert_math_operator_title"
+        case .unknownError: return "error_unknown_error_title".localized
+        case .failedToDecodeJSON: return "error_failed_to_decode_json_title".localized
+        case .noData: return "error_no_data_title".localized
+        case .failedToCreateURL: return "error_convert_math_operator_title".localized
         }
     }
 }

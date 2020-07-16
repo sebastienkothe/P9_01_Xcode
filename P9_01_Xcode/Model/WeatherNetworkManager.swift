@@ -7,20 +7,35 @@
 //
 
 import Foundation
+import CoreLocation
 
 class WeatherNetworkManager {
     
     private let networkManager = NetworkManager()
     
-    func fetchWeatherInformationFor(_ city: String, completion: @escaping (Result<CurrencyNetworkManager, NetworkError>) -> Void ) {
+    /// Used to get weather information for a city
+    func fetchWeatherInformationFor(_ city: String, completion: @escaping (Result<WeatherResponse, NetworkError>) -> Void ) {
         
-        let urlString = "api.openweathermap.org/data/2.5/weather?q=\(city)&appid=abfbfbe13ce1ab4e9fbd6abee671f61f"
+        let urlString = "https://api.openweathermap.org/data/2.5/weather?q=\(city)&appid=abfbfbe13ce1ab4e9fbd6abee671f61f"
         
         guard let weatherUrl = URL(string: urlString) else {
             completion(.failure(.failedToCreateURL))
             return
         }
         
-        /*networkManager.fetch(url: weatherUrl, completion: completion)*/
+        networkManager.fetch(url: weatherUrl, completion: completion)
+    }
+    
+    /// Used to get weather information based on the user's current location
+    func fetchWeatherInformationForUserLocation(latitude: CLLocationDegrees, longitude: CLLocationDegrees, completion: @escaping (Result<WeatherResponse, NetworkError>) -> Void) {
+        
+        let urlString = "https://api.openweathermap.org/data/2.5/weather?lat=\(latitude)&lon=\(longitude)&appid=abfbfbe13ce1ab4e9fbd6abee671f61f"
+        
+        guard let weatherUrl = URL(string: urlString) else {
+            completion(.failure(.failedToCreateURL))
+            return
+        }
+        
+        networkManager.fetch(url: weatherUrl, completion: completion)
     }
 }

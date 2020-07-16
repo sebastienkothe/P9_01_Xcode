@@ -78,31 +78,54 @@
                                 <state key="normal" title="Search">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="didTapOnSearchButton" destination="EXp-gn-jEo" eventType="touchUpInside" id="Grd-aG-tkg"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WOC-gn-Myf">
-                                <rect key="frame" x="25" y="369.5" width="364" height="162.5"/>
+                                <rect key="frame" x="25" y="187.5" width="364" height="162.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <string key="text">Lorec,ekc,ekc,kes,ks Lorec,ekc,ekc,kes,ks Lorec,ekc,ekc,kes,ks Lorec,ekc,ekc,kes,ks Lorec,ekc,ekc,kes,ks Lorec,ekc,ekc,kes,ks Lorec,ekc,ekc,kes,ks Lorec,ekc,ekc,kes,ks Lorec,ekc,ekc,kes,ks Lorec,ekc,ekc,kes,ks Lorec,ekc,ekc,kes,ks Lorec,ekc,ekc,kes,ks Lorec,ekc,ekc,kes,ks Lorec,ekc,ekc,kes,ks Lorec,ekc,ekc,kes,ks Lorec,ekc,ekc,kes,ks </string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j7m-Ol-OoZ">
+                                <rect key="frame" x="25" y="396" width="364" height="162.5"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <string key="text">Lorec,ekc,ekc,kes,ks Lorec,ekc,ekc,kes,ks Lorec,ekc,ekc,kes,ks Lorec,ekc,ekc,kes,ks Lorec,ekc,ekc,kes,ks Lorec,ekc,ekc,kes,ks Lorec,ekc,ekc,kes,ks Lorec,ekc,ekc,kes,ks Lorec,ekc,ekc,kes,ks Lorec,ekc,ekc,kes,ks Lorec,ekc,ekc,kes,ks Lorec,ekc,ekc,kes,ks Lorec,ekc,ekc,kes,ks Lorec,ekc,ekc,kes,ks Lorec,ekc,ekc,kes,ks Lorec,ekc,ekc,kes,ks </string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weather information on your location" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bjc-vx-gKq">
+                                <rect key="frame" x="20" y="370" width="374" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
                         <constraints>
+                            <constraint firstItem="WOC-gn-Myf" firstAttribute="top" secondItem="dyz-19-Giw" secondAttribute="bottom" constant="20" id="4mR-Uo-g0M"/>
                             <constraint firstItem="duR-cP-08C" firstAttribute="trailing" secondItem="dyz-19-Giw" secondAttribute="trailing" constant="20" id="CvY-mg-dkj"/>
                             <constraint firstItem="dyz-19-Giw" firstAttribute="leading" secondItem="duR-cP-08C" secondAttribute="leading" constant="20" id="DpQ-6t-EO5"/>
+                            <constraint firstItem="duR-cP-08C" firstAttribute="trailing" secondItem="j7m-Ol-OoZ" secondAttribute="trailing" constant="25" id="K9N-9a-YcD"/>
                             <constraint firstItem="PON-SK-S5N" firstAttribute="leading" secondItem="duR-cP-08C" secondAttribute="leading" constant="20" id="Om0-DV-akZ"/>
                             <constraint firstAttribute="trailing" secondItem="WOC-gn-Myf" secondAttribute="trailing" constant="25" id="PPG-ZL-yg9"/>
+                            <constraint firstItem="duR-cP-08C" firstAttribute="trailing" secondItem="bjc-vx-gKq" secondAttribute="trailing" constant="20" id="SLE-SV-4up"/>
                             <constraint firstItem="dyz-19-Giw" firstAttribute="top" secondItem="Oih-bU-Wax" secondAttribute="bottom" constant="5" id="Sg2-R9-fzM"/>
+                            <constraint firstItem="bjc-vx-gKq" firstAttribute="leading" secondItem="duR-cP-08C" secondAttribute="leading" constant="20" id="Udg-ss-1m5"/>
+                            <constraint firstItem="bjc-vx-gKq" firstAttribute="top" secondItem="WOC-gn-Myf" secondAttribute="bottom" constant="20" id="XgN-XD-Y3A"/>
                             <constraint firstItem="duR-cP-08C" firstAttribute="trailing" secondItem="PON-SK-S5N" secondAttribute="trailing" constant="20" id="aKU-g2-Zzp"/>
                             <constraint firstItem="WOC-gn-Myf" firstAttribute="leading" secondItem="90C-Qa-b10" secondAttribute="leading" constant="25" id="ag1-84-Mba"/>
                             <constraint firstItem="duR-cP-08C" firstAttribute="trailing" secondItem="Oih-bU-Wax" secondAttribute="trailing" constant="20" id="fef-Mt-x6o"/>
                             <constraint firstItem="Oih-bU-Wax" firstAttribute="top" secondItem="duR-cP-08C" secondAttribute="top" constant="20" id="gBV-CP-a4K"/>
                             <constraint firstItem="Oih-bU-Wax" firstAttribute="leading" secondItem="duR-cP-08C" secondAttribute="leading" constant="20" id="khR-ZQ-BLh"/>
+                            <constraint firstItem="j7m-Ol-OoZ" firstAttribute="top" secondItem="bjc-vx-gKq" secondAttribute="bottom" constant="5" id="rab-FO-VSy"/>
                             <constraint firstItem="duR-cP-08C" firstAttribute="bottom" secondItem="PON-SK-S5N" secondAttribute="bottom" constant="20" id="whU-3P-OHR"/>
-                            <constraint firstItem="WOC-gn-Myf" firstAttribute="centerY" secondItem="duR-cP-08C" secondAttribute="centerY" id="y6N-Ha-ExW"/>
+                            <constraint firstItem="j7m-Ol-OoZ" firstAttribute="leading" secondItem="duR-cP-08C" secondAttribute="leading" constant="25" id="zp2-0E-Lvb"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="duR-cP-08C"/>
                         <connections>
@@ -111,6 +134,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="rpS-1d-ULK"/>
                     <connections>
+                        <outlet property="weatherInformationForCurrentLocationLabel" destination="j7m-Ol-OoZ" id="pN2-qC-KSn"/>
+                        <outlet property="weatherInformationLabel" destination="WOC-gn-Myf" id="ie3-j1-THu"/>
                         <outlet property="weatherSearchButton" destination="PON-SK-S5N" id="3EQ-1V-s5u"/>
                         <outlet property="weatherSearchTextField" destination="dyz-19-Giw" id="QEA-mI-2hb"/>
                     </connections>

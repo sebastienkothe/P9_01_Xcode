@@ -11,7 +11,7 @@ import Foundation
 class TranslateNetworkManager {
     private let networkManager = NetworkManager()
     
-    func fetchTranslationInformationFor(_ word: String, sourceLanguage: String, targetLanguage: String, completion: @escaping (Result<CurrencyNetworkManager, NetworkError>) -> Void ) {
+    func fetchTranslationInformationFor(_ word: String, sourceLanguage: String, targetLanguage: String, completion: @escaping (Result<TranslateResponse, NetworkError>) -> Void ) {
         
         let urlString = "https://api.mymemory.translated.net/get?q=\(word)&langpair=\(sourceLanguage)|\(targetLanguage)"
         

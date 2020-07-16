@@ -11,7 +11,7 @@ import Foundation
 class CurrencyNetworkManager {
     private let networkManager = NetworkManager()
     
-    func fetchInformationFor(_ currency: String, completion: @escaping (Result<CurrencyNetworkManager, NetworkError>) -> Void ) {
+    func fetchInformationFor(_ currency: String, completion: @escaping (Result<CurrencyResponse, NetworkError>) -> Void ) {
         
         let urlString = "https://api.exchangeratesapi.io/latest?base=\(currency)"
         
