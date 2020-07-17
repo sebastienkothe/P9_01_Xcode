@@ -25,7 +25,6 @@ final class NetworkManager {
                 return
             }
             
-            
             guard let result = try? JSONDecoder().decode(T.self, from: data) else {
                 completion(.failure(.failedToDecodeJSON))
                 return

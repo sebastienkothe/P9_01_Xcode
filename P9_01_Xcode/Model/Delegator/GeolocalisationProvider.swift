@@ -15,6 +15,11 @@ final class GeolocalisationProvider: NSObject, CLLocationManagerDelegate {
         locationManager?.delegate = self
     }
     
+    /// Used to stop geolocation
+    internal func stopGeolocation() {
+        locationManager?.stopUpdatingLocation()
+    }
+    
     /// Used to handle the user's current position
     internal func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         

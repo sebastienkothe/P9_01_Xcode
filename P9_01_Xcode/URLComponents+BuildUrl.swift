@@ -9,7 +9,8 @@ extension URLComponents {
         urlComponents.path = "/data/2.5/weather"
         urlComponents.queryItems = [
             URLQueryItem(name: "q", value: city),
-            URLQueryItem(name: "appid", value: "abfbfbe13ce1ab4e9fbd6abee671f61f")
+            URLQueryItem(name: "appid", value: "abfbfbe13ce1ab4e9fbd6abee671f61f"),
+            URLQueryItem(name: "units", value: "metric")
         ]
         return urlComponents.url
     }
@@ -22,7 +23,8 @@ extension URLComponents {
         urlComponents.queryItems = [
             URLQueryItem(name: "lat", value: latitude),
             URLQueryItem(name: "lon", value: longitude),
-            URLQueryItem(name: "appid", value: "abfbfbe13ce1ab4e9fbd6abee671f61f")
+            URLQueryItem(name: "appid", value: "abfbfbe13ce1ab4e9fbd6abee671f61f"),
+            URLQueryItem(name: "units", value: "metric")
             
         ]
         return urlComponents.url

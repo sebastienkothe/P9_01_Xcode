@@ -26,7 +26,7 @@ extension WeatherViewController {
                 switch result {
                 case .success(let weatherResponse):
                     guard let weatherDescription = weatherResponse.weather.first?.description else { return }
-                    self.weatherInformationLabel.text = "\(weatherResponse.name), \(weatherDescription)"
+                    self.weatherInformationLabel.text = "\(weatherResponse.name)\n\(weatherDescription)\n\(weatherResponse.main.temp)°"
                 case .failure(let error):
                     self.handleError(error: error)
                 }
@@ -68,18 +68,26 @@ extension WeatherViewController: WeatherDelegate {
             DispatchQueue.main.async {
                 switch result {
                 case .success(let weatherResponse):
-                    self.weatherInformationForCurrentLocationLabel.text = "\(weatherResponse.name)\n\(weatherResponse.weather[0].description)"
+                    guard let weatherDescription = weatherResponse.weather.first?.description else { return }
+                    self.weatherInformationForCurrentLocationLabel.text = "\(weatherResponse.name)\n\(weatherDescription)\n\(weatherResponse.main.temp)°"
                 case .failure(let error):
                     self.handleError(error: error)
                 }
             }
         })
     }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        geolocalisationProvider.getUserLocation()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        geolocalisationProvider.stopGeolocation()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         geolocalisationProvider.delegate = self
-        geolocalisationProvider.getUserLocation()
     }
 }
 

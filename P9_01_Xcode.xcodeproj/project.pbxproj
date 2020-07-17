@@ -137,6 +137,14 @@
 			path = Delegator;
 			sourceTree = "<group>";
 		};
+		36A875FB24C2514F000DFBCD /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				36A875F924C23AE2000DFBCD /* LanguagesProvider.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 		36B423DC24BB6CB5004CB8E7 = {
 			isa = PBXGroup;
 			children = (
@@ -204,12 +212,12 @@
 		36B4242C24BC7892004CB8E7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				36A875FB24C2514F000DFBCD /* Data */,
 				36A875F624C0FF85000DFBCD /* Delegator */,
 				36A875F524C0FF3A000DFBCD /* Network */,
 				36A875F424C0EF84000DFBCD /* Enum */,
 				36A875F124C0EF29000DFBCD /* Protocol */,
 				36B4244324BDB553004CB8E7 /* DataModel */,
-				36A875F924C23AE2000DFBCD /* LanguagesProvider.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
