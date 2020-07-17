@@ -7,6 +7,7 @@ final class TranslateViewController: UIViewController {
     // MARK: - Outlets
     @IBOutlet weak var translationTextField: UITextField!
     @IBOutlet weak var translationResultLabel: UILabel!
+    @IBOutlet weak var selectionLanguagePickerView: UIPickerView!
     
     
     override func viewDidLoad() {
@@ -17,18 +18,39 @@ final class TranslateViewController: UIViewController {
 // MARK: - Translation
 extension TranslateViewController {
     @IBAction func didTapOnTranslateButton() {
+        
         guard let expression = translationTextField.text else { return }
-        translateNetworkManager.fetchTranslationInformationFor(expression: expression, completion: {(result) in
+        let selectedLanguageIndex = selectionLanguagePickerView.selectedRow(inComponent: 0)
+        let selectedLanguageCode = languages[selectedLanguageIndex].code
+        
+        translateNetworkManager.fetchTranslationInformationFor(expression: expression, languageCode: selectedLanguageCode, completion: {(result) in
             DispatchQueue.main.async {
                 switch result {
                 case .failure(let error):
                     print(error.localizedDescription)
                 case .success(let response):
-                    guard let translatedText = response.data.translations.first?.translatedText else { return }
+                    guard let translatedText = response.data.translations.first?.translatedText else {
+                        //                        self.handleError(error: .emptyTextField);
+                        return }
                     self.translationResultLabel.text = translatedText
                 }
             }
         })
+    }
+}
+
+// MARK: - PickerView
+extension TranslateViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return languages.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return languages[row].name
     }
 }
 
