@@ -1,11 +1,3 @@
-/* 
-  Localizable.strings
-  P9_01_Xcode
-
-  Created by Sébastien Kothé on 13/07/2020.
-  Copyright © 2020 Sébastien Kothé. All rights reserved.
-*/
-
 "error_unknown_error_title" = "Erreur inconnue";
 "error_failed_to_decode_json_title" = "Impossible de décoder le JSON";
 "error_no_data_title" = "Aucune donnée n'a pu en être récupéré";

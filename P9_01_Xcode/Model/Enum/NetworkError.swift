@@ -1,11 +1,3 @@
-//
-//  NetworkError.swift
-//  P9_01_Xcode
-//
-//  Created by Sébastien Kothé on 13/07/2020.
-//  Copyright © 2020 Sébastien Kothé. All rights reserved.
-//
-
 import Foundation
 
 enum NetworkError: Error {

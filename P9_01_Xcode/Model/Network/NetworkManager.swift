@@ -1,21 +1,13 @@
-//
-//  NetworkManager.swift
-//  P9_01_Xcode
-//
-//  Created by Sébastien Kothé on 13/07/2020.
-//  Copyright © 2020 Sébastien Kothé. All rights reserved.
-//
-
 import Foundation
 
-class NetworkManager {
+final class NetworkManager {
     
     /// Used to initiate a request
     func fetch<T: Codable>(url: URL, completion: @escaping (Result<T, NetworkError>) -> Void) {
         
         let urlSession = URLSession(configuration: .default)
         
-        let myTask = urlSession.dataTask(with: url) { (data, response, error) in
+        let task = urlSession.dataTask(with: url) { (data, response, error) in
             
             guard error == nil else {
                 completion(.failure(.unknownError))
@@ -42,6 +34,6 @@ class NetworkManager {
             completion(.success(result))
         }
         
-        myTask.resume()
+        task.resume()
     }
 }

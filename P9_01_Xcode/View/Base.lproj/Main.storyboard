@@ -12,11 +12,11 @@
         <scene sceneID="5rH-f3-NBI">
             <objects>
                 <tabBarController id="yjO-TH-vZI" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="CS7-EA-qng">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="CS7-EA-qng">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="selectedImageTintColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="selectedImageTintColor" cocoaTouchSystemColor="darkTextColor"/>
                     </tabBar>
                     <connections>
                         <segue destination="Sk5-gJ-hFN" kind="relationship" relationship="viewControllers" id="Vbe-WO-s2J"/>
@@ -50,14 +50,14 @@
             <objects>
                 <viewController id="EXp-gn-jEo" customClass="WeatherViewController" customModule="P9_01_Xcode" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="90C-Qa-b10">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Perpignan, Paris..." textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="dyz-19-Giw">
                                 <rect key="frame" x="20" y="133.5" width="374" height="34"/>
-                                <color key="textColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" returnKeyType="search" textContentType="address-level2"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" textContentType="address-level2"/>
                                 <connections>
                                     <outlet property="delegate" destination="EXp-gn-jEo" id="yfo-Zb-YpH"/>
                                 </connections>
@@ -68,8 +68,28 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorec,ekc,ekc,kes,ks Lorec,ekc" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WOC-gn-Myf">
+                                <rect key="frame" x="25" y="187.5" width="364" height="20.5"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorec,ekc,ekc,kes,ks Lorec,ekc" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j7m-Ol-OoZ">
+                                <rect key="frame" x="25" y="334" width="364" height="20.5"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weather information on your location" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bjc-vx-gKq">
+                                <rect key="frame" x="20" y="308" width="374" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PON-SK-S5N">
-                                <rect key="frame" x="20" y="733" width="374" height="60"/>
+                                <rect key="frame" x="20" y="228" width="374" height="60"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="Xp7-6G-nQc"/>
@@ -82,33 +102,10 @@
                                     <action selector="didTapOnSearchButton" destination="EXp-gn-jEo" eventType="touchUpInside" id="Grd-aG-tkg"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WOC-gn-Myf">
-                                <rect key="frame" x="25" y="187.5" width="364" height="162.5"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <string key="text">Lorec,ekc,ekc,kes,ks Lorec,ekc,ekc,kes,ks Lorec,ekc,ekc,kes,ks Lorec,ekc,ekc,kes,ks Lorec,ekc,ekc,kes,ks Lorec,ekc,ekc,kes,ks Lorec,ekc,ekc,kes,ks Lorec,ekc,ekc,kes,ks Lorec,ekc,ekc,kes,ks Lorec,ekc,ekc,kes,ks Lorec,ekc,ekc,kes,ks Lorec,ekc,ekc,kes,ks Lorec,ekc,ekc,kes,ks Lorec,ekc,ekc,kes,ks Lorec,ekc,ekc,kes,ks Lorec,ekc,ekc,kes,ks </string>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j7m-Ol-OoZ">
-                                <rect key="frame" x="25" y="396" width="364" height="162.5"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <string key="text">Lorec,ekc,ekc,kes,ks Lorec,ekc,ekc,kes,ks Lorec,ekc,ekc,kes,ks Lorec,ekc,ekc,kes,ks Lorec,ekc,ekc,kes,ks Lorec,ekc,ekc,kes,ks Lorec,ekc,ekc,kes,ks Lorec,ekc,ekc,kes,ks Lorec,ekc,ekc,kes,ks Lorec,ekc,ekc,kes,ks Lorec,ekc,ekc,kes,ks Lorec,ekc,ekc,kes,ks Lorec,ekc,ekc,kes,ks Lorec,ekc,ekc,kes,ks Lorec,ekc,ekc,kes,ks Lorec,ekc,ekc,kes,ks </string>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weather information on your location" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bjc-vx-gKq">
-                                <rect key="frame" x="20" y="370" width="374" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="WOC-gn-Myf" firstAttribute="top" secondItem="dyz-19-Giw" secondAttribute="bottom" constant="20" id="4mR-Uo-g0M"/>
                             <constraint firstItem="duR-cP-08C" firstAttribute="trailing" secondItem="dyz-19-Giw" secondAttribute="trailing" constant="20" id="CvY-mg-dkj"/>
                             <constraint firstItem="dyz-19-Giw" firstAttribute="leading" secondItem="duR-cP-08C" secondAttribute="leading" constant="20" id="DpQ-6t-EO5"/>
                             <constraint firstItem="duR-cP-08C" firstAttribute="trailing" secondItem="j7m-Ol-OoZ" secondAttribute="trailing" constant="25" id="K9N-9a-YcD"/>
@@ -116,15 +113,16 @@
                             <constraint firstAttribute="trailing" secondItem="WOC-gn-Myf" secondAttribute="trailing" constant="25" id="PPG-ZL-yg9"/>
                             <constraint firstItem="duR-cP-08C" firstAttribute="trailing" secondItem="bjc-vx-gKq" secondAttribute="trailing" constant="20" id="SLE-SV-4up"/>
                             <constraint firstItem="dyz-19-Giw" firstAttribute="top" secondItem="Oih-bU-Wax" secondAttribute="bottom" constant="5" id="Sg2-R9-fzM"/>
+                            <constraint firstItem="PON-SK-S5N" firstAttribute="top" secondItem="WOC-gn-Myf" secondAttribute="bottom" constant="20" id="UJl-3R-ck8"/>
                             <constraint firstItem="bjc-vx-gKq" firstAttribute="leading" secondItem="duR-cP-08C" secondAttribute="leading" constant="20" id="Udg-ss-1m5"/>
-                            <constraint firstItem="bjc-vx-gKq" firstAttribute="top" secondItem="WOC-gn-Myf" secondAttribute="bottom" constant="20" id="XgN-XD-Y3A"/>
                             <constraint firstItem="duR-cP-08C" firstAttribute="trailing" secondItem="PON-SK-S5N" secondAttribute="trailing" constant="20" id="aKU-g2-Zzp"/>
                             <constraint firstItem="WOC-gn-Myf" firstAttribute="leading" secondItem="90C-Qa-b10" secondAttribute="leading" constant="25" id="ag1-84-Mba"/>
+                            <constraint firstItem="WOC-gn-Myf" firstAttribute="top" secondItem="dyz-19-Giw" secondAttribute="bottom" constant="20" id="cLe-s6-ipP"/>
                             <constraint firstItem="duR-cP-08C" firstAttribute="trailing" secondItem="Oih-bU-Wax" secondAttribute="trailing" constant="20" id="fef-Mt-x6o"/>
                             <constraint firstItem="Oih-bU-Wax" firstAttribute="top" secondItem="duR-cP-08C" secondAttribute="top" constant="20" id="gBV-CP-a4K"/>
                             <constraint firstItem="Oih-bU-Wax" firstAttribute="leading" secondItem="duR-cP-08C" secondAttribute="leading" constant="20" id="khR-ZQ-BLh"/>
-                            <constraint firstItem="j7m-Ol-OoZ" firstAttribute="top" secondItem="bjc-vx-gKq" secondAttribute="bottom" constant="5" id="rab-FO-VSy"/>
-                            <constraint firstItem="duR-cP-08C" firstAttribute="bottom" secondItem="PON-SK-S5N" secondAttribute="bottom" constant="20" id="whU-3P-OHR"/>
+                            <constraint firstItem="bjc-vx-gKq" firstAttribute="top" secondItem="PON-SK-S5N" secondAttribute="bottom" constant="20" id="sAv-Mc-kfv"/>
+                            <constraint firstItem="j7m-Ol-OoZ" firstAttribute="top" secondItem="bjc-vx-gKq" secondAttribute="bottom" constant="5" id="sNw-wh-MM0"/>
                             <constraint firstItem="j7m-Ol-OoZ" firstAttribute="leading" secondItem="duR-cP-08C" secondAttribute="leading" constant="25" id="zp2-0E-Lvb"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="duR-cP-08C"/>
@@ -171,16 +169,16 @@
             <objects>
                 <viewController id="QBn-Jr-a9r" customClass="CurrencyViewController" customModule="P9_01_Xcode" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="V66-hI-BrF">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="USD, EUR, GBP..." textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="Jaz-3s-1ML">
                                 <rect key="frame" x="20" y="133.5" width="374" height="34"/>
-                                <color key="textColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" autocorrectionType="no" spellCheckingType="no" returnKeyType="search"/>
                                 <connections>
-                                    <outlet property="delegate" destination="EXp-gn-jEo" id="YHe-5X-RRC"/>
+                                    <outlet property="delegate" destination="QBn-Jr-a9r" id="nPO-Jr-cnT"/>
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter the name of the currency for information" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wXk-KD-1y4">
@@ -266,39 +264,41 @@
             <objects>
                 <viewController id="lO3-6c-dbe" customClass="TranslateViewController" customModule="P9_01_Xcode" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="poP-RI-Zsh">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="FhM-0L-hX7">
                                 <rect key="frame" x="20" y="154" width="374" height="34"/>
-                                <color key="textColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="search"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done"/>
                                 <connections>
-                                    <outlet property="delegate" destination="EXp-gn-jEo" id="2VX-nt-Thw"/>
+                                    <outlet property="delegate" destination="lO3-6c-dbe" id="a8z-a3-RaR"/>
                                 </connections>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter a word to get the translation in the selected language" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IaE-Rr-5BU">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter a word in French to get the translation in English" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IaE-Rr-5BU">
                                 <rect key="frame" x="20" y="108" width="374" height="41"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fVf-9l-PNt">
-                                <rect key="frame" x="20" y="733" width="374" height="60"/>
+                                <rect key="frame" x="20" y="248.5" width="374" height="60"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="O9n-Ty-7m6"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="28"/>
-                                <state key="normal" title="Search">
+                                <state key="normal" title="Translate">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="didTapOnTranslateButton" destination="lO3-6c-dbe" eventType="touchUpInside" id="hsv-84-V2K"/>
+                                </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QBu-Tc-2Z7">
-                                <rect key="frame" x="25" y="369.5" width="364" height="162.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Translation result here" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QBu-Tc-2Z7">
+                                <rect key="frame" x="25" y="208" width="364" height="20.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <string key="text">Lorec,ekc,ekc,kes,ks Lorec,ekc,ekc,kes,ks Lorec,ekc,ekc,kes,ks Lorec,ekc,ekc,kes,ks Lorec,ekc,ekc,kes,ks Lorec,ekc,ekc,kes,ks Lorec,ekc,ekc,kes,ks Lorec,ekc,ekc,kes,ks Lorec,ekc,ekc,kes,ks Lorec,ekc,ekc,kes,ks Lorec,ekc,ekc,kes,ks Lorec,ekc,ekc,kes,ks Lorec,ekc,ekc,kes,ks Lorec,ekc,ekc,kes,ks Lorec,ekc,ekc,kes,ks Lorec,ekc,ekc,kes,ks </string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -314,10 +314,10 @@
                             <constraint firstItem="Zkl-LF-vGi" firstAttribute="trailing" secondItem="FhM-0L-hX7" secondAttribute="trailing" constant="20" id="Q45-id-TxW"/>
                             <constraint firstItem="IaE-Rr-5BU" firstAttribute="leading" secondItem="Zkl-LF-vGi" secondAttribute="leading" constant="20" id="VWc-Ie-YBd"/>
                             <constraint firstItem="FhM-0L-hX7" firstAttribute="top" secondItem="IaE-Rr-5BU" secondAttribute="bottom" constant="5" id="Yyy-A7-MRv"/>
-                            <constraint firstItem="QBu-Tc-2Z7" firstAttribute="centerY" secondItem="Zkl-LF-vGi" secondAttribute="centerY" id="dYP-LD-Z7o"/>
                             <constraint firstItem="IaE-Rr-5BU" firstAttribute="top" secondItem="Zkl-LF-vGi" secondAttribute="top" constant="20" id="iu5-n5-vuI"/>
-                            <constraint firstItem="Zkl-LF-vGi" firstAttribute="bottom" secondItem="fVf-9l-PNt" secondAttribute="bottom" constant="20" id="kjQ-2g-Xt8"/>
                             <constraint firstItem="Zkl-LF-vGi" firstAttribute="trailing" secondItem="fVf-9l-PNt" secondAttribute="trailing" constant="20" id="tes-j6-ov3"/>
+                            <constraint firstItem="QBu-Tc-2Z7" firstAttribute="top" secondItem="FhM-0L-hX7" secondAttribute="bottom" constant="20" id="u1S-HO-FpP"/>
+                            <constraint firstItem="fVf-9l-PNt" firstAttribute="top" secondItem="QBu-Tc-2Z7" secondAttribute="bottom" constant="20" id="v2W-lv-lE1"/>
                             <constraint firstItem="QBu-Tc-2Z7" firstAttribute="leading" secondItem="Zkl-LF-vGi" secondAttribute="leading" constant="25" id="vFf-NG-h8M"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Zkl-LF-vGi"/>
@@ -327,6 +327,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="V7m-md-owk"/>
                     <connections>
+                        <outlet property="translationResultLabel" destination="QBu-Tc-2Z7" id="apC-yC-tLl"/>
                         <outlet property="translationTextField" destination="FhM-0L-hX7" id="N0Q-6V-z8a"/>
                     </connections>
                 </viewController>
@@ -337,7 +338,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="942" y="601"/>
+            <point key="canvasLocation" x="923" y="458"/>
         </scene>
     </scenes>
     <resources>

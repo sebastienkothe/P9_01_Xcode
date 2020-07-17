@@ -1,18 +1,34 @@
-//
-//  TranslateViewController.swift
-//  P9_01_Xcode
-//
-//  Created by Sébastien Kothé on 13/07/2020.
-//  Copyright © 2020 Sébastien Kothé. All rights reserved.
-//
-
 import UIKit
 
-class TranslateViewController: UIViewController {
+final class TranslateViewController: UIViewController {
+    // MARK: - Properties
+    let translateNetworkManager = TranslateNetworkManager()
+    
+    // MARK: - Outlets
     @IBOutlet weak var translationTextField: UITextField!
+    @IBOutlet weak var translationResultLabel: UILabel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+}
+
+// MARK: - Translation
+extension TranslateViewController {
+    @IBAction func didTapOnTranslateButton() {
+        guard let expression = translationTextField.text else { return }
+        translateNetworkManager.fetchTranslationInformationFor(expression: expression, completion: {(result) in
+            DispatchQueue.main.async {
+                switch result {
+                case .failure(let error):
+                    print(error.localizedDescription)
+                case .success(let response):
+                    guard let translatedText = response.data.translations.first?.translatedText else { return }
+                    self.translationResultLabel.text = translatedText
+                }
+            }
+        })
     }
 }
 
@@ -24,8 +40,10 @@ extension TranslateViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == translationTextField {
-           //any task to perform
-           textField.resignFirstResponder() //if you want to dismiss your keyboard
+            //any task to perform
+            
+            // Used to dismiss your keyboard
+            textField.resignFirstResponder()
         }
         return true
     }

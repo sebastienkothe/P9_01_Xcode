@@ -1,14 +1,6 @@
-//
-//  CurrencyNetworkManager.swift
-//  P9_01_Xcode
-//
-//  Created by Sébastien Kothé on 14/07/2020.
-//  Copyright © 2020 Sébastien Kothé. All rights reserved.
-//
-
 import Foundation
 
-class CurrencyNetworkManager {
+final class CurrencyNetworkManager {
     private let networkManager = NetworkManager()
     
     func fetchInformationFor(_ currency: String, completion: @escaping (Result<CurrencyResponse, NetworkError>) -> Void ) {
