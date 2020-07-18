@@ -35,15 +35,6 @@ struct WeatherInformation: Codable {
     var temp_max: Double
     var pressure: Int
     var humidity: Int
-    
-    //    enum CodingKeys: String, CodingKey {
-    //        case temp = "temp"
-    //        case feels_like = "feelsLike"
-    //        case temp_min = "tempMin"
-    //        case temp_max = "tempMax"
-    //        case pressure = "pressure"
-    //        case humidity = "humidity"
-    //    }
 }
 
 struct WindInformation: Codable {

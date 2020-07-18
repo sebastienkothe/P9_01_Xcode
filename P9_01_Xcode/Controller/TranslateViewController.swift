@@ -8,11 +8,6 @@ final class TranslateViewController: UIViewController {
     @IBOutlet weak var translationTextField: UITextField!
     @IBOutlet weak var translationResultLabel: UILabel!
     @IBOutlet weak var selectionLanguagePickerView: UIPickerView!
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
 }
 
 // MARK: - Translation

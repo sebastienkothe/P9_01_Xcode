@@ -64,7 +64,7 @@
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter the name of a city for weather information" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oih-bU-Wax">
                                 <rect key="frame" x="20" y="64" width="335" height="41"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -172,55 +172,93 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="USD, EUR, GBP..." textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="Jaz-3s-1ML">
-                                <rect key="frame" x="20" y="110" width="335" height="34"/>
-                                <color key="textColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" autocorrectionType="no" spellCheckingType="no" returnKeyType="search"/>
-                                <connections>
-                                    <outlet property="delegate" destination="QBn-Jr-a9r" id="nPO-Jr-cnT"/>
-                                </connections>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter the name of the currency for information" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wXk-KD-1y4">
-                                <rect key="frame" x="20" y="64" width="335" height="41"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QfK-e6-i6r">
-                                <rect key="frame" x="20" y="538" width="335" height="60"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="qvs-Ob-OPq"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="28"/>
-                                <state key="normal" title="Search">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Currency information here" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xth-fS-MAw">
-                                <rect key="frame" x="25" y="321" width="325" height="20.5"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="QN4-AN-h9u">
+                                <rect key="frame" x="20" y="510.5" width="335" height="87.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Currency information here" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xth-fS-MAw">
+                                        <rect key="frame" x="0.0" y="0.0" width="335" height="20.5"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QfK-e6-i6r">
+                                        <rect key="frame" x="0.0" y="27.5" width="335" height="60"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="qvs-Ob-OPq"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="28"/>
+                                        <state key="normal" title="Search">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didTapOnSearchButton" destination="QBn-Jr-a9r" eventType="touchUpInside" id="76e-6Z-1yw"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="BXf-ch-htv">
+                                <rect key="frame" x="20" y="54" width="335" height="347"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose the source currency" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wXk-KD-1y4">
+                                        <rect key="frame" x="0.0" y="0.0" width="335" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z7y-C8-PRh">
+                                        <rect key="frame" x="0.0" y="29.5" width="335" height="120"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="120" id="jso-tr-E55"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="dataSource" destination="QBn-Jr-a9r" id="xbw-1n-WEH"/>
+                                            <outlet property="delegate" destination="QBn-Jr-a9r" id="ah1-at-36Z"/>
+                                        </connections>
+                                    </pickerView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose the target currency" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3d1-aC-TBa">
+                                        <rect key="frame" x="0.0" y="158.5" width="335" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SrG-Th-NkK">
+                                        <rect key="frame" x="0.0" y="188" width="335" height="120"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="120" id="wDg-at-eGf"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="dataSource" destination="QBn-Jr-a9r" id="wd4-A8-7w7"/>
+                                            <outlet property="delegate" destination="QBn-Jr-a9r" id="ePo-8H-NHH"/>
+                                        </connections>
+                                    </pickerView>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter an amount here..." textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="Jaz-3s-1ML">
+                                        <rect key="frame" x="0.0" y="317" width="335" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="iG6-jq-Z5p"/>
+                                        </constraints>
+                                        <color key="textColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" autocorrectionType="no" spellCheckingType="no" returnKeyType="done"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="QBn-Jr-a9r" id="nPO-Jr-cnT"/>
+                                        </connections>
+                                    </textField>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="3zx-2R-XK0" firstAttribute="trailing" secondItem="QfK-e6-i6r" secondAttribute="trailing" constant="20" id="3fA-0O-knj"/>
-                            <constraint firstItem="3zx-2R-XK0" firstAttribute="trailing" secondItem="xth-fS-MAw" secondAttribute="trailing" constant="25" id="4u4-hl-T9U"/>
-                            <constraint firstItem="3zx-2R-XK0" firstAttribute="trailing" secondItem="wXk-KD-1y4" secondAttribute="trailing" constant="20" id="7cP-4W-00C"/>
-                            <constraint firstItem="wXk-KD-1y4" firstAttribute="leading" secondItem="3zx-2R-XK0" secondAttribute="leading" constant="20" id="Ioa-0y-kj0"/>
-                            <constraint firstItem="xth-fS-MAw" firstAttribute="centerY" secondItem="3zx-2R-XK0" secondAttribute="centerY" id="Jec-XZ-cdG"/>
-                            <constraint firstItem="3zx-2R-XK0" firstAttribute="trailing" secondItem="Jaz-3s-1ML" secondAttribute="trailing" constant="20" id="RMc-Bf-bbw"/>
-                            <constraint firstItem="QfK-e6-i6r" firstAttribute="leading" secondItem="3zx-2R-XK0" secondAttribute="leading" constant="20" id="Tel-d0-mee"/>
-                            <constraint firstItem="3zx-2R-XK0" firstAttribute="bottom" secondItem="QfK-e6-i6r" secondAttribute="bottom" constant="20" id="TmM-FD-TUF"/>
-                            <constraint firstItem="Jaz-3s-1ML" firstAttribute="leading" secondItem="3zx-2R-XK0" secondAttribute="leading" constant="20" id="Wpp-47-RPU"/>
-                            <constraint firstItem="wXk-KD-1y4" firstAttribute="top" secondItem="3zx-2R-XK0" secondAttribute="top" constant="20" id="ZHG-eI-RC1"/>
-                            <constraint firstItem="Jaz-3s-1ML" firstAttribute="top" secondItem="wXk-KD-1y4" secondAttribute="bottom" constant="5" id="ZJK-NJ-ipj"/>
-                            <constraint firstItem="xth-fS-MAw" firstAttribute="leading" secondItem="3zx-2R-XK0" secondAttribute="leading" constant="25" id="tzg-yV-1n0"/>
+                            <constraint firstItem="3zx-2R-XK0" firstAttribute="trailing" secondItem="QN4-AN-h9u" secondAttribute="trailing" constant="20" id="DW0-xn-MgR"/>
+                            <constraint firstItem="3zx-2R-XK0" firstAttribute="bottom" secondItem="QN4-AN-h9u" secondAttribute="bottom" constant="20" id="JEf-VO-5w3"/>
+                            <constraint firstItem="BXf-ch-htv" firstAttribute="top" secondItem="3zx-2R-XK0" secondAttribute="top" constant="10" id="PsK-ky-VYT"/>
+                            <constraint firstItem="QN4-AN-h9u" firstAttribute="leading" secondItem="3zx-2R-XK0" secondAttribute="leading" constant="20" id="Xa7-Pc-Z56"/>
+                            <constraint firstItem="3zx-2R-XK0" firstAttribute="trailing" secondItem="BXf-ch-htv" secondAttribute="trailing" constant="20" id="dfq-9h-5xW"/>
+                            <constraint firstItem="BXf-ch-htv" firstAttribute="leading" secondItem="3zx-2R-XK0" secondAttribute="leading" constant="20" id="sOB-vD-eeh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="3zx-2R-XK0"/>
                         <connections>
@@ -229,7 +267,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="fiw-ei-F9c"/>
                     <connections>
+                        <outlet property="conversionResultLabel" destination="xth-fS-MAw" id="pu4-lL-ml4"/>
                         <outlet property="currencyTextField" destination="Jaz-3s-1ML" id="2ii-Cj-Qxt"/>
+                        <outlet property="sourceCurrencyPickerView" destination="Z7y-C8-PRh" id="azt-WI-PV6"/>
+                        <outlet property="targetCurrencyPickerView" destination="SrG-Th-NkK" id="X5L-LH-X1V"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pp1-sX-7Ik" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -239,7 +280,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="941" y="-285"/>
+            <point key="canvasLocation" x="940" y="-285.60719640179911"/>
         </scene>
         <!--Translation-->
         <scene sceneID="9kg-e8-Qr8">
@@ -277,7 +318,7 @@
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter a word or phrase to translate" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IaE-Rr-5BU">
                                 <rect key="frame" x="20" y="64" width="335" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>

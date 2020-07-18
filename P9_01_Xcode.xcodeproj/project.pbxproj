@@ -16,6 +16,8 @@
 		36A875F324C0EF4A000DFBCD /* WeatherDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A875F224C0EF4A000DFBCD /* WeatherDelegate.swift */; };
 		36A875F824C1DD0B000DFBCD /* URLComponents+BuildUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A875F724C1DD0B000DFBCD /* URLComponents+BuildUrl.swift */; };
 		36A875FA24C23AE2000DFBCD /* LanguagesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A875F924C23AE2000DFBCD /* LanguagesProvider.swift */; };
+		36A875FD24C2EF6A000DFBCD /* currenciesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A875FC24C2EF6A000DFBCD /* currenciesProvider.swift */; };
+		36A875FF24C3906E000DFBCD /* PropertyReflectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A875FE24C3906E000DFBCD /* PropertyReflectable.swift */; };
 		36B423E924BB6CB5004CB8E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B423E824BB6CB5004CB8E7 /* AppDelegate.swift */; };
 		36B423EB24BB6CB5004CB8E7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B423EA24BB6CB5004CB8E7 /* SceneDelegate.swift */; };
 		36B423F024BB6CB5004CB8E7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36B423EE24BB6CB5004CB8E7 /* Main.storyboard */; };
@@ -53,6 +55,8 @@
 		36A875F224C0EF4A000DFBCD /* WeatherDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDelegate.swift; sourceTree = "<group>"; };
 		36A875F724C1DD0B000DFBCD /* URLComponents+BuildUrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLComponents+BuildUrl.swift"; sourceTree = "<group>"; };
 		36A875F924C23AE2000DFBCD /* LanguagesProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguagesProvider.swift; sourceTree = "<group>"; };
+		36A875FC24C2EF6A000DFBCD /* currenciesProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = currenciesProvider.swift; sourceTree = "<group>"; };
+		36A875FE24C3906E000DFBCD /* PropertyReflectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyReflectable.swift; sourceTree = "<group>"; };
 		36B423E524BB6CB5004CB8E7 /* P9_01_Xcode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = P9_01_Xcode.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		36B423E824BB6CB5004CB8E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		36B423EA24BB6CB5004CB8E7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -106,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				36A875F224C0EF4A000DFBCD /* WeatherDelegate.swift */,
+				36A875FE24C3906E000DFBCD /* PropertyReflectable.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -141,6 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				36A875F924C23AE2000DFBCD /* LanguagesProvider.swift */,
+				36A875FC24C2EF6A000DFBCD /* currenciesProvider.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -337,6 +343,7 @@
 			files = (
 				36B4244024BDB2BD004CB8E7 /* WeatherNetworkManager.swift in Sources */,
 				36B4243424BC83E0004CB8E7 /* NetworkManager.swift in Sources */,
+				36A875FF24C3906E000DFBCD /* PropertyReflectable.swift in Sources */,
 				36B4243624BC8544004CB8E7 /* NetworkError.swift in Sources */,
 				368CE8A424C058D8004009A5 /* CurrencyResponse.swift in Sources */,
 				368CE8A824C088D1004009A5 /* String+Localized.swift in Sources */,
@@ -346,6 +353,7 @@
 				36B4243224BC7C40004CB8E7 /* TranslateViewController.swift in Sources */,
 				36B4243024BC7C2E004CB8E7 /* WeatherViewController.swift in Sources */,
 				36B4242E24BC7C14004CB8E7 /* CurrencyViewController.swift in Sources */,
+				36A875FD24C2EF6A000DFBCD /* currenciesProvider.swift in Sources */,
 				36A875F324C0EF4A000DFBCD /* WeatherDelegate.swift in Sources */,
 				36A875F824C1DD0B000DFBCD /* URLComponents+BuildUrl.swift in Sources */,
 				36B4244224BDB3A4004CB8E7 /* TranslateNetworkManager.swift in Sources */,

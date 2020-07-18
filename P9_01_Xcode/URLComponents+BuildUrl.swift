@@ -43,4 +43,15 @@ extension URLComponents {
         ]
         return urlComponents.url
     }
+    
+    public static func buildFixerURL() -> URL? {
+        var urlComponents = URLComponents()
+        urlComponents.scheme = "http"
+        urlComponents.host = "data.fixer.io"
+        urlComponents.path = "/api/latest"
+        urlComponents.queryItems = [
+            URLQueryItem(name: "access_key", value: "60f39633face57ab2d771ead1c0baad8"),
+        ]
+        return urlComponents.url
+    }
 }
