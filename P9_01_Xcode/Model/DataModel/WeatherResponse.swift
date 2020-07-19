@@ -1,5 +1,3 @@
-import Foundation
-
 struct WeatherResponse: Codable {
     var coord: Coordinate
     var weather: [Weather]

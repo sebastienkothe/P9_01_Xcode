@@ -1,5 +1,3 @@
-import Foundation
-
 protocol PropertyReflectable {
     subscript(key: String) -> Any? { get }
 }

@@ -1,5 +1,3 @@
-import Foundation
-
 struct TranslateResponse: Codable {
     var data: Data
 }

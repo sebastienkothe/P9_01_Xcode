@@ -18,12 +18,13 @@
 		36A875FA24C23AE2000DFBCD /* LanguagesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A875F924C23AE2000DFBCD /* LanguagesProvider.swift */; };
 		36A875FD24C2EF6A000DFBCD /* currenciesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A875FC24C2EF6A000DFBCD /* currenciesProvider.swift */; };
 		36A875FF24C3906E000DFBCD /* PropertyReflectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A875FE24C3906E000DFBCD /* PropertyReflectable.swift */; };
+		36A8760324C47378000DFBCD /* GeolocalisationProviderTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A8760224C47378000DFBCD /* GeolocalisationProviderTestCase.swift */; };
+		36A8760524C4765C000DFBCD /* GeolocalisationProviderDelegateMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A8760424C4765C000DFBCD /* GeolocalisationProviderDelegateMock.swift */; };
 		36B423E924BB6CB5004CB8E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B423E824BB6CB5004CB8E7 /* AppDelegate.swift */; };
 		36B423EB24BB6CB5004CB8E7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B423EA24BB6CB5004CB8E7 /* SceneDelegate.swift */; };
 		36B423F024BB6CB5004CB8E7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36B423EE24BB6CB5004CB8E7 /* Main.storyboard */; };
 		36B423F224BB6CBA004CB8E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36B423F124BB6CBA004CB8E7 /* Assets.xcassets */; };
 		36B423F524BB6CBA004CB8E7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36B423F324BB6CBA004CB8E7 /* LaunchScreen.storyboard */; };
-		36B4240024BB6CBA004CB8E7 /* P9_01_XcodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B423FF24BB6CBA004CB8E7 /* P9_01_XcodeTests.swift */; };
 		36B4242E24BC7C14004CB8E7 /* CurrencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B4242D24BC7C14004CB8E7 /* CurrencyViewController.swift */; };
 		36B4243024BC7C2E004CB8E7 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B4242F24BC7C2E004CB8E7 /* WeatherViewController.swift */; };
 		36B4243224BC7C40004CB8E7 /* TranslateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B4243124BC7C40004CB8E7 /* TranslateViewController.swift */; };
@@ -57,6 +58,8 @@
 		36A875F924C23AE2000DFBCD /* LanguagesProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguagesProvider.swift; sourceTree = "<group>"; };
 		36A875FC24C2EF6A000DFBCD /* currenciesProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = currenciesProvider.swift; sourceTree = "<group>"; };
 		36A875FE24C3906E000DFBCD /* PropertyReflectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyReflectable.swift; sourceTree = "<group>"; };
+		36A8760224C47378000DFBCD /* GeolocalisationProviderTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeolocalisationProviderTestCase.swift; sourceTree = "<group>"; };
+		36A8760424C4765C000DFBCD /* GeolocalisationProviderDelegateMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeolocalisationProviderDelegateMock.swift; sourceTree = "<group>"; };
 		36B423E524BB6CB5004CB8E7 /* P9_01_Xcode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = P9_01_Xcode.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		36B423E824BB6CB5004CB8E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		36B423EA24BB6CB5004CB8E7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -65,7 +68,6 @@
 		36B423F424BB6CBA004CB8E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		36B423F624BB6CBA004CB8E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		36B423FB24BB6CBA004CB8E7 /* P9_01_XcodeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = P9_01_XcodeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		36B423FF24BB6CBA004CB8E7 /* P9_01_XcodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = P9_01_XcodeTests.swift; sourceTree = "<group>"; };
 		36B4240124BB6CBA004CB8E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		36B4242D24BC7C14004CB8E7 /* CurrencyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyViewController.swift; sourceTree = "<group>"; };
 		36B4242F24BC7C2E004CB8E7 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
@@ -190,8 +192,9 @@
 		36B423FE24BB6CBA004CB8E7 /* P9_01_XcodeTests */ = {
 			isa = PBXGroup;
 			children = (
-				36B423FF24BB6CBA004CB8E7 /* P9_01_XcodeTests.swift */,
 				36B4240124BB6CBA004CB8E7 /* Info.plist */,
+				36A8760224C47378000DFBCD /* GeolocalisationProviderTestCase.swift */,
+				36A8760424C4765C000DFBCD /* GeolocalisationProviderDelegateMock.swift */,
 			);
 			path = P9_01_XcodeTests;
 			sourceTree = "<group>";
@@ -291,6 +294,7 @@
 					};
 					36B423FA24BB6CBA004CB8E7 = {
 						CreatedOnToolsVersion = 11.5;
+						LastSwiftMigration = 1150;
 						TestTargetID = 36B423E424BB6CB5004CB8E7;
 					};
 				};
@@ -368,7 +372,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				36B4240024BB6CBA004CB8E7 /* P9_01_XcodeTests.swift in Sources */,
+				36A8760324C47378000DFBCD /* GeolocalisationProviderTestCase.swift in Sources */,
+				36A8760524C4765C000DFBCD /* GeolocalisationProviderDelegateMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -570,6 +575,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3CQSNJZ5Q2;
 				INFOPLIST_FILE = P9_01_XcodeTests/Info.plist;
@@ -581,6 +587,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "fr.sebastienkothe.P9-01-XcodeTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/P9_01_Xcode.app/P9_01_Xcode";
@@ -592,6 +599,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3CQSNJZ5Q2;
 				INFOPLIST_FILE = P9_01_XcodeTests/Info.plist;

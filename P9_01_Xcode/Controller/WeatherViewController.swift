@@ -26,7 +26,15 @@ extension WeatherViewController {
                 switch result {
                 case .success(let weatherResponse):
                     guard let weatherDescription = weatherResponse.weather.first?.description else { return }
-                    self.weatherInformationLabel.text = "\(weatherResponse.name)\n\(weatherDescription)\n\(weatherResponse.main.temp)°"
+                    
+                    self.weatherInformationLabel.text =
+                        
+                    """
+                    🗺 \(weatherResponse.name)\n
+                    ℹ️ \(weatherDescription)\n
+                    🌡 \(weatherResponse.main.temp)°
+                    """
+                    
                 case .failure(let error):
                     self.handleError(error: error)
                 }
@@ -63,13 +71,20 @@ extension WeatherViewController: UITextFieldDelegate {
 
 // MARK: - Localization
 extension WeatherViewController: WeatherDelegate {
-    func didChangeLocalization(longitude: String, latitude: String) {
+    internal func didChangeLocalization(longitude: String, latitude: String) {
         weatherNetworkManager.fetchWeatherInformationForUserLocation(longitude: longitude, latitude: latitude, completion: {(result) in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let weatherResponse):
                     guard let weatherDescription = weatherResponse.weather.first?.description else { return }
-                    self.weatherInformationForCurrentLocationLabel.text = "\(weatherResponse.name)\n\(weatherDescription)\n\(weatherResponse.main.temp)°"
+                    self.weatherInformationForCurrentLocationLabel.text =
+                        
+                    """
+                    🗺 \(weatherResponse.name)\n
+                    ℹ️ \(weatherDescription)\n
+                    🌡 \(weatherResponse.main.temp)°
+                    """
+                    
                 case .failure(let error):
                     self.handleError(error: error)
                 }
@@ -79,10 +94,14 @@ extension WeatherViewController: WeatherDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        // Retrieving the user's geographic position
         geolocalisationProvider.getUserLocation()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
+        
+        // Geolocation stop
         geolocalisationProvider.stopGeolocation()
     }
     
@@ -91,5 +110,3 @@ extension WeatherViewController: WeatherDelegate {
         geolocalisationProvider.delegate = self
     }
 }
-
-

@@ -6,19 +6,16 @@ final class CurrencyViewController: UIViewController {
     private let currencyNetworkManager = CurrencyNetworkManager()
     
     // MARK: - Outlets
-    @IBOutlet weak var currencyTextField: UITextField!
-    @IBOutlet weak var sourceCurrencyPickerView: UIPickerView!
-    @IBOutlet weak var targetCurrencyPickerView: UIPickerView!
-    @IBOutlet weak var conversionResultLabel: UILabel!
+    @IBOutlet weak private var currencyTextField: UITextField!
+    @IBOutlet weak private var sourceCurrencyPickerView: UIPickerView!
+    @IBOutlet weak private var targetCurrencyPickerView: UIPickerView!
+    @IBOutlet weak private var conversionResultLabel: UILabel!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
 }
 
 // MARK: - Exchange rate
 extension CurrencyViewController {
-    @IBAction func didTapOnSearchButton() {
+    @IBAction private func didTapOnSearchButton() {
         
         guard let amount = currencyTextField.text else { return }
         guard let convertedAmount = Double(amount) else { return }
@@ -62,15 +59,15 @@ extension CurrencyViewController {
 
 // MARK: - PickerView
 extension CurrencyViewController: UIPickerViewDelegate, UIPickerViewDataSource {
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+    internal func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
     
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+    internal func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         currencies.count
     }
     
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+    internal func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return currencies[row].name
     }
 }
@@ -78,11 +75,11 @@ extension CurrencyViewController: UIPickerViewDelegate, UIPickerViewDataSource {
 // MARK: - Keyboard
 extension CurrencyViewController: UITextFieldDelegate {
     
-    @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
+    @IBAction private func dismissKeyboard(_ sender: UITapGestureRecognizer) {
         currencyTextField.resignFirstResponder()
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    internal func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == currencyTextField {
             //any task to perform
             

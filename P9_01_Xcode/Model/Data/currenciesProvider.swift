@@ -1,13 +1,3 @@
-//
-//  currenciesProvider.swift
-//  P9_01_Xcode
-//
-//  Created by Sébastien Kothé on 18/07/2020.
-//  Copyright © 2020 Sébastien Kothé. All rights reserved.
-//
-
-import Foundation
-
 let currencies: [(name: String, code: String)] = [
     ("British Pound Sterling", "GBP"),
     ("Euro", "EUR"),

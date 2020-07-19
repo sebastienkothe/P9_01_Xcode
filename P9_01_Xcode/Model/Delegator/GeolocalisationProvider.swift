@@ -1,10 +1,9 @@
-import Foundation
 import CoreLocation
 
 // Delegator
 final class GeolocalisationProvider: NSObject, CLLocationManagerDelegate {
     
-    weak var delegate: WeatherDelegate?
+    weak internal var delegate: WeatherDelegate?
     private var locationManager: CLLocationManager?
     
     /// Used to get the user's current position

@@ -1,18 +1,19 @@
 import UIKit
 
 final class TranslateViewController: UIViewController {
+    
     // MARK: - Properties
-    let translateNetworkManager = TranslateNetworkManager()
+    private let translateNetworkManager = TranslateNetworkManager()
     
     // MARK: - Outlets
-    @IBOutlet weak var translationTextField: UITextField!
-    @IBOutlet weak var translationResultLabel: UILabel!
-    @IBOutlet weak var selectionLanguagePickerView: UIPickerView!
+    @IBOutlet weak private var translationTextField: UITextField!
+    @IBOutlet weak private var translationResultLabel: UILabel!
+    @IBOutlet weak private var selectionLanguagePickerView: UIPickerView!
 }
 
 // MARK: - Translation
 extension TranslateViewController {
-    @IBAction func didTapOnTranslateButton() {
+    @IBAction private func didTapOnTranslateButton() {
         
         guard let expression = translationTextField.text else { return }
         let selectedLanguageIndex = selectionLanguagePickerView.selectedRow(inComponent: 0)
@@ -24,10 +25,14 @@ extension TranslateViewController {
                 case .failure(let error):
                     print(error.localizedDescription)
                 case .success(let response):
-                    guard let translatedText = response.data.translations.first?.translatedText else {
-                        //                        self.handleError(error: .emptyTextField);
-                        return }
-                    self.translationResultLabel.text = translatedText
+                    guard let translatedText = response.data.translations.first?.translatedText else { return }
+                    guard let detectedSourceLanguage = response.data.translations.first?.detectedSourceLanguage else { return }
+                    self.translationResultLabel.text =
+                    
+                    """
+                    Detected source language : \(detectedSourceLanguage)\n
+                    Translated text : \(translatedText)
+                    """
                 }
             }
         })
@@ -36,26 +41,26 @@ extension TranslateViewController {
 
 // MARK: - PickerView
 extension TranslateViewController: UIPickerViewDelegate, UIPickerViewDataSource {
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+    internal func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
     
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+    internal func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return languages.count
     }
     
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+    internal func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return languages[row].name
     }
 }
 
 // MARK: - Keyboard
 extension TranslateViewController: UITextFieldDelegate {
-    @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
+    @IBAction private func dismissKeyboard(_ sender: UITapGestureRecognizer) {
         translationTextField.resignFirstResponder()
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    internal func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == translationTextField {
             //any task to perform
             

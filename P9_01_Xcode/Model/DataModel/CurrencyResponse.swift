@@ -1,5 +1,3 @@
-import Foundation
-
 struct CurrencyResponse: Codable {
     var success: Bool
     var rates: Rates

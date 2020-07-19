@@ -3,7 +3,7 @@ import Foundation
 final class NetworkManager {
     
     /// Used to initiate a request
-    func fetch<T: Codable>(url: URL, completion: @escaping (Result<T, NetworkError>) -> Void) {
+    internal func fetch<T: Codable>(url: URL, completion: @escaping (Result<T, NetworkError>) -> Void) {
         
         let urlSession = URLSession(configuration: .default)
         

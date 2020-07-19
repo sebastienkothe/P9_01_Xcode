@@ -1,5 +1,3 @@
-import Foundation
-
 let languages: [(name: String, code: String)] = [
     ("Allemand", "de"),
     ("Anglais", "en"),
