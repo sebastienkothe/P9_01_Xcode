@@ -20,6 +20,10 @@
 		36A875FF24C3906E000DFBCD /* PropertyReflectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A875FE24C3906E000DFBCD /* PropertyReflectable.swift */; };
 		36A8760324C47378000DFBCD /* GeolocalisationProviderTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A8760224C47378000DFBCD /* GeolocalisationProviderTestCase.swift */; };
 		36A8760524C4765C000DFBCD /* GeolocalisationProviderDelegateMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A8760424C4765C000DFBCD /* GeolocalisationProviderDelegateMock.swift */; };
+		36A8760724C5A441000DFBCD /* Currency.json in Resources */ = {isa = PBXBuildFile; fileRef = 36A8760624C5A441000DFBCD /* Currency.json */; };
+		36A8760924C5A4FC000DFBCD /* FakeResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A8760824C5A4FC000DFBCD /* FakeResponseData.swift */; };
+		36A8760C24C5D1D4000DFBCD /* URLProtocolMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A8760B24C5D1D4000DFBCD /* URLProtocolMock.swift */; };
+		36A8760E24C5D6E1000DFBCD /* NetworkManagerTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A8760D24C5D6E1000DFBCD /* NetworkManagerTestCase.swift */; };
 		36B423E924BB6CB5004CB8E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B423E824BB6CB5004CB8E7 /* AppDelegate.swift */; };
 		36B423EB24BB6CB5004CB8E7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B423EA24BB6CB5004CB8E7 /* SceneDelegate.swift */; };
 		36B423F024BB6CB5004CB8E7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36B423EE24BB6CB5004CB8E7 /* Main.storyboard */; };
@@ -60,6 +64,10 @@
 		36A875FE24C3906E000DFBCD /* PropertyReflectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyReflectable.swift; sourceTree = "<group>"; };
 		36A8760224C47378000DFBCD /* GeolocalisationProviderTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeolocalisationProviderTestCase.swift; sourceTree = "<group>"; };
 		36A8760424C4765C000DFBCD /* GeolocalisationProviderDelegateMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeolocalisationProviderDelegateMock.swift; sourceTree = "<group>"; };
+		36A8760624C5A441000DFBCD /* Currency.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Currency.json; sourceTree = "<group>"; };
+		36A8760824C5A4FC000DFBCD /* FakeResponseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeResponseData.swift; sourceTree = "<group>"; };
+		36A8760B24C5D1D4000DFBCD /* URLProtocolMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLProtocolMock.swift; sourceTree = "<group>"; };
+		36A8760D24C5D6E1000DFBCD /* NetworkManagerTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerTestCase.swift; sourceTree = "<group>"; };
 		36B423E524BB6CB5004CB8E7 /* P9_01_Xcode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = P9_01_Xcode.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		36B423E824BB6CB5004CB8E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		36B423EA24BB6CB5004CB8E7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -194,7 +202,11 @@
 			children = (
 				36B4240124BB6CBA004CB8E7 /* Info.plist */,
 				36A8760224C47378000DFBCD /* GeolocalisationProviderTestCase.swift */,
+				36A8760D24C5D6E1000DFBCD /* NetworkManagerTestCase.swift */,
 				36A8760424C4765C000DFBCD /* GeolocalisationProviderDelegateMock.swift */,
+				36A8760624C5A441000DFBCD /* Currency.json */,
+				36A8760824C5A4FC000DFBCD /* FakeResponseData.swift */,
+				36A8760B24C5D1D4000DFBCD /* URLProtocolMock.swift */,
 			);
 			path = P9_01_XcodeTests;
 			sourceTree = "<group>";
@@ -335,6 +347,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				36A8760724C5A441000DFBCD /* Currency.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -372,8 +385,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				36A8760924C5A4FC000DFBCD /* FakeResponseData.swift in Sources */,
 				36A8760324C47378000DFBCD /* GeolocalisationProviderTestCase.swift in Sources */,
 				36A8760524C4765C000DFBCD /* GeolocalisationProviderDelegateMock.swift in Sources */,
+				36A8760E24C5D6E1000DFBCD /* NetworkManagerTestCase.swift in Sources */,
+				36A8760C24C5D1D4000DFBCD /* URLProtocolMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

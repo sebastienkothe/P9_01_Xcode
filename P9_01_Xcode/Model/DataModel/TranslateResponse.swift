@@ -1,8 +1,8 @@
 struct TranslateResponse: Codable {
-    var data: Data
+    var data: TranslationData
 }
 
-struct Data: Codable {
+struct TranslationData: Codable {
     var translations: [Translations]
 }
 

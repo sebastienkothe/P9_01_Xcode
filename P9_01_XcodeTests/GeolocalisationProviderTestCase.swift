@@ -1,4 +1,5 @@
 import XCTest
+import CoreLocation
 @testable import P9_01_Xcode
 
 class GeolocalisationProviderTestCase: XCTestCase {
@@ -11,13 +12,19 @@ class GeolocalisationProviderTestCase: XCTestCase {
         geolocalisationProvider.delegate = geolocalisationProviderDelegateMock
     }
     
-    func testIfGetUserLocationIsCalledLocationManagerShouldReturnLatitudeAndLongitudeInformation() {
+    func testGivenCoordinatesAreDefined_WhenPassingThemInDidUpdateLocations_ThenLongitudeAndLatitudeMustChangeValue() {
         
         // Given
-        geolocalisationProvider.getUserLocation()
+        let coordinates = [
+            CLLocation(latitude: 42.69925982345143, longitude: 2.9457234900883487)
+        ]
+        
+        // When
+        geolocalisationProvider.locationManager(CLLocationManager(), didUpdateLocations: coordinates)
         
         // Then
-        XCTAssertNotNil(geolocalisationProviderDelegateMock.latitude)
+        XCTAssertEqual(geolocalisationProviderDelegateMock.latitude, "42.69925982345143")
+        XCTAssertEqual(geolocalisationProviderDelegateMock.longitude, "2.9457234900883487")
     }
 }
 

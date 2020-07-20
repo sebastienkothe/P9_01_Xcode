@@ -2,6 +2,7 @@ import Foundation
 
 final class WeatherNetworkManager {
     
+    // MARK: - Properties
     private let networkManager = NetworkManager()
     
     /// Used to get weather information for a city
