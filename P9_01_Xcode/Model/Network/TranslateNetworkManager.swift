@@ -3,7 +3,7 @@ import Foundation
 final class TranslateNetworkManager {
     
     // MARK: - Properties
-    private let networkManager = NetworkManager()
+    private let networkManager = NetworkManager.shared
     
     /// Used to retrieve information about translations
     internal func fetchTranslationInformationFor(expression: String, languageCode: String, completion: @escaping (Result<TranslateResponse, NetworkError>) -> Void ) {

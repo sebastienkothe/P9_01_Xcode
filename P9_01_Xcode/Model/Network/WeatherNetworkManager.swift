@@ -3,7 +3,7 @@ import Foundation
 final class WeatherNetworkManager {
     
     // MARK: - Properties
-    private let networkManager = NetworkManager()
+    private let networkManager = NetworkManager.shared
     
     /// Used to get weather information for a city
     internal func fetchWeatherInformationFor(_ city: String, completion: @escaping (Result<WeatherResponse, NetworkError>) -> Void) {
