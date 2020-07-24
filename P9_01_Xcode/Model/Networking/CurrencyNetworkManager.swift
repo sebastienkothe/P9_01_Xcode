@@ -3,7 +3,7 @@ import Foundation
 final class CurrencyNetworkManager {
     
     // MARK: - Properties
-    private let networkManager = NetworkManager.shared
+    private let networkManager = NetworkManager()
     
     /// Used to retrieve currency information
     internal func fetchInformationFor(completion: @escaping (Result<CurrencyResponse, NetworkError>) -> Void ) {

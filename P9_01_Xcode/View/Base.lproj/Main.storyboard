@@ -32,7 +32,7 @@
         <scene sceneID="lrF-cs-kXe">
             <objects>
                 <navigationController id="Sk5-gJ-hFN" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Weather" image="cloud.sun" catalog="system" id="q4S-4g-1eJ"/>
+                    <tabBarItem key="tabBarItem" title="Weather" image="sun" id="q4S-4g-1eJ"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="EfV-8o-a9y">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -151,7 +151,7 @@
         <scene sceneID="rZt-Qx-jTe">
             <objects>
                 <navigationController id="kS4-CZ-We3" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Currency" image="coloncurrencysign.circle" catalog="system" id="Exo-O8-9e4"/>
+                    <tabBarItem key="tabBarItem" title="Currency" image="dollar-sign" id="Exo-O8-9e4"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="a9Z-4m-uj2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -286,7 +286,7 @@
         <scene sceneID="9kg-e8-Qr8">
             <objects>
                 <navigationController id="6po-5d-aWS" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Translation" image="arrow.right.arrow.left.circle" catalog="system" id="wTE-Jk-Okj"/>
+                    <tabBarItem key="tabBarItem" title="Translation" image="flag" id="wTE-Jk-Okj"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="qjO-bv-dkE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -393,8 +393,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="arrow.right.arrow.left.circle" catalog="system" width="128" height="121"/>
-        <image name="cloud.sun" catalog="system" width="128" height="88"/>
-        <image name="coloncurrencysign.circle" catalog="system" width="128" height="121"/>
+        <image name="dollar-sign" width="30" height="30"/>
+        <image name="flag" width="30" height="30"/>
+        <image name="sun" width="30" height="30"/>
     </resources>
 </document>

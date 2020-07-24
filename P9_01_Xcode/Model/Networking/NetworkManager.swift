@@ -3,20 +3,16 @@ import Foundation
 final class NetworkManager {
     
     // MARK: - Properties
-    static var shared = NetworkManager()
-    private init() {}
+    private var session: URLSessionProtocol
     
-    private var task: URLSessionDataTask?
-    private var session = URLSession(configuration: .default)
-    
-    init(session: URLSession) {
+    init(withSession session: URLSessionProtocol = URLSession.shared) {
         self.session = session
     }
     
     /// Used to initiate a request
     internal func fetch<T: Codable>(url: URL, completion: @escaping (Result<T, NetworkError>) -> Void) {
         
-        task = session.dataTask(with: url) { (data, response, error) in
+        let task = session.dataTask(with: url) { (data, response, error) in
             
             guard error == nil else {
                 completion(.failure(.unknownError))
@@ -45,6 +41,6 @@ final class NetworkManager {
             completion(.success(result))
         }
         
-        task?.resume()
+        task.resume()
     }
 }

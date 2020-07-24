@@ -20,11 +20,10 @@
 		36A875FF24C3906E000DFBCD /* PropertyReflectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A875FE24C3906E000DFBCD /* PropertyReflectable.swift */; };
 		36A8760324C47378000DFBCD /* GeolocalisationProviderTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A8760224C47378000DFBCD /* GeolocalisationProviderTestCase.swift */; };
 		36A8760524C4765C000DFBCD /* GeolocalisationProviderDelegateMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A8760424C4765C000DFBCD /* GeolocalisationProviderDelegateMock.swift */; };
-		36A8760724C5A441000DFBCD /* Currency.json in Resources */ = {isa = PBXBuildFile; fileRef = 36A8760624C5A441000DFBCD /* Currency.json */; };
-		36A8760924C5A4FC000DFBCD /* FakeResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A8760824C5A4FC000DFBCD /* FakeResponseData.swift */; };
+		36A8760724C5A441000DFBCD /* CorrectData.json in Resources */ = {isa = PBXBuildFile; fileRef = 36A8760624C5A441000DFBCD /* CorrectData.json */; };
 		36A8760E24C5D6E1000DFBCD /* NetworkManagerTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A8760D24C5D6E1000DFBCD /* NetworkManagerTestCase.swift */; };
-		36A8761224C613D9000DFBCD /* URLSessionFake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A8761124C613D9000DFBCD /* URLSessionFake.swift */; };
 		36A8761424C717F9000DFBCD /* WeatherNetworkManagerTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A8761324C717F8000DFBCD /* WeatherNetworkManagerTestCase.swift */; };
+		36A8761624C7623C000DFBCD /* NetworkErrorTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A8761524C7623C000DFBCD /* NetworkErrorTestCase.swift */; };
 		36B423E924BB6CB5004CB8E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B423E824BB6CB5004CB8E7 /* AppDelegate.swift */; };
 		36B423EB24BB6CB5004CB8E7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B423EA24BB6CB5004CB8E7 /* SceneDelegate.swift */; };
 		36B423F024BB6CB5004CB8E7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36B423EE24BB6CB5004CB8E7 /* Main.storyboard */; };
@@ -39,6 +38,8 @@
 		36B4243E24BDB1FC004CB8E7 /* CurrencyNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B4243D24BDB1FC004CB8E7 /* CurrencyNetworkManager.swift */; };
 		36B4244024BDB2BD004CB8E7 /* WeatherNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B4243F24BDB2BD004CB8E7 /* WeatherNetworkManager.swift */; };
 		36B4244224BDB3A4004CB8E7 /* TranslateNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B4244124BDB3A4004CB8E7 /* TranslateNetworkManager.swift */; };
+		36F205C424CB485600282C0C /* NetworkClient+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F205C324CB485600282C0C /* NetworkClient+Mock.swift */; };
+		36F205C624CB634E00282C0C /* IncorrectData.json in Resources */ = {isa = PBXBuildFile; fileRef = 36F205C524CB634E00282C0C /* IncorrectData.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,11 +66,10 @@
 		36A875FE24C3906E000DFBCD /* PropertyReflectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyReflectable.swift; sourceTree = "<group>"; };
 		36A8760224C47378000DFBCD /* GeolocalisationProviderTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeolocalisationProviderTestCase.swift; sourceTree = "<group>"; };
 		36A8760424C4765C000DFBCD /* GeolocalisationProviderDelegateMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeolocalisationProviderDelegateMock.swift; sourceTree = "<group>"; };
-		36A8760624C5A441000DFBCD /* Currency.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Currency.json; sourceTree = "<group>"; };
-		36A8760824C5A4FC000DFBCD /* FakeResponseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeResponseData.swift; sourceTree = "<group>"; };
+		36A8760624C5A441000DFBCD /* CorrectData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = CorrectData.json; sourceTree = "<group>"; };
 		36A8760D24C5D6E1000DFBCD /* NetworkManagerTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerTestCase.swift; sourceTree = "<group>"; };
-		36A8761124C613D9000DFBCD /* URLSessionFake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionFake.swift; sourceTree = "<group>"; };
 		36A8761324C717F8000DFBCD /* WeatherNetworkManagerTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherNetworkManagerTestCase.swift; sourceTree = "<group>"; };
+		36A8761524C7623C000DFBCD /* NetworkErrorTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkErrorTestCase.swift; sourceTree = "<group>"; };
 		36B423E524BB6CB5004CB8E7 /* P9_01_Xcode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = P9_01_Xcode.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		36B423E824BB6CB5004CB8E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		36B423EA24BB6CB5004CB8E7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -89,6 +89,8 @@
 		36B4243D24BDB1FC004CB8E7 /* CurrencyNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyNetworkManager.swift; sourceTree = "<group>"; };
 		36B4243F24BDB2BD004CB8E7 /* WeatherNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherNetworkManager.swift; sourceTree = "<group>"; };
 		36B4244124BDB3A4004CB8E7 /* TranslateNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateNetworkManager.swift; sourceTree = "<group>"; };
+		36F205C324CB485600282C0C /* NetworkClient+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NetworkClient+Mock.swift"; sourceTree = "<group>"; };
+		36F205C524CB634E00282C0C /* IncorrectData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = IncorrectData.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3612152124CB676500EA39CA /* TestFiles */ = {
+			isa = PBXGroup;
+			children = (
+				36A8760224C47378000DFBCD /* GeolocalisationProviderTestCase.swift */,
+				36A8760D24C5D6E1000DFBCD /* NetworkManagerTestCase.swift */,
+				36A8761524C7623C000DFBCD /* NetworkErrorTestCase.swift */,
+				36A8761324C717F8000DFBCD /* WeatherNetworkManagerTestCase.swift */,
+			);
+			path = TestFiles;
+			sourceTree = "<group>";
+		};
+		3612152224CB678C00EA39CA /* JSONData */ = {
+			isa = PBXGroup;
+			children = (
+				36A8760624C5A441000DFBCD /* CorrectData.json */,
+				36F205C524CB634E00282C0C /* IncorrectData.json */,
+			);
+			path = JSONData;
+			sourceTree = "<group>";
+		};
 		368CE8A924C0A7C7004009A5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -135,15 +157,16 @@
 			path = Enum;
 			sourceTree = "<group>";
 		};
-		36A875F524C0FF3A000DFBCD /* Network */ = {
+		36A875F524C0FF3A000DFBCD /* Networking */ = {
 			isa = PBXGroup;
 			children = (
 				36B4243324BC83E0004CB8E7 /* NetworkManager.swift */,
+				36F205C324CB485600282C0C /* NetworkClient+Mock.swift */,
 				36B4243F24BDB2BD004CB8E7 /* WeatherNetworkManager.swift */,
 				36B4243D24BDB1FC004CB8E7 /* CurrencyNetworkManager.swift */,
 				36B4244124BDB3A4004CB8E7 /* TranslateNetworkManager.swift */,
 			);
-			path = Network;
+			path = Networking;
 			sourceTree = "<group>";
 		};
 		36A875F624C0FF85000DFBCD /* Delegator */ = {
@@ -202,14 +225,10 @@
 		36B423FE24BB6CBA004CB8E7 /* P9_01_XcodeTests */ = {
 			isa = PBXGroup;
 			children = (
+				3612152224CB678C00EA39CA /* JSONData */,
+				3612152124CB676500EA39CA /* TestFiles */,
 				36B4240124BB6CBA004CB8E7 /* Info.plist */,
-				36A8760224C47378000DFBCD /* GeolocalisationProviderTestCase.swift */,
 				36A8760424C4765C000DFBCD /* GeolocalisationProviderDelegateMock.swift */,
-				36A8760D24C5D6E1000DFBCD /* NetworkManagerTestCase.swift */,
-				36A8761324C717F8000DFBCD /* WeatherNetworkManagerTestCase.swift */,
-				36A8760624C5A441000DFBCD /* Currency.json */,
-				36A8760824C5A4FC000DFBCD /* FakeResponseData.swift */,
-				36A8761124C613D9000DFBCD /* URLSessionFake.swift */,
 			);
 			path = P9_01_XcodeTests;
 			sourceTree = "<group>";
@@ -238,7 +257,7 @@
 			children = (
 				36A875FB24C2514F000DFBCD /* Data */,
 				36A875F624C0FF85000DFBCD /* Delegator */,
-				36A875F524C0FF3A000DFBCD /* Network */,
+				36A875F524C0FF3A000DFBCD /* Networking */,
 				36A875F424C0EF84000DFBCD /* Enum */,
 				36A875F124C0EF29000DFBCD /* Protocol */,
 				36B4244324BDB553004CB8E7 /* DataModel */,
@@ -350,7 +369,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				36A8760724C5A441000DFBCD /* Currency.json in Resources */,
+				36A8760724C5A441000DFBCD /* CorrectData.json in Resources */,
+				36F205C624CB634E00282C0C /* IncorrectData.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -373,6 +393,7 @@
 				36B4243224BC7C40004CB8E7 /* TranslateViewController.swift in Sources */,
 				36B4243024BC7C2E004CB8E7 /* WeatherViewController.swift in Sources */,
 				36B4242E24BC7C14004CB8E7 /* CurrencyViewController.swift in Sources */,
+				36F205C424CB485600282C0C /* NetworkClient+Mock.swift in Sources */,
 				36A875FD24C2EF6A000DFBCD /* currenciesProvider.swift in Sources */,
 				36A875F324C0EF4A000DFBCD /* WeatherDelegate.swift in Sources */,
 				36A875F824C1DD0B000DFBCD /* URLComponents+BuildUrl.swift in Sources */,
@@ -388,11 +409,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				36A8760924C5A4FC000DFBCD /* FakeResponseData.swift in Sources */,
 				36A8761424C717F9000DFBCD /* WeatherNetworkManagerTestCase.swift in Sources */,
 				36A8760324C47378000DFBCD /* GeolocalisationProviderTestCase.swift in Sources */,
+				36A8761624C7623C000DFBCD /* NetworkErrorTestCase.swift in Sources */,
 				36A8760524C4765C000DFBCD /* GeolocalisationProviderDelegateMock.swift in Sources */,
-				36A8761224C613D9000DFBCD /* URLSessionFake.swift in Sources */,
 				36A8760E24C5D6E1000DFBCD /* NetworkManagerTestCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
