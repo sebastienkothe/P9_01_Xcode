@@ -3,6 +3,7 @@
 "error_no_data_title" = "Aucune donnée n'a pu en être récupéré";
 "error_cannot_create_url_title" = "Impossible de créer l'URL";
 "error_empty_textfield_title" = "Le champ de texte est vide !";
-"error_invalid_status_code_title" = "Code d'état invalide";
+"error_incorrect_http_response_code_title" = "Code de réponse http incorrect";
+"error_empty_coordinates_title" = "Impossible de récupérer vos coordonnées GPS";
 "error_message" = "ERREUR";
 "validation_message" = "Entendu!";

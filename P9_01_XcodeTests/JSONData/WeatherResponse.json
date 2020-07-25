@@ -1,0 +1,43 @@
+{
+    "coord": {
+        "lon": 2.75,
+        "lat": 42.75
+    },
+    "weather": [
+        {
+            "id": 800,
+            "main": "Clear",
+            "description": "clear sky",
+            "icon": "01d"
+        }
+    ],
+    "base": "stations",
+    "main": {
+        "temp": 305.15,
+        "feels_like": 304.49,
+        "temp_min": 305.15,
+        "temp_max": 305.15,
+        "pressure": 1014,
+        "humidity": 33
+    },
+    "visibility": 10000,
+    "wind": {
+        "speed": 2.6,
+        "deg": 160
+    },
+    "clouds": {
+        "all": 0
+    },
+    "dt": 1595681023,
+    "sys": {
+        "type": 1,
+        "id": 6517,
+        "country": "FR",
+        "sunrise": 1595651616,
+        "sunset": 1595704629
+    },
+    "timezone": 7200,
+    "id": 2987913,
+    "name": "Arrondissement de Perpignan",
+    "cod": 200
+}

@@ -1,14 +1,6 @@
-//
-//  NetworkClient+Mock.swift
-//  URLMockDemo
-//
-//  Created by Sébastien Kothé on 24/07/2020.
-//  Copyright © 2020 Sébastien Kothé. All rights reserved.
-//
-
 import Foundation
 
-// MARK: - DataTask
+// MARK: - URLSessionDataTask
 protocol URLSessionDataTaskProtocol {
     func resume()
 }

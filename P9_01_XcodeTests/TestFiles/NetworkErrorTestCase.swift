@@ -13,7 +13,8 @@ class NetworkErrorTestCase: XCTestCase {
             ("No data recovered", "Aucune donnée n'a pu en être récupéré"),
             ("Cannot create URL", "Impossible de créer l'URL"),
             ("The text field is empty!", "Le champ de texte est vide !"),
-            ("Invalid status code", "Code d'état invalide"),
+            ("Incorrect http response code", "Code de réponse http incorrect"),
+            ("Unable to retrieve your GPS coordinates", "Impossible de récupérer vos coordonnées GPS"),
             ("ERROR", "ERREUR"),
             ("Alright!", "Entendu!")
         ]

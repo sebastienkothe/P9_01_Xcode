@@ -8,11 +8,11 @@ final class CurrencyNetworkManager {
     /// Used to retrieve currency information
     internal func fetchInformationFor(completion: @escaping (Result<CurrencyResponse, NetworkError>) -> Void ) {
         
-        guard let url = URLComponents.buildFixerURL(), let currencyUrl = URL(string: url.absoluteString) else {
+        guard let url = URLComponents.buildFixerURL() else {
             completion(.failure(.failedToCreateURL))
             return
         }
         
-        networkManager.fetch(url: currencyUrl, completion: completion)
+        networkManager.fetch(url: url, completion: completion)
     }
 }

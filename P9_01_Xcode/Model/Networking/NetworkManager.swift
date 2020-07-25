@@ -5,6 +5,8 @@ final class NetworkManager {
     // MARK: - Properties
     private var session: URLSessionProtocol
     
+     // The default session value is URLSession.shared.
+     // Any class that adopts the URLSessionProtocol can replace URLSession.shared.
     init(withSession session: URLSessionProtocol = URLSession.shared) {
         self.session = session
     }
@@ -19,18 +21,17 @@ final class NetworkManager {
                 return
             }
             
+            guard let data = data else {
+                completion(.failure(.noData))
+                return
+            }
+            
             guard
                 let httpResponse = response as? HTTPURLResponse,
                 200...299 ~= httpResponse.statusCode
                 else {
-                    completion(.failure(.invalidStatusCode))
+                    completion(.failure(.incorrectHttpResponseCode))
                     return
-            }
-            
-            
-            guard let data = data else {
-                completion(.failure(.noData))
-                return
             }
             
             guard let result = try? JSONDecoder().decode(T.self, from: data) else {

@@ -2,28 +2,41 @@ import Foundation
 
 final class WeatherNetworkManager {
     
+    init(networkManager: NetworkManager = NetworkManager()) {
+        self.networkManager = networkManager
+    }
     // MARK: - Properties
-    private let networkManager = NetworkManager()
+    private var networkManager: NetworkManager
     
     /// Used to get weather information for a city
     internal func fetchWeatherInformationFor(_ city: String, completion: @escaping (Result<WeatherResponse, NetworkError>) -> Void) {
         
-        guard let url = URLComponents.buildOpenWeatherURL(with: city), let weatherUrl = URL(string: url.absoluteString) else {
-            completion(.failure(.failedToCreateURL))
+        guard city.trimmingCharacters(in: .whitespaces) != "" else {
+            completion(.failure(.emptyTextField))
             return
         }
         
-        networkManager.fetch(url: weatherUrl, completion: completion)
+        guard let url = URLComponents.buildOpenWeatherURL(with: city) else {
+            completion(.failure(NetworkError.failedToCreateURL))
+            return
+        }
+        
+        networkManager.fetch(url: url, completion: completion)
     }
     
     /// Used to get weather information based on the user's current location
     internal func fetchWeatherInformationForUserLocation(longitude: String, latitude: String, completion: @escaping (Result<WeatherResponse, NetworkError>) -> Void) {
         
-        guard let url = URLComponents.buildOpenWeatherURL(longitude: longitude, latitude: latitude), let weatherUrl = URL(string: url.absoluteString) else {
+        guard longitude.trimmingCharacters(in: .whitespaces) != "" || latitude.trimmingCharacters(in: .whitespaces) != "" else {
+            completion(.failure(.emptyCoordinates))
+            return
+        }
+        
+        guard let url = URLComponents.buildOpenWeatherURL(longitude: longitude, latitude: latitude) else {
             completion(.failure(.failedToCreateURL))
             return
         }
         
-        networkManager.fetch(url: weatherUrl, completion: completion)
+        networkManager.fetch(url: url, completion: completion)
     }
 }

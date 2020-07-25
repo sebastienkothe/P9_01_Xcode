@@ -102,10 +102,26 @@
                                     <action selector="didTapOnSearchButton" destination="EXp-gn-jEo" eventType="touchUpInside" id="Grd-aG-tkg"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RIW-Bk-qx5">
+                                <rect key="frame" x="25" y="341" width="325" height="60"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="kHN-4x-SZp"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="23"/>
+                                <state key="normal" title="Update my location">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapOnUpdateMyLocationButton" destination="EXp-gn-jEo" eventType="touchUpInside" id="Ah9-w0-Liq"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
                         <constraints>
+                            <constraint firstItem="RIW-Bk-qx5" firstAttribute="top" secondItem="j7m-Ol-OoZ" secondAttribute="bottom" constant="10" id="6sU-1c-hQM"/>
+                            <constraint firstItem="RIW-Bk-qx5" firstAttribute="leading" secondItem="duR-cP-08C" secondAttribute="leading" constant="25" id="CG3-ST-MIz"/>
                             <constraint firstItem="duR-cP-08C" firstAttribute="trailing" secondItem="dyz-19-Giw" secondAttribute="trailing" constant="20" id="CvY-mg-dkj"/>
                             <constraint firstItem="dyz-19-Giw" firstAttribute="leading" secondItem="duR-cP-08C" secondAttribute="leading" constant="20" id="DpQ-6t-EO5"/>
                             <constraint firstItem="duR-cP-08C" firstAttribute="trailing" secondItem="j7m-Ol-OoZ" secondAttribute="trailing" constant="25" id="K9N-9a-YcD"/>
@@ -123,6 +139,7 @@
                             <constraint firstItem="Oih-bU-Wax" firstAttribute="leading" secondItem="duR-cP-08C" secondAttribute="leading" constant="20" id="khR-ZQ-BLh"/>
                             <constraint firstItem="bjc-vx-gKq" firstAttribute="top" secondItem="PON-SK-S5N" secondAttribute="bottom" constant="20" id="sAv-Mc-kfv"/>
                             <constraint firstItem="j7m-Ol-OoZ" firstAttribute="top" secondItem="bjc-vx-gKq" secondAttribute="bottom" constant="5" id="sNw-wh-MM0"/>
+                            <constraint firstItem="duR-cP-08C" firstAttribute="trailing" secondItem="RIW-Bk-qx5" secondAttribute="trailing" constant="25" id="yJK-YN-vQN"/>
                             <constraint firstItem="j7m-Ol-OoZ" firstAttribute="leading" secondItem="duR-cP-08C" secondAttribute="leading" constant="25" id="zp2-0E-Lvb"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="duR-cP-08C"/>

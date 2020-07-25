@@ -92,21 +92,14 @@ extension WeatherViewController: WeatherDelegate {
         })
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        // Retrieving the user's geographic position
-        geolocalisationProvider.getUserLocation()
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        
-        // Geolocation stop
-        geolocalisationProvider.stopGeolocation()
+    @IBAction func didTapOnUpdateMyLocationButton() {
+        print("Salut")
+        geolocalisationProvider.startGeolocation()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         geolocalisationProvider.delegate = self
+        geolocalisationProvider.getUserLocation()
     }
 }
