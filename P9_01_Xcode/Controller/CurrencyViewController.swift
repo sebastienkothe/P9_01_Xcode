@@ -20,7 +20,7 @@ extension CurrencyViewController {
         guard let amount = currencyTextField.text else { return }
         guard let convertedAmount = Double(amount) else { return }
         
-        currencyNetworkManager.fetchInformationFor(completion: {(result) in
+        currencyNetworkManager.fetchCurrencyInformation(completion: {(result) in
             DispatchQueue.main.async {
                 switch result {
                 case .failure(let error):

@@ -31,33 +31,48 @@ class WeatherNetworkManagerTestCase: XCTestCase {
         super.tearDown()
     }
     
-    func testWeatherNetworkManager_EmptyTextField(){
-        mockSession = createMockSession(fromJsonFile: "WeatherResponse", andStatusCode: 200, andError: nil)
+    func testWeatherNetworkManager_fetchWeatherInformationFor_EmptyTextField() {
+        mockSession = createMockSession(fromJsonFile: "WeatherResponse", andStatusCode: 400, andError: nil)
         subjectUnderTest = WeatherNetworkManager(networkManager: NetworkManager(withSession: mockSession))
         
         subjectUnderTest.fetchWeatherInformationFor("", completion: {(result) in
             do {
                 let weatherResponse = try result.get()
-                XCTAssertNotNil(weatherResponse)
+                XCTAssertNil(weatherResponse)
             } catch {
                 XCTAssertEqual(error as? NetworkError, NetworkError.emptyTextField)
             }
         })
     }
     
-    func testWeatherNetworkManager_EmptyCoordinates(){
-        mockSession = createMockSession(fromJsonFile: "WeatherResponse", andStatusCode: 400, andError: nil)
+    func testWeatherNetworkManager_fetchWeatherInformationFor_SuccessResult() {
+        mockSession = createMockSession(fromJsonFile: "WeatherResponse", andStatusCode: 200, andError: nil)
         subjectUnderTest = WeatherNetworkManager(networkManager: NetworkManager(withSession: mockSession))
         
-        subjectUnderTest.fetchWeatherInformationForUserLocation(longitude: "", latitude: "", completion: { (result) in
-            
+        subjectUnderTest.fetchWeatherInformationFor("Perpignan", completion: {(result) in
+            do {
+                let weatherResponse = try result.get()
+                XCTAssertNotNil(weatherResponse)
+                XCTAssertTrue(weatherResponse.name == "Arrondissement de Perpignan")
+            } catch {
+                XCTAssertNil(error)
+            }
+        })
+    }
+    
+    func testWeatherNetworkManager_fetchWeatherInformationForUserLocation_SuccessResult() {
+        mockSession = createMockSession(fromJsonFile: "WeatherResponse", andStatusCode: 200, andError: nil)
+        subjectUnderTest = WeatherNetworkManager(networkManager: NetworkManager(withSession: mockSession))
+        
+        subjectUnderTest.fetchWeatherInformationForUserLocation(longitude: "2.9457234900883487", latitude: "42.69925982345143", completion: { (result) in
             
             do {
                 let weatherResponse = try result.get()
                 XCTAssertNotNil(weatherResponse)
             } catch {
-                XCTAssertEqual(error as? NetworkError, NetworkError.emptyCoordinates)
+                XCTAssertNil(error)
             }
         })
     }
+    
 }

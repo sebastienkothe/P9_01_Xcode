@@ -3,9 +3,8 @@ import Foundation
 final class NetworkManager {
     
     // MARK: - Properties
-    private var session: URLSessionProtocol
+    private let session: URLSessionProtocol
     
-     // The default session value is URLSession.shared.
      // Any class that adopts the URLSessionProtocol can replace URLSession.shared.
     init(withSession session: URLSessionProtocol = URLSession.shared) {
         self.session = session

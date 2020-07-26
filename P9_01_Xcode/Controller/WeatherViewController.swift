@@ -60,7 +60,6 @@ extension WeatherViewController: UITextFieldDelegate {
     
     internal func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == weatherSearchTextField {
-            //any task to perform
             
             // Used to dismiss your keyboard
             textField.resignFirstResponder()
@@ -93,13 +92,11 @@ extension WeatherViewController: WeatherDelegate {
     }
     
     @IBAction func didTapOnUpdateMyLocationButton() {
-        print("Salut")
-        geolocalisationProvider.startGeolocation()
+        geolocalisationProvider.getUserLocation()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         geolocalisationProvider.delegate = self
-        geolocalisationProvider.getUserLocation()
     }
 }

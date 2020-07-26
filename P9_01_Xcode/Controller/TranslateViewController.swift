@@ -23,12 +23,12 @@ extension TranslateViewController {
             DispatchQueue.main.async {
                 switch result {
                 case .failure(let error):
-                    print(error.localizedDescription)
+                    self.handleError(error: error)
                 case .success(let response):
                     guard let translatedText = response.data.translations.first?.translatedText else { return }
                     guard let detectedSourceLanguage = response.data.translations.first?.detectedSourceLanguage else { return }
                     self.translationResultLabel.text =
-                    
+                        
                     """
                     Detected source language : \(detectedSourceLanguage)\n
                     Translated text : \(translatedText)
@@ -36,6 +36,14 @@ extension TranslateViewController {
                 }
             }
         })
+    }
+    
+    /// Used to display alert messages
+    private func handleError(error: NetworkError) {
+        let alert = UIAlertController(title: "error_message".localized, message: error.title, preferredStyle: .alert)
+        let action = UIAlertAction(title: "validation_message".localized, style: .default, handler: nil)
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
     }
 }
 

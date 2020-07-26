@@ -31,7 +31,7 @@ class NetworkManagerTestCase: XCTestCase {
         super.tearDown()
     }
     
-    func testNetworkManager_successResult() {
+    func testNetworkManager_SuccessResult() {
         mockSession = createMockSession(fromJsonFile: "CorrectData",
                                         andStatusCode: 200, andError: nil)
         subjectUnderTest = NetworkManager(withSession: mockSession)

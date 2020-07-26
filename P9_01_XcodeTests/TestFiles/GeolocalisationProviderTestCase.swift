@@ -26,5 +26,14 @@ class GeolocalisationProviderTestCase: XCTestCase {
         XCTAssertEqual(geolocalisationProviderDelegateMock.latitude, "42.69925982345143")
         XCTAssertEqual(geolocalisationProviderDelegateMock.longitude, "2.9457234900883487")
     }
+    
+    func testGivenGetUserLocationWasStarted_WhenTyingToCheckIfDelegatePropertyIsEmpty_ThenTheTestShouldFail() {
+        
+        // Given
+        geolocalisationProvider.getUserLocation()
+        
+        // Then
+        XCTAssertNotNil(geolocalisationProvider.delegate)
+    }
+    
 }
-
