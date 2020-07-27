@@ -4,6 +4,6 @@
 "error_cannot_create_url_title" = "Impossible de créer l'URL";
 "error_empty_textfield_title" = "Le champ de texte est vide !";
 "error_incorrect_http_response_code_title" = "Code de réponse http incorrect";
-"error_empty_coordinates_title" = "Impossible de récupérer vos coordonnées GPS";
+"error_location_service_disabled_title" = "Le service de localisation est désactivé";
 "error_message" = "ERREUR";
 "validation_message" = "Entendu!";

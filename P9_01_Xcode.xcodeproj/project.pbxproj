@@ -13,14 +13,14 @@
 		368CE8A624C058FD004009A5 /* TranslateResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368CE8A524C058FD004009A5 /* TranslateResponse.swift */; };
 		368CE8A824C088D1004009A5 /* String+Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368CE8A724C088D1004009A5 /* String+Localized.swift */; };
 		368CE8AB24C0A7C7004009A5 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 368CE8AA24C0A7C7004009A5 /* CoreLocation.framework */; };
-		36A875F024C0EB03000DFBCD /* GeolocalisationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A875EF24C0EB03000DFBCD /* GeolocalisationProvider.swift */; };
+		36A875F024C0EB03000DFBCD /* GeolocationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A875EF24C0EB03000DFBCD /* GeolocationProvider.swift */; };
 		36A875F324C0EF4A000DFBCD /* WeatherDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A875F224C0EF4A000DFBCD /* WeatherDelegate.swift */; };
 		36A875F824C1DD0B000DFBCD /* URLComponents+BuildUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A875F724C1DD0B000DFBCD /* URLComponents+BuildUrl.swift */; };
 		36A875FA24C23AE2000DFBCD /* LanguagesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A875F924C23AE2000DFBCD /* LanguagesProvider.swift */; };
 		36A875FD24C2EF6A000DFBCD /* currenciesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A875FC24C2EF6A000DFBCD /* currenciesProvider.swift */; };
 		36A875FF24C3906E000DFBCD /* PropertyReflectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A875FE24C3906E000DFBCD /* PropertyReflectable.swift */; };
-		36A8760324C47378000DFBCD /* GeolocalisationProviderTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A8760224C47378000DFBCD /* GeolocalisationProviderTestCase.swift */; };
-		36A8760524C4765C000DFBCD /* GeolocalisationProviderDelegateMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A8760424C4765C000DFBCD /* GeolocalisationProviderDelegateMock.swift */; };
+		36A8760324C47378000DFBCD /* GeolocationProviderTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A8760224C47378000DFBCD /* GeolocationProviderTestCase.swift */; };
+		36A8760524C4765C000DFBCD /* GeolocationProviderDelegateMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A8760424C4765C000DFBCD /* GeolocationProviderDelegateMock.swift */; };
 		36A8760724C5A441000DFBCD /* CorrectData.json in Resources */ = {isa = PBXBuildFile; fileRef = 36A8760624C5A441000DFBCD /* CorrectData.json */; };
 		36A8760E24C5D6E1000DFBCD /* NetworkManagerTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A8760D24C5D6E1000DFBCD /* NetworkManagerTestCase.swift */; };
 		36A8761424C717F9000DFBCD /* WeatherNetworkManagerTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A8761324C717F8000DFBCD /* WeatherNetworkManagerTestCase.swift */; };
@@ -64,14 +64,14 @@
 		368CE8A524C058FD004009A5 /* TranslateResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateResponse.swift; sourceTree = "<group>"; };
 		368CE8A724C088D1004009A5 /* String+Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localized.swift"; sourceTree = "<group>"; };
 		368CE8AA24C0A7C7004009A5 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		36A875EF24C0EB03000DFBCD /* GeolocalisationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeolocalisationProvider.swift; sourceTree = "<group>"; };
+		36A875EF24C0EB03000DFBCD /* GeolocationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeolocationProvider.swift; sourceTree = "<group>"; };
 		36A875F224C0EF4A000DFBCD /* WeatherDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDelegate.swift; sourceTree = "<group>"; };
 		36A875F724C1DD0B000DFBCD /* URLComponents+BuildUrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLComponents+BuildUrl.swift"; sourceTree = "<group>"; };
 		36A875F924C23AE2000DFBCD /* LanguagesProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguagesProvider.swift; sourceTree = "<group>"; };
 		36A875FC24C2EF6A000DFBCD /* currenciesProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = currenciesProvider.swift; sourceTree = "<group>"; };
 		36A875FE24C3906E000DFBCD /* PropertyReflectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyReflectable.swift; sourceTree = "<group>"; };
-		36A8760224C47378000DFBCD /* GeolocalisationProviderTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeolocalisationProviderTestCase.swift; sourceTree = "<group>"; };
-		36A8760424C4765C000DFBCD /* GeolocalisationProviderDelegateMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeolocalisationProviderDelegateMock.swift; sourceTree = "<group>"; };
+		36A8760224C47378000DFBCD /* GeolocationProviderTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeolocationProviderTestCase.swift; sourceTree = "<group>"; };
+		36A8760424C4765C000DFBCD /* GeolocationProviderDelegateMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeolocationProviderDelegateMock.swift; sourceTree = "<group>"; };
 		36A8760624C5A441000DFBCD /* CorrectData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = CorrectData.json; sourceTree = "<group>"; };
 		36A8760D24C5D6E1000DFBCD /* NetworkManagerTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerTestCase.swift; sourceTree = "<group>"; };
 		36A8761324C717F8000DFBCD /* WeatherNetworkManagerTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherNetworkManagerTestCase.swift; sourceTree = "<group>"; };
@@ -125,7 +125,7 @@
 		3612152124CB676500EA39CA /* TestFiles */ = {
 			isa = PBXGroup;
 			children = (
-				36A8760224C47378000DFBCD /* GeolocalisationProviderTestCase.swift */,
+				36A8760224C47378000DFBCD /* GeolocationProviderTestCase.swift */,
 				36A8760D24C5D6E1000DFBCD /* NetworkManagerTestCase.swift */,
 				36A8761524C7623C000DFBCD /* NetworkErrorTestCase.swift */,
 				36A8761324C717F8000DFBCD /* WeatherNetworkManagerTestCase.swift */,
@@ -187,7 +187,7 @@
 		36A875F624C0FF85000DFBCD /* Delegator */ = {
 			isa = PBXGroup;
 			children = (
-				36A875EF24C0EB03000DFBCD /* GeolocalisationProvider.swift */,
+				36A875EF24C0EB03000DFBCD /* GeolocationProvider.swift */,
 			);
 			path = Delegator;
 			sourceTree = "<group>";
@@ -243,7 +243,7 @@
 				3612152224CB678C00EA39CA /* JSONData */,
 				3612152124CB676500EA39CA /* TestFiles */,
 				36B4240124BB6CBA004CB8E7 /* Info.plist */,
-				36A8760424C4765C000DFBCD /* GeolocalisationProviderDelegateMock.swift */,
+				36A8760424C4765C000DFBCD /* GeolocationProviderDelegateMock.swift */,
 			);
 			path = P9_01_XcodeTests;
 			sourceTree = "<group>";
@@ -416,7 +416,7 @@
 				36A875F324C0EF4A000DFBCD /* WeatherDelegate.swift in Sources */,
 				36A875F824C1DD0B000DFBCD /* URLComponents+BuildUrl.swift in Sources */,
 				36B4244224BDB3A4004CB8E7 /* TranslateNetworkManager.swift in Sources */,
-				36A875F024C0EB03000DFBCD /* GeolocalisationProvider.swift in Sources */,
+				36A875F024C0EB03000DFBCD /* GeolocationProvider.swift in Sources */,
 				36B423EB24BB6CB5004CB8E7 /* SceneDelegate.swift in Sources */,
 				36A875FA24C23AE2000DFBCD /* LanguagesProvider.swift in Sources */,
 				36B4243E24BDB1FC004CB8E7 /* CurrencyNetworkManager.swift in Sources */,
@@ -428,10 +428,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				36A8761424C717F9000DFBCD /* WeatherNetworkManagerTestCase.swift in Sources */,
-				36A8760324C47378000DFBCD /* GeolocalisationProviderTestCase.swift in Sources */,
+				36A8760324C47378000DFBCD /* GeolocationProviderTestCase.swift in Sources */,
 				36A8761624C7623C000DFBCD /* NetworkErrorTestCase.swift in Sources */,
 				36EA8D7624CDB5840090AA1A /* CurrencyNetworkManagerTestCase.swift in Sources */,
-				36A8760524C4765C000DFBCD /* GeolocalisationProviderDelegateMock.swift in Sources */,
+				36A8760524C4765C000DFBCD /* GeolocationProviderDelegateMock.swift in Sources */,
 				36A8760E24C5D6E1000DFBCD /* NetworkManagerTestCase.swift in Sources */,
 				36EA8D7824CDB5A80090AA1A /* TranslateNetworkManagerTestCase.swift in Sources */,
 			);

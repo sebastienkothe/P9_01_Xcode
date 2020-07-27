@@ -5,7 +5,7 @@ enum NetworkError: Error, CaseIterable {
     case failedToCreateURL
     case emptyTextField
     case incorrectHttpResponseCode
-    case emptyCoordinates
+    case locationServiceDisabled
     
     var title: String {
         switch self {
@@ -15,7 +15,7 @@ enum NetworkError: Error, CaseIterable {
         case .failedToCreateURL: return "error_cannot_create_url_title".localized
         case .emptyTextField: return "error_empty_textfield_title".localized
         case .incorrectHttpResponseCode: return "error_incorrect_http_response_code_title".localized
-        case .emptyCoordinates: return "error_empty_coordinates_title".localized
+        case .locationServiceDisabled: return "error_location_service_disabled_title".localized
         }
     }
 }

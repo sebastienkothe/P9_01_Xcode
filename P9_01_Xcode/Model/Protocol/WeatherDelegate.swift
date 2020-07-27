@@ -1,3 +1,3 @@
 protocol WeatherDelegate: class {
-    func didChangeLocalization(longitude: String, latitude: String)
+    func didChangeLocation(longitude: String, latitude: String)
 }

@@ -4,7 +4,7 @@
 "error_cannot_create_url_title" = "Cannot create URL";
 "error_empty_textfield_title" = "The text field is empty!";
 "error_incorrect_http_response_code_title" = "Incorrect http response code";
-"error_empty_coordinates_title" = "Unable to retrieve your GPS coordinates";
+"error_location_service_disabled_title" = "The location service is disabled";
 "error_message" = "ERROR";
 "validation_message" = "Alright!";
 

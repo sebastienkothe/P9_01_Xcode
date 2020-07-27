@@ -1,10 +1,11 @@
 import UIKit
+import CoreLocation
 
 final class WeatherViewController: UIViewController {
     
     // MARK: - Properties
     private let weatherNetworkManager = WeatherNetworkManager()
-    private let geolocalisationProvider = GeolocalisationProvider()
+    private let geolocationProvider = GeolocationProvider()
     
     // MARK: - Outlets
     @IBOutlet weak private var weatherSearchTextField: UITextField!
@@ -70,7 +71,7 @@ extension WeatherViewController: UITextFieldDelegate {
 
 // MARK: - Localization
 extension WeatherViewController: WeatherDelegate {
-    internal func didChangeLocalization(longitude: String, latitude: String) {
+    internal func didChangeLocation(longitude: String, latitude: String) {
         weatherNetworkManager.fetchWeatherInformationForUserLocation(longitude: longitude, latitude: latitude, completion: {(result) in
             DispatchQueue.main.async {
                 switch result {
@@ -92,11 +93,18 @@ extension WeatherViewController: WeatherDelegate {
     }
     
     @IBAction func didTapOnUpdateMyLocationButton() {
-        geolocalisationProvider.getUserLocation()
+        
+        // Used to manage devices that have location service disabled or non-existent
+        guard CLLocationManager.locationServicesEnabled() else {
+            handleError(error: NetworkError.locationServiceDisabled)
+            return
+        }
+        
+        geolocationProvider.getUserLocation()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        geolocalisationProvider.delegate = self
+        geolocationProvider.delegate = self
     }
 }

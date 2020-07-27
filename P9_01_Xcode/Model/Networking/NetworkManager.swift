@@ -5,7 +5,7 @@ final class NetworkManager {
     // MARK: - Properties
     private let session: URLSessionProtocol
     
-     // Any class that adopts the URLSessionProtocol can replace URLSession.shared.
+     // Any class that adopts the URLSessionProtocol can replace URLSession.shared
     init(withSession session: URLSessionProtocol = URLSession.shared) {
         self.session = session
     }

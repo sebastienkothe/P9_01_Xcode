@@ -14,7 +14,7 @@ class NetworkErrorTestCase: XCTestCase {
             ("Cannot create URL", "Impossible de créer l'URL"),
             ("The text field is empty!", "Le champ de texte est vide !"),
             ("Incorrect http response code", "Code de réponse http incorrect"),
-            ("Unable to retrieve your GPS coordinates", "Impossible de récupérer vos coordonnées GPS"),
+            ("The location service is disabled", "Le service de localisation est désactivé"),
             ("ERROR", "ERREUR"),
             ("Alright!", "Entendu!")
         ]

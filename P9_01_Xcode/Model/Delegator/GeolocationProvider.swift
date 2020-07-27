@@ -1,7 +1,7 @@
 import CoreLocation
 
 // Delegator
-final class GeolocalisationProvider: NSObject, CLLocationManagerDelegate {
+final class GeolocationProvider: NSObject, CLLocationManagerDelegate {
     
     weak internal var delegate: WeatherDelegate?
     private var locationManager: CLLocationManager?
@@ -9,10 +9,13 @@ final class GeolocalisationProvider: NSObject, CLLocationManagerDelegate {
     /// Used to get the user's current position
     internal func getUserLocation() {
         locationManager = CLLocationManager()
+        
+        // Instance configuration
         locationManager?.delegate = self
         locationManager?.requestAlwaysAuthorization()
         locationManager?.allowsBackgroundLocationUpdates = false
         
+        // Start of location update
         locationManager?.startUpdatingLocation()
     }
     
@@ -28,7 +31,8 @@ final class GeolocalisationProvider: NSObject, CLLocationManagerDelegate {
             let latitudeAsString = String(location.coordinate.latitude)
             let longitudeAsString = String(location.coordinate.longitude)
             
-            delegate?.didChangeLocalization(longitude: longitudeAsString, latitude: latitudeAsString)
+            delegate?.didChangeLocation(longitude: longitudeAsString, latitude: latitudeAsString)
         }
     }
 }
+
