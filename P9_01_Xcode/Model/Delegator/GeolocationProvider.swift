@@ -1,3 +1,7 @@
+// --------------
+// MARK: - BONUS
+// --------------
+
 import CoreLocation
 
 // Delegator

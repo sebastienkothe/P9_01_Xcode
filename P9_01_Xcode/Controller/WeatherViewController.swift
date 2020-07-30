@@ -96,7 +96,7 @@ extension WeatherViewController: WeatherDelegate {
         
         // Used to manage devices that have location service disabled or non-existent
         guard CLLocationManager.locationServicesEnabled() else {
-            handleError(error: NetworkError.locationServiceDisabled)
+            handleError(error: .locationServiceDisabled)
             return
         }
         

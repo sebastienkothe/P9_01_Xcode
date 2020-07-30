@@ -43,7 +43,7 @@
 		36EA8D7824CDB5A80090AA1A /* TranslateNetworkManagerTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EA8D7724CDB5A80090AA1A /* TranslateNetworkManagerTestCase.swift */; };
 		36EA8D7C24CDB6FF0090AA1A /* CurrencyResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 36EA8D7B24CDB6FF0090AA1A /* CurrencyResponse.json */; };
 		36EA8D7E24CDB8850090AA1A /* TranslateResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 36EA8D7D24CDB8850090AA1A /* TranslateResponse.json */; };
-		36F205C424CB485600282C0C /* NetworkClient+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F205C324CB485600282C0C /* NetworkClient+Mock.swift */; };
+		36F205C424CB485600282C0C /* NetworkManager+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F205C324CB485600282C0C /* NetworkManager+Mock.swift */; };
 		36F205C624CB634E00282C0C /* IncorrectData.json in Resources */ = {isa = PBXBuildFile; fileRef = 36F205C524CB634E00282C0C /* IncorrectData.json */; };
 /* End PBXBuildFile section */
 
@@ -59,6 +59,8 @@
 
 /* Begin PBXFileReference section */
 		3612152524CC60E600EA39CA /* WeatherResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = WeatherResponse.json; sourceTree = "<group>"; };
+		3663735E24D0518100B48C62 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		3663736024D0518A00B48C62 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
 		368CE8A124C0578B004009A5 /* WeatherResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherResponse.swift; sourceTree = "<group>"; };
 		368CE8A324C058D8004009A5 /* CurrencyResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyResponse.swift; sourceTree = "<group>"; };
 		368CE8A524C058FD004009A5 /* TranslateResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateResponse.swift; sourceTree = "<group>"; };
@@ -99,7 +101,7 @@
 		36EA8D7724CDB5A80090AA1A /* TranslateNetworkManagerTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateNetworkManagerTestCase.swift; sourceTree = "<group>"; };
 		36EA8D7B24CDB6FF0090AA1A /* CurrencyResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = CurrencyResponse.json; sourceTree = "<group>"; };
 		36EA8D7D24CDB8850090AA1A /* TranslateResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = TranslateResponse.json; sourceTree = "<group>"; };
-		36F205C324CB485600282C0C /* NetworkClient+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NetworkClient+Mock.swift"; sourceTree = "<group>"; };
+		36F205C324CB485600282C0C /* NetworkManager+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NetworkManager+Mock.swift"; sourceTree = "<group>"; };
 		36F205C524CB634E00282C0C /* IncorrectData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = IncorrectData.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -176,7 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				36B4243324BC83E0004CB8E7 /* NetworkManager.swift */,
-				36F205C324CB485600282C0C /* NetworkClient+Mock.swift */,
+				36F205C324CB485600282C0C /* NetworkManager+Mock.swift */,
 				36B4243F24BDB2BD004CB8E7 /* WeatherNetworkManager.swift */,
 				36B4243D24BDB1FC004CB8E7 /* CurrencyNetworkManager.swift */,
 				36B4244124BDB3A4004CB8E7 /* TranslateNetworkManager.swift */,
@@ -411,7 +413,7 @@
 				36B4243224BC7C40004CB8E7 /* TranslateViewController.swift in Sources */,
 				36B4243024BC7C2E004CB8E7 /* WeatherViewController.swift in Sources */,
 				36B4242E24BC7C14004CB8E7 /* CurrencyViewController.swift in Sources */,
-				36F205C424CB485600282C0C /* NetworkClient+Mock.swift in Sources */,
+				36F205C424CB485600282C0C /* NetworkManager+Mock.swift in Sources */,
 				36A875FD24C2EF6A000DFBCD /* currenciesProvider.swift in Sources */,
 				36A875F324C0EF4A000DFBCD /* WeatherDelegate.swift in Sources */,
 				36A875F824C1DD0B000DFBCD /* URLComponents+BuildUrl.swift in Sources */,
@@ -452,6 +454,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				36B423EF24BB6CB5004CB8E7 /* Base */,
+				3663735E24D0518100B48C62 /* en */,
+				3663736024D0518A00B48C62 /* fr */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

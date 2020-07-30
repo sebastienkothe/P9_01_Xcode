@@ -20,7 +20,7 @@ final class WeatherNetworkManager {
         }
         
         guard let url = URLComponents.buildOpenWeatherURL(with: city) else {
-            completion(.failure(NetworkError.failedToCreateURL))
+            completion(.failure(.failedToCreateURL))
             return
         }
         

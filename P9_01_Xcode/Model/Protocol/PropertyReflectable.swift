@@ -5,7 +5,10 @@ protocol PropertyReflectable {
 //default implementation
 extension PropertyReflectable {
     subscript(key: String) -> Any? {
-        let m = Mirror(reflecting: self)
-        return m.children.first { $0.label == key }?.value
+        
+        // Instance of Mirror with the initializer Mirror(reflecting:)
+        let mirror = Mirror(reflecting: self)
+        
+        return mirror.children.first { $0.label == key }?.value
     }
 }

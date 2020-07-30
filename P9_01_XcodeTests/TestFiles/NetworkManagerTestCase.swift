@@ -43,7 +43,6 @@ class NetworkManagerTestCase: XCTestCase {
                 XCTAssertTrue(currencyResponse.rates.EUR == 1)
             } catch {
                 XCTAssertNil(error)
-                
             }
         })
     }
@@ -56,7 +55,7 @@ class NetworkManagerTestCase: XCTestCase {
                 let currencyResponse = try result.get()
                 XCTAssertNil(currencyResponse)
             } catch {
-                XCTAssertEqual(error as? NetworkError, NetworkError.incorrectHttpResponseCode)
+                XCTAssertEqual(error as? NetworkError, .incorrectHttpResponseCode)
             }
         })
     }
@@ -69,7 +68,7 @@ class NetworkManagerTestCase: XCTestCase {
                 let currencyResponse = try result.get()
                 XCTAssertNil(currencyResponse)
             } catch {
-                XCTAssertEqual(error as? NetworkError, NetworkError.noData)
+                XCTAssertEqual(error as? NetworkError, .noData)
             }
         })
     }
@@ -82,7 +81,7 @@ class NetworkManagerTestCase: XCTestCase {
                 let currencyResponse = try result.get()
                 XCTAssertNil(currencyResponse)
             } catch {
-                XCTAssertEqual(error as? NetworkError, NetworkError.unknownError)
+                XCTAssertEqual(error as? NetworkError, .unknownError)
             }
         })
     }
@@ -95,7 +94,7 @@ class NetworkManagerTestCase: XCTestCase {
                 let currencyResponse = try result.get()
                 XCTAssertNil(currencyResponse)
             } catch {
-                XCTAssertEqual(error as? NetworkError, NetworkError.failedToDecodeJSON)
+                XCTAssertEqual(error as? NetworkError, .failedToDecodeJSON)
             }
         })
     }

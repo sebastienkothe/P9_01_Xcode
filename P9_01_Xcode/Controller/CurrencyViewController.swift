@@ -17,7 +17,14 @@ final class CurrencyViewController: UIViewController {
 extension CurrencyViewController {
     @IBAction private func didTapOnSearchButton() {
         
-        guard let amount = currencyTextField.text else { return }
+        guard let amount = currencyTextField.text?.trimmingCharacters(in: .whitespaces) else { return }
+        
+        // Used to handle the case where the text field is empty
+        guard amount != "" else {
+            handleError(error: .emptyTextField)
+            return
+        }
+        
         guard let convertedAmount = Double(amount) else { return }
         
         currencyNetworkManager.fetchCurrencyInformation(completion: {(result) in
@@ -26,10 +33,20 @@ extension CurrencyViewController {
                 case .failure(let error):
                     self.handleError(error: error)
                 case .success(let response):
+
+                    let sourceCurrency = response.rates [
+                        
+                        // The line below contains the currency code as a string
+                        // Example : response.rates["EUR"]
+                        currencies[self.sourceCurrencyPickerView.selectedRow(inComponent: 0)].code
+                    ]
                     
-                    let sourceCurrency = response.rates[currencies[self.sourceCurrencyPickerView.selectedRow(inComponent: 0)].code]
                     let targetCurrency = response.rates[currencies[self.targetCurrencyPickerView.selectedRow(inComponent: 0)].code]
-                    let result = self.convertCurrencies(sourceCurrency: sourceCurrency as! Double, targetCurrency: targetCurrency as! Double, amount: convertedAmount)
+                    
+                    guard let sourceCurrencyAsDouble = sourceCurrency as? Double else {return}
+                    guard let targetCurrencyAsDouble = targetCurrency as? Double else {return}
+                    
+                    let result = self.convertCurrencies(sourceCurrency: sourceCurrencyAsDouble, targetCurrency: targetCurrencyAsDouble, amount: convertedAmount)
                     
                     self.conversionResultLabel.text = self.convertAndFormat(temp: result)
                 }

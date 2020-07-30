@@ -1,0 +1,51 @@
+
+/* Class = "UILabel"; text = "Choose the target currency"; ObjectID = "3d1-aC-TBa"; */
+"3d1-aC-TBa.text" = "Choisissez la devise cible";
+
+/* Class = "UITabBarItem"; title = "Currency"; ObjectID = "Exo-O8-9e4"; */
+"Exo-O8-9e4.title" = "Devise";
+
+/* Class = "UILabel"; text = "Enter a word or phrase to translate"; ObjectID = "IaE-Rr-5BU"; */
+"IaE-Rr-5BU.text" = "Entrez un mot ou une phrase à traduire";
+
+/* Class = "UITextField"; placeholder = "Enter an amount here..."; ObjectID = "Jaz-3s-1ML"; */
+"Jaz-3s-1ML.placeholder" = "Entrez un montant ici...";
+
+/* Class = "UILabel"; text = "Enter the name of a city for weather information"; ObjectID = "Oih-bU-Wax"; */
+"Oih-bU-Wax.text" = "Entrez le nom d'une ville pour obtenir des informations météorologiques";
+
+/* Class = "UIButton"; normalTitle = "Search"; ObjectID = "PON-SK-S5N"; */
+"PON-SK-S5N.normalTitle" = "Recherchez";
+
+/* Class = "UILabel"; text = "Translation result here"; ObjectID = "QBu-Tc-2Z7"; */
+"QBu-Tc-2Z7.text" = "Résultat de la traduction ici";
+
+/* Class = "UIButton"; normalTitle = "Search"; ObjectID = "QfK-e6-i6r"; */
+"QfK-e6-i6r.normalTitle" = "Recherchez";
+
+/* Class = "UIButton"; normalTitle = "Update my location"; ObjectID = "RIW-Bk-qx5"; */
+"RIW-Bk-qx5.normalTitle" = "Mettre à jour ma position";
+
+/* Class = "UILabel"; text = "Meteorological information the selected location"; ObjectID = "WOC-gn-Myf"; */
+"WOC-gn-Myf.text" = "Informations météorologiques de l'emplacement sélectionné";
+
+/* Class = "UILabel"; text = "Weather information on your location"; ObjectID = "bjc-vx-gKq"; */
+"bjc-vx-gKq.text" = "Informations météorologiques pour votre emplacement";
+
+/* Class = "UITextField"; placeholder = "Perpignan, Paris..."; ObjectID = "dyz-19-Giw"; */
+"dyz-19-Giw.placeholder" = "Perpignan, Paris...";
+
+/* Class = "UIButton"; normalTitle = "Translate"; ObjectID = "fVf-9l-PNt"; */
+"fVf-9l-PNt.normalTitle" = "Traduire";
+
+/* Class = "UITabBarItem"; title = "Weather"; ObjectID = "q4S-4g-1eJ"; */
+"q4S-4g-1eJ.title" = "Météo";
+
+/* Class = "UITabBarItem"; title = "Translation"; ObjectID = "wTE-Jk-Okj"; */
+"wTE-Jk-Okj.title" = "Traduction";
+
+/* Class = "UILabel"; text = "Choose the source currency"; ObjectID = "wXk-KD-1y4"; */
+"wXk-KD-1y4.text" = "Choisissez la devise source";
+
+/* Class = "UILabel"; text = "Currency information here"; ObjectID = "xth-fS-MAw"; */
+"xth-fS-MAw.text" = "Informations sur la devise ici";
