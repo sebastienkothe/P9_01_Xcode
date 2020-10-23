@@ -10,6 +10,13 @@ final class CurrencyViewController: UIViewController {
     @IBOutlet weak private var sourceCurrencyPickerView: UIPickerView!
     @IBOutlet weak private var targetCurrencyPickerView: UIPickerView!
     @IBOutlet weak private var conversionResultLabel: UILabel!
+    @IBOutlet weak var searchActivityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var searchButton: UIButton!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        searchActivityIndicator.isHidden = true
+    }
     
 }
 
@@ -27,13 +34,16 @@ extension CurrencyViewController {
         
         guard let convertedAmount = Double(amount) else { return }
         
+        toggleActivityIndicator(shown: true, activityIndicator: searchActivityIndicator, button: searchButton)
+        
         currencyNetworkManager.fetchCurrencyInformation(completion: {(result) in
             DispatchQueue.main.async {
+                self.toggleActivityIndicator(shown: false, activityIndicator: self.searchActivityIndicator, button: self.searchButton)
                 switch result {
                 case .failure(let error):
                     self.handleError(error: error)
                 case .success(let response):
-
+                    
                     let sourceCurrency = response.rates [
                         
                         // The line below contains the currency code as a string
@@ -71,6 +81,12 @@ extension CurrencyViewController {
     private func convertAndFormat(temp: Double) -> String {
         let tempVar = String(format: "%g", temp)
         return tempVar
+    }
+    
+    /// Used to hide items
+    private func toggleActivityIndicator(shown: Bool, activityIndicator: UIActivityIndicatorView, button: UIButton) {
+        activityIndicator.isHidden = !shown
+        button.isHidden = shown
     }
 }
 
