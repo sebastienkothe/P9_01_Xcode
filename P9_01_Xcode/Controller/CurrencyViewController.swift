@@ -21,9 +21,6 @@ final class CurrencyViewController: RootController {
 // MARK: - Exchange rate
 extension CurrencyViewController {
     @IBAction private func didTapOnSearchButton() {
-        
-        let currencyNetworkManager = CurrencyNetworkManager()
-        
         guard let amount =
                 currencyTextField.text?.trimmingCharacters(in: .whitespaces) else { return }
         
@@ -37,9 +34,15 @@ extension CurrencyViewController {
         
         // To show the activity indicator and hide the button
         toggleActivityIndicator(shown: true, activityIndicator: searchActivityIndicator, button: searchButton)
+        handleTheExchangeRateRequest(convertedAmount: convertedAmount)
+    }
+    
+    private func handleTheExchangeRateRequest(convertedAmount: Double) {
+        let currencyNetworkManager = CurrencyNetworkManager()
         
         currencyNetworkManager.fetchCurrencyInformation(completion: { [weak self] (result) in
             guard let self = self else {return}
+            
             DispatchQueue.main.async {
                 self.toggleActivityIndicator(shown: false, activityIndicator: self.searchActivityIndicator, button: self.searchButton)
                 

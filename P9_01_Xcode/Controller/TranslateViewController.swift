@@ -20,18 +20,22 @@ final class TranslateViewController: RootController {
 extension TranslateViewController {
     @IBAction private func didTapOnTranslateButton() {
         
-        // To avoid the retain cycle
+        // To show the activity indicator and hide the button
+        toggleActivityIndicator(shown: true, activityIndicator: translateActivityIndicator, button: translateButton)
+        handleTheTranslationRequest()
+    }
+    
+    /// Used to handle the translation request
+    private func handleTheTranslationRequest() {
         let translateNetworkManager = TranslateNetworkManager()
         
         guard let expression = translationTextField.text else { return }
         let selectedLanguageIndex = selectionLanguagePickerView.selectedRow(inComponent: 0)
         let selectedLanguageCode = languages[selectedLanguageIndex].code
         
-        // To show the activity indicator and hide the button
-        toggleActivityIndicator(shown: true, activityIndicator: translateActivityIndicator, button: translateButton)
-        
         translateNetworkManager.fetchTranslationInformationFor(expression: expression, languageCode: selectedLanguageCode, completion: { [weak self] (result) in
             guard let self = self else {return}
+            
             DispatchQueue.main.async {
                 self.toggleActivityIndicator(shown: false, activityIndicator: self.translateActivityIndicator, button: self.translateButton)
                 switch result {
@@ -48,6 +52,7 @@ extension TranslateViewController {
                     """
                 }
             }
+            
         })
     }
 }
