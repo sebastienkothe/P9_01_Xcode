@@ -30,7 +30,8 @@ extension TranslateViewController {
         // To show the activity indicator and hide the button
         toggleActivityIndicator(shown: true, activityIndicator: translateActivityIndicator, button: translateButton)
         
-        translateNetworkManager.fetchTranslationInformationFor(expression: expression, languageCode: selectedLanguageCode, completion: {(result) in
+        translateNetworkManager.fetchTranslationInformationFor(expression: expression, languageCode: selectedLanguageCode, completion: { [weak self] (result) in
+            guard let self = self else {return}
             DispatchQueue.main.async {
                 self.toggleActivityIndicator(shown: false, activityIndicator: self.translateActivityIndicator, button: self.translateButton)
                 switch result {

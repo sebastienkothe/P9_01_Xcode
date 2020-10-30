@@ -38,7 +38,8 @@ extension CurrencyViewController {
         // To show the activity indicator and hide the button
         toggleActivityIndicator(shown: true, activityIndicator: searchActivityIndicator, button: searchButton)
         
-        currencyNetworkManager.fetchCurrencyInformation(completion: {(result) in
+        currencyNetworkManager.fetchCurrencyInformation(completion: { [weak self] (result) in
+            guard let self = self else {return}
             DispatchQueue.main.async {
                 self.toggleActivityIndicator(shown: false, activityIndicator: self.searchActivityIndicator, button: self.searchButton)
                 

@@ -40,7 +40,8 @@ extension WeatherViewController {
         // To show the activity indicator and hide the button
         toggleActivityIndicator(shown: true, activityIndicator: searchAcivityIndicator, button: weatherSearchButton)
         
-        weatherNetworkManager.fetchWeatherInformationFor(city, completion: {(result) in
+        weatherNetworkManager.fetchWeatherInformationFor(city, completion: { [weak self] (result) in
+            guard let self = self else {return}
             DispatchQueue.main.async {
                 self.toggleActivityIndicator(shown: false, activityIndicator: self.searchAcivityIndicator, button: self.weatherSearchButton)
                 switch result {
@@ -89,7 +90,8 @@ extension WeatherViewController: WeatherDelegate {
         
         toggleActivityIndicator(shown: true, activityIndicator: updateLocationActivityIndicator, button: updateMyLocationButton)
         
-        weatherNetworkManager.fetchWeatherInformationForUserLocation(longitude: longitude, latitude: latitude, completion: {(result) in
+        weatherNetworkManager.fetchWeatherInformationForUserLocation(longitude: longitude, latitude: latitude, completion: { [weak self] (result) in
+            guard let self = self else {return}
             DispatchQueue.main.async {
                 self.toggleActivityIndicator(shown: false, activityIndicator: self.updateLocationActivityIndicator, button: self.updateMyLocationButton)
                 
