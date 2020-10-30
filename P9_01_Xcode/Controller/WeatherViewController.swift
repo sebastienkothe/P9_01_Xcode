@@ -89,8 +89,6 @@ extension WeatherViewController: WeatherDelegate {
     internal func didChangeLocation(longitude: String, latitude: String) {
         let weatherNetworkManager = WeatherNetworkManager()
         
-        toggleActivityIndicator(shown: true, activityIndicator: updateLocationActivityIndicator, button: updateMyLocationButton)
-        
         weatherNetworkManager.fetchWeatherInformationForUserLocation(longitude: longitude, latitude: latitude, completion: { [weak self] (result) in
             guard let self = self else {return}
             
@@ -117,6 +115,7 @@ extension WeatherViewController: WeatherDelegate {
             return
         }
         
+        toggleActivityIndicator(shown: true, activityIndicator: updateLocationActivityIndicator, button: updateMyLocationButton)
         geolocationProvider.getUserLocation()
     }
 }
