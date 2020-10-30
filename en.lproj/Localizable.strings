@@ -7,4 +7,5 @@
 "error_location_service_disabled_title" = "The location service is disabled";
 "error_message" = "ERROR";
 "validation_message" = "Alright!";
+"close_keyboard_button_title" = "Close";
 

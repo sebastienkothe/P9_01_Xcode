@@ -1,11 +1,8 @@
 import UIKit
 
-final class CurrencyViewController: UIViewController {
+final class CurrencyViewController: RootController {
     
-    // MARK: - Properties
-    private let currencyNetworkManager = CurrencyNetworkManager()
-    
-    // MARK: - Outlets
+    // MARK: - IBOutlets
     @IBOutlet weak private var currencyTextField: UITextField!
     @IBOutlet weak private var sourceCurrencyPickerView: UIPickerView!
     @IBOutlet weak private var targetCurrencyPickerView: UIPickerView!
@@ -16,15 +13,19 @@ final class CurrencyViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         searchActivityIndicator.isHidden = true
+        searchButton.layer.cornerRadius = 30
+        currencyTextField.addFinishButtonToKeyboard()
     }
-    
 }
 
 // MARK: - Exchange rate
 extension CurrencyViewController {
     @IBAction private func didTapOnSearchButton() {
         
-        guard let amount = currencyTextField.text?.trimmingCharacters(in: .whitespaces) else { return }
+        let currencyNetworkManager = CurrencyNetworkManager()
+        
+        guard let amount =
+                currencyTextField.text?.trimmingCharacters(in: .whitespaces) else { return }
         
         // Used to handle the case where the text field is empty
         guard amount != "" else {
@@ -34,24 +35,22 @@ extension CurrencyViewController {
         
         guard let convertedAmount = Double(amount) else { return }
         
+        // To show the activity indicator and hide the button
         toggleActivityIndicator(shown: true, activityIndicator: searchActivityIndicator, button: searchButton)
         
         currencyNetworkManager.fetchCurrencyInformation(completion: {(result) in
             DispatchQueue.main.async {
                 self.toggleActivityIndicator(shown: false, activityIndicator: self.searchActivityIndicator, button: self.searchButton)
+                
                 switch result {
                 case .failure(let error):
                     self.handleError(error: error)
+                    
                 case .success(let response):
                     
-                    let sourceCurrency = response.rates [
-                        
-                        // The line below contains the currency code as a string
-                        // Example : response.rates["EUR"]
-                        currencies[self.sourceCurrencyPickerView.selectedRow(inComponent: 0)].code
-                    ]
+                    let sourceCurrency = self.getTheSelectedCurrency(serverResponse: response, pickerView: self.sourceCurrencyPickerView)
                     
-                    let targetCurrency = response.rates[currencies[self.targetCurrencyPickerView.selectedRow(inComponent: 0)].code]
+                    let targetCurrency = self.getTheSelectedCurrency(serverResponse: response, pickerView: self.targetCurrencyPickerView)
                     
                     guard let sourceCurrencyAsDouble = sourceCurrency as? Double else {return}
                     guard let targetCurrencyAsDouble = targetCurrency as? Double else {return}
@@ -64,12 +63,10 @@ extension CurrencyViewController {
         })
     }
     
-    /// Used to display alert messages
-    private func handleError(error: NetworkError) {
-        let alert = UIAlertController(title: "error_message".localized, message: error.title, preferredStyle: .alert)
-        let action = UIAlertAction(title: "validation_message".localized, style: .default, handler: nil)
-        alert.addAction(action)
-        present(alert, animated: true, completion: nil)
+    /// Used to get the selected currency
+    private func getTheSelectedCurrency(serverResponse: CurrencyResponse, pickerView: UIPickerView) -> Any? {
+        let selectedCurrency = serverResponse.rates[currencies[pickerView.selectedRow(inComponent: 0)].code]
+        return selectedCurrency
     }
     
     /// Used to convert the currencies
@@ -81,12 +78,6 @@ extension CurrencyViewController {
     private func convertAndFormat(temp: Double) -> String {
         let tempVar = String(format: "%g", temp)
         return tempVar
-    }
-    
-    /// Used to hide items
-    private func toggleActivityIndicator(shown: Bool, activityIndicator: UIActivityIndicatorView, button: UIButton) {
-        activityIndicator.isHidden = !shown
-        button.isHidden = shown
     }
 }
 

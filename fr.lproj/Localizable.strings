@@ -7,3 +7,4 @@
 "error_location_service_disabled_title" = "Le service de localisation est désactivé";
 "error_message" = "ERREUR";
 "validation_message" = "Entendu!";
+"close_keyboard_button_title" = "Fermer";

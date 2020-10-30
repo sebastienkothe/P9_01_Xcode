@@ -1,10 +1,9 @@
 import UIKit
 import CoreLocation
 
-final class WeatherViewController: UIViewController {
+final class WeatherViewController: RootController {
     
     // MARK: - Properties
-    private let weatherNetworkManager = WeatherNetworkManager()
     private let geolocationProvider = GeolocationProvider()
     
     // MARK: - Outlets
@@ -15,6 +14,17 @@ final class WeatherViewController: UIViewController {
     @IBOutlet weak private var weatherInformationForCurrentLocationLabel: UILabel!
     @IBOutlet weak var searchAcivityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var updateLocationActivityIndicator: UIActivityIndicatorView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        geolocationProvider.delegate = self
+        
+        // Default values for the interface
+        searchAcivityIndicator.isHidden = true
+        updateLocationActivityIndicator.isHidden = true
+        weatherSearchButton.layer.cornerRadius = 30
+        updateMyLocationButton.layer.cornerRadius = 30
+    }
 }
 
 // MARK: - Weather search
@@ -23,7 +33,11 @@ extension WeatherViewController {
     /// Executed when the user presses the "search" button
     @IBAction private func didTapOnSearchButton() {
         
+        let weatherNetworkManager = WeatherNetworkManager()
+        
         guard let city = weatherSearchTextField.text else { return }
+        
+        // To show the activity indicator and hide the button
         toggleActivityIndicator(shown: true, activityIndicator: searchAcivityIndicator, button: weatherSearchButton)
         
         weatherNetworkManager.fetchWeatherInformationFor(city, completion: {(result) in
@@ -36,8 +50,8 @@ extension WeatherViewController {
                     self.weatherInformationLabel.text =
                         
                         """
-                    🗺 \(weatherResponse.name)\n
-                    ℹ️ \(weatherDescription)\n
+                    🗺 \(weatherResponse.name)
+                    ℹ️ \(weatherDescription)
                     🌡 \(weatherResponse.main.temp)°
                     """
                     
@@ -46,20 +60,6 @@ extension WeatherViewController {
                 }
             }
         })
-    }
-    
-    /// Used to hide items
-    private func toggleActivityIndicator(shown: Bool, activityIndicator: UIActivityIndicatorView, button: UIButton) {
-        activityIndicator.isHidden = !shown
-        button.isHidden = shown
-    }
-    
-    /// Used to display alert messages
-    private func handleError(error: NetworkError) {
-        let alert = UIAlertController(title: "error_message".localized, message: error.title, preferredStyle: .alert)
-        let action = UIAlertAction(title: "validation_message".localized, style: .default, handler: nil)
-        alert.addAction(action)
-        present(alert, animated: true, completion: nil)
     }
 }
 
@@ -84,6 +84,9 @@ extension WeatherViewController: UITextFieldDelegate {
 extension WeatherViewController: WeatherDelegate {
     internal func didChangeLocation(longitude: String, latitude: String) {
         
+        // To avoid the retain cycle
+        let weatherNetworkManager = WeatherNetworkManager()
+        
         toggleActivityIndicator(shown: true, activityIndicator: updateLocationActivityIndicator, button: updateMyLocationButton)
         
         weatherNetworkManager.fetchWeatherInformationForUserLocation(longitude: longitude, latitude: latitude, completion: {(result) in
@@ -96,8 +99,8 @@ extension WeatherViewController: WeatherDelegate {
                     self.weatherInformationForCurrentLocationLabel.text =
                         
                         """
-                    🗺 \(weatherResponse.name)\n
-                    ℹ️ \(weatherDescription)\n
+                    🗺 \(weatherResponse.name)
+                    ℹ️ \(weatherDescription)
                     🌡 \(weatherResponse.main.temp)°
                     """
                     
@@ -117,12 +120,5 @@ extension WeatherViewController: WeatherDelegate {
         }
         
         geolocationProvider.getUserLocation()
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        geolocationProvider.delegate = self
-        searchAcivityIndicator.isHidden = true
-        updateLocationActivityIndicator.isHidden = true
     }
 }

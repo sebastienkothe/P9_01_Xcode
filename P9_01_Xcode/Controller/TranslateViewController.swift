@@ -1,9 +1,6 @@
 import UIKit
 
-final class TranslateViewController: UIViewController {
-    
-    // MARK: - Properties
-    private let translateNetworkManager = TranslateNetworkManager()
+final class TranslateViewController: RootController {
     
     // MARK: - Outlets
     @IBOutlet weak private var translationTextField: UITextField!
@@ -15,6 +12,7 @@ final class TranslateViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         translateActivityIndicator.isHidden = true
+        translateButton.layer.cornerRadius = 30
     }
 }
 
@@ -22,10 +20,14 @@ final class TranslateViewController: UIViewController {
 extension TranslateViewController {
     @IBAction private func didTapOnTranslateButton() {
         
+        // To avoid the retain cycle
+        let translateNetworkManager = TranslateNetworkManager()
+        
         guard let expression = translationTextField.text else { return }
         let selectedLanguageIndex = selectionLanguagePickerView.selectedRow(inComponent: 0)
         let selectedLanguageCode = languages[selectedLanguageIndex].code
         
+        // To show the activity indicator and hide the button
         toggleActivityIndicator(shown: true, activityIndicator: translateActivityIndicator, button: translateButton)
         
         translateNetworkManager.fetchTranslationInformationFor(expression: expression, languageCode: selectedLanguageCode, completion: {(result) in
@@ -46,20 +48,6 @@ extension TranslateViewController {
                 }
             }
         })
-    }
-    
-    /// Used to display alert messages
-    private func handleError(error: NetworkError) {
-        let alert = UIAlertController(title: "error_message".localized, message: error.title, preferredStyle: .alert)
-        let action = UIAlertAction(title: "validation_message".localized, style: .default, handler: nil)
-        alert.addAction(action)
-        present(alert, animated: true, completion: nil)
-    }
-    
-    /// Used to hide items
-    private func toggleActivityIndicator(shown: Bool, activityIndicator: UIActivityIndicatorView, button: UIButton) {
-        activityIndicator.isHidden = !shown
-        button.isHidden = shown
     }
 }
 
