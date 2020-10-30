@@ -32,35 +32,38 @@ extension WeatherViewController {
     
     /// Executed when the user presses the "search" button
     @IBAction private func didTapOnSearchButton() {
-        
-        let weatherNetworkManager = WeatherNetworkManager()
-        
-        guard let city = weatherSearchTextField.text else { return }
-        
         // To show the activity indicator and hide the button
         toggleActivityIndicator(shown: true, activityIndicator: searchAcivityIndicator, button: weatherSearchButton)
+        handleTheRequestFortheSelectedCity()
+    }
+    
+    private func handleTheRequestFortheSelectedCity() {
+        guard let city = weatherSearchTextField.text else { return }
+        let weatherNetworkManager = WeatherNetworkManager()
         
         weatherNetworkManager.fetchWeatherInformationFor(city, completion: { [weak self] (result) in
             guard let self = self else {return}
+            
             DispatchQueue.main.async {
                 self.toggleActivityIndicator(shown: false, activityIndicator: self.searchAcivityIndicator, button: self.weatherSearchButton)
                 switch result {
                 case .success(let weatherResponse):
                     guard let weatherDescription = weatherResponse.weather.first?.description else { return }
-                    
-                    self.weatherInformationLabel.text =
-                        
-                        """
-                    🗺 \(weatherResponse.name)
-                    ℹ️ \(weatherDescription)
-                    🌡 \(weatherResponse.main.temp)°
-                    """
-                    
+                    self.weatherInformationLabel.text = self.updateWeatherInformation(weatherResponse: weatherResponse, weatherDescription: weatherDescription)
                 case .failure(let error):
                     self.handleError(error: error)
                 }
             }
+            
         })
+    }
+    /// Used to update weather informations
+    private func updateWeatherInformation(weatherResponse: WeatherResponse, weatherDescription: String) -> String {
+        """
+    🗺 \(weatherResponse.name)
+    ℹ️ \(weatherDescription)
+    🌡 \(weatherResponse.main.temp)°
+    """
     }
 }
 
@@ -84,32 +87,25 @@ extension WeatherViewController: UITextFieldDelegate {
 // MARK: - Localization
 extension WeatherViewController: WeatherDelegate {
     internal func didChangeLocation(longitude: String, latitude: String) {
-        
-        // To avoid the retain cycle
         let weatherNetworkManager = WeatherNetworkManager()
         
         toggleActivityIndicator(shown: true, activityIndicator: updateLocationActivityIndicator, button: updateMyLocationButton)
         
         weatherNetworkManager.fetchWeatherInformationForUserLocation(longitude: longitude, latitude: latitude, completion: { [weak self] (result) in
             guard let self = self else {return}
+            
             DispatchQueue.main.async {
                 self.toggleActivityIndicator(shown: false, activityIndicator: self.updateLocationActivityIndicator, button: self.updateMyLocationButton)
                 
                 switch result {
                 case .success(let weatherResponse):
                     guard let weatherDescription = weatherResponse.weather.first?.description else { return }
-                    self.weatherInformationForCurrentLocationLabel.text =
-                        
-                        """
-                    🗺 \(weatherResponse.name)
-                    ℹ️ \(weatherDescription)
-                    🌡 \(weatherResponse.main.temp)°
-                    """
-                    
+                    self.weatherInformationForCurrentLocationLabel.text = self.updateWeatherInformation(weatherResponse: weatherResponse, weatherDescription: weatherDescription)
                 case .failure(let error):
                     self.handleError(error: error)
                 }
             }
+            
         })
     }
     
