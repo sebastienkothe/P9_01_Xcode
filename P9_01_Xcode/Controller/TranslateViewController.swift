@@ -47,8 +47,8 @@ extension TranslateViewController {
                     self.translationResultLabel.text =
                         
                         """
-                    Detected source language : \(detectedSourceLanguage)\n
-                    Translated text : \(translatedText)
+                        \("detected_source_language_title".localized) : \(detectedSourceLanguage)\n
+                        \("translated_text_title".localized) : \(translatedText)
                     """
                 }
             }

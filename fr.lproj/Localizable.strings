@@ -8,3 +8,5 @@
 "error_message" = "ERREUR";
 "validation_message" = "Entendu!";
 "close_keyboard_button_title" = "Fermer";
+"detected_source_language_title" = "Langue source détectée";
+"translated_text_title" = "Texte traduit";
