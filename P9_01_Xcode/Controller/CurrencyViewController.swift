@@ -4,18 +4,71 @@ final class CurrencyViewController: RootController {
     
     // MARK: - IBOutlets
     @IBOutlet weak private var currencyTextField: UITextField!
-    @IBOutlet weak private var sourceCurrencyPickerView: UIPickerView!
-    @IBOutlet weak private var targetCurrencyPickerView: UIPickerView!
-    @IBOutlet weak private var conversionResultLabel: UILabel!
+    @IBOutlet weak private var conversionResultTextView: UITextView!
     @IBOutlet weak var searchActivityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var searchButton: UIButton!
+    @IBOutlet weak var sourceCurrencyTextField: UITextField!
+    @IBOutlet weak var targetCurrencyTextField: UITextField!
+    
+    private let sourceCurrencyPickerView = UIPickerView()
+    private let targetCurrencyPickerView = UIPickerView()
+    
+    private let currencyConverter = CurrencyConverter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         searchActivityIndicator.isHidden = true
         searchButton.layer.cornerRadius = 30
         currencyTextField.addFinishButtonToKeyboard()
+        
+        
+        setupCurrencyPicker(picker: sourceCurrencyPickerView, textField: sourceCurrencyTextField)
+        setupCurrencyPicker(picker: targetCurrencyPickerView, textField: targetCurrencyTextField)
+        
+        self.navigationItem.title = "navigation_item_title_currency".localized
     }
+    
+    private func setupCurrencyPicker(picker: UIPickerView, textField: UITextField) {
+        picker.delegate = self
+        picker.dataSource = self
+        
+        textField.inputView = picker
+        
+        let toolBar = UIToolbar()
+        
+        let emptyBarButtonItem = UIBarButtonItem(
+            barButtonSystemItem: .flexibleSpace,
+            target: self,
+            action: nil
+        )
+        let doneBarButtonIte = UIBarButtonItem(
+            barButtonSystemItem: .done,
+            target: self,
+            action: #selector(closeKeyboard)
+        )
+        toolBar.items = [emptyBarButtonItem, doneBarButtonIte]
+        
+        toolBar.sizeToFit()
+        
+        textField.inputAccessoryView = toolBar
+    }
+    
+    @objc private func closeKeyboard() {
+        view.endEditing(true)
+    }
+    
+    var selectedSourceCurrency: Currency = .Euro {
+        didSet {
+            sourceCurrencyTextField.text = selectedSourceCurrency.displayName
+        }
+    }
+    
+    var selectedTargetCurrency: Currency = .Euro {
+        didSet {
+            targetCurrencyTextField.text = selectedTargetCurrency.displayName
+        }
+    }
+    
 }
 
 // MARK: - Exchange rate
@@ -59,9 +112,14 @@ extension CurrencyViewController {
                     guard let sourceCurrencyAsDouble = sourceCurrency as? Double else {return}
                     guard let targetCurrencyAsDouble = targetCurrency as? Double else {return}
                     
-                    let result = self.convertCurrencies(sourceCurrency: sourceCurrencyAsDouble, targetCurrency: targetCurrencyAsDouble, amount: convertedAmount)
+                    let result = self.currencyConverter.getTheConversionResult(sourceCurrency: sourceCurrencyAsDouble, targetCurrency: targetCurrencyAsDouble, amount: convertedAmount)
+                    guard let resultUnwrapped = result else { return }
                     
-                    self.conversionResultLabel.text = self.convertAndFormat(temp: result)
+                    let currencyTargetSymbol = self.selectedTargetCurrency.symbol
+                    let currencySourceSymbol = self.selectedSourceCurrency.symbol
+                    
+                    self.conversionResultTextView.text =
+                        "\(convertedAmount)\(currencySourceSymbol) = \(resultUnwrapped)\(currencyTargetSymbol)"
                 }
             }
         })
@@ -69,34 +127,33 @@ extension CurrencyViewController {
     
     /// Used to get the selected currency
     private func getTheSelectedCurrency(serverResponse: CurrencyResponse, pickerView: UIPickerView) -> Any? {
-        let selectedCurrency = serverResponse.rates[currencies[pickerView.selectedRow(inComponent: 0)].code]
+        let selectedCurrency = serverResponse.rates[Currency.allCases[pickerView.selectedRow(inComponent: 0)].code]
         return selectedCurrency
-    }
-    
-    /// Used to convert the currencies
-    private func convertCurrencies(sourceCurrency: Double, targetCurrency: Double, amount: Double) -> Double {
-        return amount / sourceCurrency * targetCurrency
-    }
-    
-    /// To convert the result from Double to String in the particular format
-    private func convertAndFormat(temp: Double) -> String {
-        let tempVar = String(format: "%g", temp)
-        return tempVar
     }
 }
 
 // MARK: - PickerView
-extension CurrencyViewController: UIPickerViewDelegate, UIPickerViewDataSource {
-    internal func numberOfComponents(in pickerView: UIPickerView) -> Int {
+extension CurrencyViewController: UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
     
-    internal func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        currencies.count
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        Currency.allCases.count
     }
     
-    internal func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return currencies[row].name
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return Currency.allCases[row].displayName
+    }
+}
+
+extension CurrencyViewController: UIPickerViewDelegate {
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        if pickerView == sourceCurrencyPickerView {
+            selectedSourceCurrency = Currency.allCases[row]
+        } else {
+            selectedTargetCurrency = Currency.allCases[row]
+        }
     }
 }
 

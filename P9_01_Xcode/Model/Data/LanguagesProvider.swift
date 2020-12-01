@@ -1,111 +1,29 @@
-let languages: [(name: String, code: String)] = [
-    ("Allemand", "de"),
-    ("Anglais", "en"),
-    ("Arabe", "ar"),
-    ("Afrikaans", "af"),
-    ("Catalan", "ca"),
-    ("Chinois (simplifié)", "zh"),
-    ("Français", "fr"),
-    ("Italien", "it"),
-    ("Japonais", "ja"),
-    ("Polonais", "pl"),
-    ("Portugais", "pt"),
-    ("Russe", "ru"),
-    ("Suédois", "sv"),
-    ("Spanish", "es"),
-    ("Turc", "tr"),
-    ("Vietnamien", "vi"),
-    ("Albanais", "sq"),
-    ("Amharique", "am"),
-    ("Arménien", "hy"),
-    ("Azéri", "az"),
-    ("Basque", "eu"),
-    ("Biélorusse", "be"),
-    ("Birman", "my"),
-    ("Bengali", "bn"),
-    ("Bosnien", "bs"),
-    ("Bulgare", "bg"),
-    ("Cebuano", "ceb"),
-    ("Chinois (traditionnel)", "zh-TW"),
-    ("Corse", "co"),
-    ("Coréen", "ko"),
-    ("Croate", "hr"),
-    ("Créole haïtien", "ht"),
-    ("Danois", "da"),
-    ("Espéranto", "eo"),
-    ("Estonien", "et"),
-    ("Finnois", "fi"),
-    ("Frison", "fy"),
-    ("Gaélique (Écosse)", "gd"),
-    ("Gallois", "cy"),
-    ("Galicien", "gl"),
-    ("Géorgien", "ka"),
-    ("Grec", "el"),
-    ("Gujarati", "gu"),
-    ("Haoussa", "ha"),
-    ("Hawaïen", "haw"),
-    ("Hébreu", "he"),
-    ("Hindi", "hi"),
-    ("Hmong", "hmn"),
-    ("Hongrois", "hu"),
-    ("Islandais", "is"),
-    ("Igbo", "ig"),
-    ("Indonésien", "id"),
-    ("Irlandais", "ga"),
-    ("Javanais", "jv"),
-    ("Kannada", "kn"),
-    ("Kazakh", "kk"),
-    ("Khmer", "km"),
-    ("Kinyarwanda", "rw"),
-    ("Kurde", "ku"),
-    ("Kirghyz", "ky"),
-    ("Laotien", "lo"),
-    ("Latin", "la"),
-    ("Letton", "lv"),
-    ("Lituanien", "lt"),
-    ("Luxembourgeois", "lb"),
-    ("Macédonien", "mk"),
-    ("Malgache", "mg"),
-    ("Malais", "ms"),
-    ("Malayâlam", "ml"),
-    ("Maltais", "mt"),
-    ("Maori", "mi"),
-    ("Marathi", "mr"),
-    ("Mongol", "mn"),
-    ("Néerlandais", "nl"),
-    ("Népalais", "ne"),
-    ("Norvégien", "no"),
-    ("Nyanja (Chichewa)", "ny"),
-    ("Odia (Oriya)", "or"),
-    ("Ouïghour", "ug"),
-    ("Ouzbek", "uz"),
-    ("Pachtô", "ps"),
-    ("Perse", "fa"),
-    ("Panjabi", "pa"),
-    ("Roumain", "ro"),
-    ("Samoan", "sm"),
-    ("Serbe", "sr"),
-    ("Sesotho", "st"),
-    ("Shona", "sn"),
-    ("Sindhî", "sd"),
-    ("Singhalais", "si"),
-    ("Slovaque", "sk"),
-    ("Slovène", "sl"),
-    ("Somali", "so"),
-    ("Soundanais", "su"),
-    ("Swahili", "sw"),
-    ("Tagalog (philippin)", "tl"),
-    ("Tchèque", "cs"),
-    ("Tadjik", "tg"),
-    ("Tamoul", "ta"),
-    ("Tatar", "tt"),
-    ("Télougou", "te"),
-    ("Thaï", "th"),
-    ("Turkmène", "tk"),
-    ("Ukrainien", "uk"),
-    ("Urdu", "ur"),
-    ("Xhosa", "xh"),
-    ("Yiddish", "yi"),
-    ("Yoruba", "yo"),
-    ("Zulu", "zu")
-]
+enum Language: CaseIterable {
+    case Français
+    case Allemand
+    case Anglais
+    case Arabe
+    case Afrikaans
+    
+    var displayNane: String {
+        switch self {
+        
+        case .Français: return "Français"
+        case .Afrikaans: return "Afrikaans"
+        case .Allemand: return "Allemand"
+        case .Anglais: return "Anglais"
+        case .Arabe: return "Arabe"
+        }
+    }
+    
+    var code: String {
+        switch self {
+        
+        case .Français: return "fr"
+        case .Afrikaans: return "af"
+        case .Allemand: return "de"
+        case .Anglais: return "en"
+        case .Arabe: return "ar"
+        }
+    }
+}

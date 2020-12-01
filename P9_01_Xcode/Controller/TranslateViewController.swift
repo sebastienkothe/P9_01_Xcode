@@ -4,15 +4,58 @@ final class TranslateViewController: RootController {
     
     // MARK: - Outlets
     @IBOutlet weak private var translationTextField: UITextField!
-    @IBOutlet weak private var translationResultLabel: UILabel!
-    @IBOutlet weak private var selectionLanguagePickerView: UIPickerView!
     @IBOutlet weak var translateButton: UIButton!
     @IBOutlet weak var translateActivityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var translationResultTextView: UITextView!
+    @IBOutlet weak var targetLanguageTextField: UITextField!
+    
+    
+    private let selectionLanguagePickerView = UIPickerView()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         translateActivityIndicator.isHidden = true
         translateButton.layer.cornerRadius = 30
+        
+        setupLanguagePicker()
+        
+        self.navigationItem.title = "navigation_item_title_translate".localized
+    }
+    
+    private func setupLanguagePicker() {
+        selectionLanguagePickerView.delegate = self
+        selectionLanguagePickerView.dataSource = self
+        
+        targetLanguageTextField.inputView = selectionLanguagePickerView
+        
+        let toolBar = UIToolbar()
+        
+        let enptyBarButtonIte = UIBarButtonItem(
+            barButtonSystemItem: .flexibleSpace,
+            target: self,
+            action: nil
+        )
+        let doneBarButtonIte = UIBarButtonItem(
+            barButtonSystemItem: .done,
+            target: self,
+            action: #selector(closeKeyboard)
+        )
+        toolBar.items = [enptyBarButtonIte, doneBarButtonIte]
+        
+        toolBar.sizeToFit()
+        
+        targetLanguageTextField.inputAccessoryView = toolBar
+    }
+    
+    @objc private func closeKeyboard() {
+        view.endEditing(true)
+    }
+    
+    var selectedLanguage: Language = .Afrikaans {
+        didSet {
+            targetLanguageTextField.text = selectedLanguage.displayNane
+        }
     }
 }
 
@@ -30,10 +73,9 @@ extension TranslateViewController {
         let translateNetworkManager = TranslateNetworkManager()
         
         guard let expression = translationTextField.text else { return }
-        let selectedLanguageIndex = selectionLanguagePickerView.selectedRow(inComponent: 0)
-        let selectedLanguageCode = languages[selectedLanguageIndex].code
         
-        translateNetworkManager.fetchTranslationInformationFor(expression: expression, languageCode: selectedLanguageCode, completion: { [weak self] (result) in
+        
+        translateNetworkManager.fetchTranslationInformationFor(expression: expression, languageCode: selectedLanguage.code, completion: { [weak self] (result) in
             guard let self = self else {return}
             
             DispatchQueue.main.async {
@@ -43,13 +85,7 @@ extension TranslateViewController {
                     self.handleError(error: error)
                 case .success(let response):
                     guard let translatedText = response.data.translations.first?.translatedText else { return }
-                    guard let detectedSourceLanguage = response.data.translations.first?.detectedSourceLanguage else { return }
-                    self.translationResultLabel.text =
-                        
-                        """
-                        \("detected_source_language_title".localized) : \(detectedSourceLanguage)\n
-                        \("translated_text_title".localized) : \(translatedText)
-                    """
+                    self.translationResultTextView.text = translatedText
                 }
             }
             
@@ -58,17 +94,23 @@ extension TranslateViewController {
 }
 
 // MARK: - PickerView
-extension TranslateViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+extension TranslateViewController: UIPickerViewDataSource {
     internal func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
     
     internal func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return languages.count
+        return Language.allCases.count
     }
     
     internal func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return languages[row].name
+        return Language.allCases[row].displayNane
+    }
+}
+
+extension TranslateViewController: UIPickerViewDelegate {
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        selectedLanguage = Language.allCases[row]
     }
 }
 

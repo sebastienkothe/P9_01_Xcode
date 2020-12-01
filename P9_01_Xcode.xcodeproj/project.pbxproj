@@ -47,6 +47,7 @@
 		36F205C624CB634E00282C0C /* IncorrectData.json in Resources */ = {isa = PBXBuildFile; fileRef = 36F205C524CB634E00282C0C /* IncorrectData.json */; };
 		C94CCC4C254AB34100BA55D4 /* UITextField+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94CCC4B254AB34100BA55D4 /* UITextField+Extensions.swift */; };
 		C94CCC50254ACFF300BA55D4 /* RootController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94CCC4F254ACFF300BA55D4 /* RootController.swift */; };
+		C97091EF2573F3220086512F /* CurrencyConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97091EE2573F3220086512F /* CurrencyConverter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,6 +108,7 @@
 		36F205C524CB634E00282C0C /* IncorrectData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = IncorrectData.json; sourceTree = "<group>"; };
 		C94CCC4B254AB34100BA55D4 /* UITextField+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extensions.swift"; sourceTree = "<group>"; };
 		C94CCC4F254ACFF300BA55D4 /* RootController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootController.swift; sourceTree = "<group>"; };
+		C97091EE2573F3220086512F /* CurrencyConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConverter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -276,6 +278,7 @@
 		36B4242C24BC7892004CB8E7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C97091EE2573F3220086512F /* CurrencyConverter.swift */,
 				36A875FB24C2514F000DFBCD /* Data */,
 				36A875F624C0FF85000DFBCD /* Delegator */,
 				36A875F524C0FF3A000DFBCD /* Networking */,
@@ -436,6 +439,7 @@
 				36A875F024C0EB03000DFBCD /* GeolocationProvider.swift in Sources */,
 				36B423EB24BB6CB5004CB8E7 /* SceneDelegate.swift in Sources */,
 				C94CCC50254ACFF300BA55D4 /* RootController.swift in Sources */,
+				C97091EF2573F3220086512F /* CurrencyConverter.swift in Sources */,
 				36A875FA24C23AE2000DFBCD /* LanguagesProvider.swift in Sources */,
 				36B4243E24BDB1FC004CB8E7 /* CurrencyNetworkManager.swift in Sources */,
 			);
@@ -621,7 +625,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3CQSNJZ5Q2;
 				INFOPLIST_FILE = P9_01_Xcode/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -640,7 +644,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3CQSNJZ5Q2;
 				INFOPLIST_FILE = P9_01_Xcode/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

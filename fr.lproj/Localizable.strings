@@ -10,3 +10,6 @@
 "close_keyboard_button_title" = "Fermer";
 "detected_source_language_title" = "Langue source détectée";
 "translated_text_title" = "Texte traduit";
+"navigation_item_title_weather" = "Météo";
+"navigation_item_title_currency" = "Devise";
+"navigation_item_title_translate" = "Traduction";

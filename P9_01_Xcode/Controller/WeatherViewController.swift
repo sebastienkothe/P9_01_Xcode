@@ -24,6 +24,8 @@ final class WeatherViewController: RootController {
         updateLocationActivityIndicator.isHidden = true
         weatherSearchButton.layer.cornerRadius = 30
         updateMyLocationButton.layer.cornerRadius = 30
+        
+        self.navigationItem.title = "navigation_item_title_weather".localized
     }
 }
 
@@ -59,11 +61,7 @@ extension WeatherViewController {
     }
     /// Used to update weather informations
     private func updateWeatherInformation(weatherResponse: WeatherResponse, weatherDescription: String) -> String {
-        """
-    🗺 \(weatherResponse.name)
-    ℹ️ \(weatherDescription)
-    🌡 \(weatherResponse.main.temp)°
-    """
+        "🗺 \(weatherResponse.name)\nℹ️ \(weatherDescription)\n🌡 \(weatherResponse.main.temp)°"
     }
 }
 

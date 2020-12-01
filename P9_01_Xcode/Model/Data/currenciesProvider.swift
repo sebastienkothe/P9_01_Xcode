@@ -1,170 +1,38 @@
-let currencies: [(name: String, code: String)] = [
-    ("British Pound Sterling", "GBP"),
-    ("Euro", "EUR"),
-    ("Bitcoin", "BTC"),
-    ("Hong Kong Dollar", "HKD"),
-    ("Japanese Yen", "JPY"),
-    ("Moroccan Dirham", "MAD"),
-    ("Mexican Peso", "MXN"),
-    ("Qatari Rial", "QAR"),
-    ("Russian Ruble", "RUB"),
-    ("United Arab Emirates Dirham", "AED"),
-    ("United States Dollar", "USD"),
-    ("Afghan Afghani", "AFN"),
-    ("Albanian Lek", "ALL"),
-    ("Algerian Dinar", "DZD"),
-    ("Armenian Dram", "AMD"),
-    ("Angolan Kwanza", "AOA"),
-    ("Argentine Peso", "ARS"),
-    ("Australian Dollar", "AUD"),
-    ("Aruban Florin", "AWG"),
-    ("Azerbaijani Manat", "AZN"),
-    ("Bosnia-Herzegovina Convertible Mark", "BAM"),
-    ("Barbadian Dollar", "BBD"),
-    ("Bangladeshi Taka", "BDT"),
-    ("Bulgarian Lev", "BGN"),
-    ("Bahraini Dinar", "BHD"),
-    ("Burundian Franc", "BIF"),
-    ("Bermudan Dollar", "BMD"),
-    ("Brunei Dollar", "BND"),
-    ("Bolivian Boliviano", "BOB"),
-    ("Brazilian Real", "BRL"),
-    ("Bahamian Dollar", "BSD"),
-    ("Bhutanese Ngultrum", "BTN"),
-    ("Botswanan Pula", "BWP"),
-    ("Belarusian Ruble", "BYR"),
-    ("Belize Dollar", "BZD"),
-    ("Canadian Dollar", "CAD"),
-    ("Cayman Islands Dollar", "KYD"),
-    ("CFA Franc BEAC", "XAF"),
-    ("Congolese Franc", "CDF"),
-    ("Croatian Kuna", "HRK"),
-    ("Cambodian Riel", "KHR"),
-    ("CFA Franc BCEAO", "XOF"),
-    ("CFP Franc", "XPF"),
-    ("Comorian Franc", "KMF"),
-    ("Chilean Unit of Account (UF)", "CLF"),
-    ("Chilean Peso", "CLP"),
-    ("Chinese Yuan", "CNY"),
-    ("Colombian Peso", "COP"),
-    ("Costa Rican Colón", "CRC"),
-    ("Cuban Convertible Peso", "CUC"),
-    ("Cuban Peso", "CUP"),
-    ("Cape Verdean Escudo", "CVE"),
-    ("Czech Republic Koruna", "CZK"),
-    ("Djiboutian Franc", "DJF"),
-    ("Danish Krone", "DKK"),
-    ("Dominican Peso", "DOP"),
-    ("Egyptian Pound", "EGP"),
-    ("East Caribbean Dollar", "XCD"),
-    ("Eritrean Nakfa", "ERN"),
-    ("Ethiopian Birr", "ETB"),
-    ("Fijian Dollar", "FJD"),
-    ("Falkland Islands Pound", "FKP"),
-    ("Georgian Lari", "GEL"),
-    ("Guernsey Pound", "GGP"),
-    ("Ghanaian Cedi", "GHS"),
-    ("Gibraltar Pound", "GIP"),
-    ("Gambian Dalasi", "GMD"),
-    ("Guinean Franc", "GNF"),
-    ("Gold (troy ounce)", "XAU"),
-    ("Guatemalan Quetzal", "GTQ"),
-    ("Guyanaese Dollar", "GYD"),
-    ("Honduran Lempira", "HNL"),
-    ("Haitian Gourde", "HTG"),
-    ("Hungarian Forint", "HUF"),
-    ("Indonesian Rupiah", "IDR"),
-    ("Israeli New Sheqel", "ILS"),
-    ("Indian Rupee", "INR"),
-    ("Iraqi Dinar", "IQD"),
-    ("Iranian Rial", "IRR"),
-    ("Icelandic Króna", "ISK"),
-    ("Jersey Pound", "JEP"),
-    ("Jamaican Dollar", "JMD"),
-    ("Jordanian Dinar", "JOD"),
-    ("Kenyan Shilling", "KES"),
-    ("Kyrgystani Som", "KGS"),
-    ("Kuwaiti Dinar", "KWD"),
-    ("Kazakhstani Tenge", "KZT"),
-    ("Laotian Kip", "LAK"),
-    ("Lebanese Pound", "LBP"),
-    ("Liberian Dollar", "LRD"),
-    ("Lesotho Loti", "LSL"),
-    ("Lithuanian Litas", "LTL"),
-    ("Latvian Lats", "LVL"),
-    ("Libyan Dinar", "LYD"),
-    ("Moldovan Leu", "MDL"),
-    ("Manx pound", "IMP"),
-    ("Malagasy Ariary", "MGA"),
-    ("Macedonian Denar", "MKD"),
-    ("Myanma Kyat", "MMK"),
-    ("Mongolian Tugrik", "MNT"),
-    ("Macanese Pataca", "MOP"),
-    ("Mauritanian Ouguiya", "MRO"),
-    ("Mauritian Rupee", "MUR"),
-    ("Maldivian Rufiyaa", "MVR"),
-    ("Malawian Kwacha", "MWK"),
-    ("Malaysian Ringgit", "MYR"),
-    ("Mozambican Metical", "MZN"),
-    ("New Taiwan Dollar", "TWD"),
-    ("North Korean Won", "KPW"),
-    ("Namibian Dollar", "NAD"),
-    ("Nigerian Naira", "NGN"),
-    ("New Belarusian Ruble", "BYN"),
-    ("Netherlands Antillean Guilder", "ANG"),
-    ("Nicaraguan Córdoba", "NIO"),
-    ("Norwegian Krone", "NOK"),
-    ("Nepalese Rupee", "NPR"),
-    ("New Zealand Dollar", "NZD"),
-    ("Omani Rial", "OMR"),
-    ("Panamanian Balboa", "PAB"),
-    ("Peruvian Nuevo Sol", "PEN"),
-    ("Papua New Guinean Kina", "PGK"),
-    ("Philippine Peso", "PHP"),
-    ("Pakistani Rupee", "PKR"),
-    ("Polish Zloty", "PLN"),
-    ("Paraguayan Guarani", "PYG"),
-    ("Romanian Leu", "RON"),
-    ("Rwandan Franc", "RWF"),
-    ("Serbian Dinar", "RSD"),
-    ("South Korean Won", "KRW"),
-    ("Swiss Franc", "CHF"),
-    ("South African Rand", "ZAR"),
-    ("Saudi Riyal", "SAR"),
-    ("Solomon Islands Dollar", "SBD"),
-    ("Seychellois Rupee", "SCR"),
-    ("Sudanese Pound", "SDG"),
-    ("Swedish Krona", "SEK"),
-    ("Singapore Dollar", "SGD"),
-    ("Saint Helena Pound", "SHP"),
-    ("Samoan Tala", "WST"),
-    ("Silver (troy ounce)", "XAG"),
-    ("Sri Lankan Rupee", "LKR"),
-    ("Sierra Leonean Leone", "SLL"),
-    ("Somali Shilling", "SOS"),
-    ("Special Drawing Rights", "XDR"),
-    ("Surinamese Dollar", "SRD"),
-    ("São Tomé and Príncipe Dobra", "STD"),
-    ("Salvadoran Colón", "SVC"),
-    ("Syrian Pound", "SYP"),
-    ("Swazi Lilangeni", "SZL"),
-    ("Thai Baht", "THB"),
-    ("Tajikistani Somoni", "TJS"),
-    ("Turkmenistani Manat", "TMT"),
-    ("Tunisian Dinar", "TND"),
-    ("Tongan Paʻanga", "TOP"),
-    ("Turkish Lira", "TRY"),
-    ("Trinidad and Tobago Dollar", "TTD"),
-    ("Tanzanian Shilling", "TZS"),
-    ("Ukrainian Hryvnia", "UAH"),
-    ("Ugandan Shilling", "UGX"),
-    ("Uruguayan Peso", "UYU"),
-    ("Uzbekistan Som", "UZS"),
-    ("Venezuelan Bolívar Fuerte", "VEF"),
-    ("Vietnamese Dong", "VND"),
-    ("Vanuatu Vatu", "VUV"),
-    ("Yemeni Rial", "YER"),
-    ("Zambian Kwacha (pre-2013)", "ZMK"),
-    ("Zambian Kwacha", "ZMW"),
-    ("Zimbabwean Dollar", "ZWL")
-]
+enum Currency: CaseIterable {
+    case BritishPoundSterling
+    case Euro
+    case RussianRuble
+    case UnitedStatesDollar
+    
+    var displayName: String {
+        switch self {
+        
+        case .BritishPoundSterling: return "British Pound Sterling"
+        case .Euro: return "Euro"
+        case .RussianRuble: return "Russian Ruble"
+        case .UnitedStatesDollar: return "United States Dollar"
+        }
+    }
+    
+    var code: String {
+        switch self {
+        
+        case .BritishPoundSterling: return "GBP"
+        case .Euro: return "EUR"
+        case .RussianRuble: return "RUB"
+        case .UnitedStatesDollar: return "USD"
+        }
+    }
+    
+    var symbol: String {
+        switch self {
+        
+        case .BritishPoundSterling: return "£"
+        case .Euro: return "€"
+        case .RussianRuble: return "₽"
+        case .UnitedStatesDollar: return "$"
+        }
+    }
+}
+
+

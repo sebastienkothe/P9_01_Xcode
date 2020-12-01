@@ -9,7 +9,7 @@
 "IaE-Rr-5BU.text" = "Entrez un mot ou une phrase à traduire";
 
 /* Class = "UITextField"; placeholder = "Enter an amount here..."; ObjectID = "Jaz-3s-1ML"; */
-"Jaz-3s-1ML.placeholder" = "Entrez un montant ici...";
+"Jaz-3s-1ML.placeholder" = "🔢";
 
 /* Class = "UILabel"; text = "Enter the name of a city for weather information"; ObjectID = "Oih-bU-Wax"; */
 "Oih-bU-Wax.text" = "Entrez le nom d'une ville pour obtenir des informations météorologiques";
@@ -21,7 +21,7 @@
 "QBu-Tc-2Z7.text" = "Résultat de la traduction ici";
 
 /* Class = "UIButton"; normalTitle = "Search"; ObjectID = "QfK-e6-i6r"; */
-"QfK-e6-i6r.normalTitle" = "Rechercher";
+"QfK-e6-i6r.normalTitle" = "Convertir";
 
 /* Class = "UIButton"; normalTitle = "Update my location"; ObjectID = "RIW-Bk-qx5"; */
 "RIW-Bk-qx5.normalTitle" = "Mettre à jour ma position";
