@@ -26,6 +26,9 @@ final class CurrencyViewController: RootController {
         setupCurrencyPicker(picker: targetCurrencyPickerView, textField: targetCurrencyTextField)
         
         self.navigationItem.title = "navigation_item_title_currency".localized
+        
+        sourceCurrencyTextField.attributedPlaceholder = NSAttributedString(string: "placeholder_sourceCurrencyTextField".localized, attributes: [NSAttributedString.Key.foregroundColor : UIColor.gray.withAlphaComponent(0.8)])
+        targetCurrencyTextField.attributedPlaceholder = NSAttributedString(string: "placeholder_targetCurrencyTextField".localized, attributes: [NSAttributedString.Key.foregroundColor : UIColor.gray.withAlphaComponent(0.8)])
     }
     
     private func setupCurrencyPicker(picker: UIPickerView, textField: UITextField) {
@@ -41,12 +44,13 @@ final class CurrencyViewController: RootController {
             target: self,
             action: nil
         )
-        let doneBarButtonIte = UIBarButtonItem(
+        let doneBarButtonItem = UIBarButtonItem(
             barButtonSystemItem: .done,
             target: self,
             action: #selector(closeKeyboard)
         )
-        toolBar.items = [emptyBarButtonItem, doneBarButtonIte]
+        
+        toolBar.items = [emptyBarButtonItem, doneBarButtonItem]
         
         toolBar.sizeToFit()
         

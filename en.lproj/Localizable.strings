@@ -13,4 +13,5 @@
 "navigation_item_title_weather" = "Weather";
 "navigation_item_title_currency" = "Currency";
 "navigation_item_title_translate" = "Translation";
-
+"placeholder_sourceCurrencyTextField" = "From";
+"placeholder_targetCurrencyTextField" = "To";

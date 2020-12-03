@@ -26,6 +26,8 @@ final class WeatherViewController: RootController {
         updateMyLocationButton.layer.cornerRadius = 30
         
         self.navigationItem.title = "navigation_item_title_weather".localized
+        
+        weatherSearchTextField.attributedPlaceholder = NSAttributedString(string: "Perpignan, Paris...", attributes: [NSAttributedString.Key.foregroundColor : UIColor.gray.withAlphaComponent(0.8)])
     }
 }
 
