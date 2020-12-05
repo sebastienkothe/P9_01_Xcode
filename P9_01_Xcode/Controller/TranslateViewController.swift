@@ -1,13 +1,13 @@
 import UIKit
 
-final class TranslateViewController: RootController {
+final class TranslateViewController: BaseViewController {
     
     // MARK: - Outlets
-    @IBOutlet weak private var translationTextField: UITextField!
     @IBOutlet weak var translateButton: UIButton!
     @IBOutlet weak var translateActivityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var translationResultTextView: UITextView!
     @IBOutlet weak var targetLanguageTextField: UITextField!
+    @IBOutlet weak var translationTextView: UITextView!
     
     
     private let selectionLanguagePickerView = UIPickerView()
@@ -17,6 +17,15 @@ final class TranslateViewController: RootController {
         super.viewDidLoad()
         translateActivityIndicator.isHidden = true
         translateButton.layer.cornerRadius = 30
+        translationTextView.delegate = self
+        
+        translationTextView.addFinishButtonToKeyboard()
+        
+        translationTextView.text = "placeholder_translationTextView".localized
+        translationTextView.textColor = UIColor.gray
+        
+        targetLanguageTextField.attributedPlaceholder = NSAttributedString(string: "placeholder_targetLanguageTextField".localized, attributes: [NSAttributedString.Key.foregroundColor : UIColor.gray])
+        
         
         setupLanguagePicker()
         
@@ -72,7 +81,7 @@ extension TranslateViewController {
     private func handleTheTranslationRequest() {
         let translateNetworkManager = TranslateNetworkManager()
         
-        guard let expression = translationTextField.text else { return }
+        guard let expression = translationTextView.text else { return }
         
         
         translateNetworkManager.fetchTranslationInformationFor(expression: expression, languageCode: selectedLanguage.code, completion: { [weak self] (result) in
@@ -115,18 +124,21 @@ extension TranslateViewController: UIPickerViewDelegate {
 }
 
 // MARK: - Keyboard
-extension TranslateViewController: UITextFieldDelegate {
+extension TranslateViewController: UITextViewDelegate {
     @IBAction private func dismissKeyboard(_ sender: UITapGestureRecognizer) {
-        translationTextField.resignFirstResponder()
+        translationTextView.resignFirstResponder()
     }
     
-    internal func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if textField == translationTextField {
-            //any task to perform
-            
-            // Used to dismiss your keyboard
-            textField.resignFirstResponder()
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.textColor == UIColor.gray {
+            textView.text = nil
         }
-        return true
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.isEmpty {
+            translationTextView.text = "placeholder_translationTextView".localized
+            textView.textColor = UIColor.gray
+        }
     }
 }

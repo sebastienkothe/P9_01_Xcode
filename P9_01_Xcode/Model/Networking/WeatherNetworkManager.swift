@@ -4,10 +4,15 @@ final class WeatherNetworkManager {
     
     // MARK: - Properties
     private let networkManager: NetworkManager
+    private let weatherUrlProvider: WeatherUrlProviderProtocol
     
     // Used to be able to perform dependency injection
-    init(networkManager: NetworkManager = NetworkManager()) {
+    init(
+        networkManager: NetworkManager = NetworkManager(),
+        weatherUrlProvider: WeatherUrlProviderProtocol = WeatherUrlProvider()
+    ) {
         self.networkManager = networkManager
+        self.weatherUrlProvider = weatherUrlProvider
     }
     
     /// Used to get weather information for a city
@@ -19,7 +24,7 @@ final class WeatherNetworkManager {
             return
         }
         
-        guard let url = URLComponents.buildOpenWeatherURL(with: city) else {
+        guard let url = weatherUrlProvider.buildOpenWeatherURL(with: city) else {
             completion(.failure(.failedToCreateURL))
             return
         }
@@ -30,7 +35,7 @@ final class WeatherNetworkManager {
     /// Used to get weather information based on the user's current location
     internal func fetchWeatherInformationForUserLocation(longitude: String, latitude: String, completion: @escaping (Result<WeatherResponse, NetworkError>) -> Void) {
     
-        guard let url = URLComponents.buildOpenWeatherURL(longitude: longitude, latitude: latitude) else {
+        guard let url = weatherUrlProvider.buildOpenWeatherUrl(longitude: longitude, latitude: latitude) else {
             completion(.failure(.failedToCreateURL))
             return
         }

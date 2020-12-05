@@ -75,4 +75,31 @@ class WeatherNetworkManagerTestCase: XCTestCase {
         })
     }
     
+    func testWeatherNetworkManager_fetchWeatherInformationFor_CityWorthNil() {
+        mockSession = createMockSession(fromJsonFile: "WeatherResponse", andStatusCode: 200, andError: nil)
+        subjectUnderTest = WeatherNetworkManager(networkManager: NetworkManager(withSession: mockSession), weatherUrlProvider: WeatherUrlProviderMock())
+        
+        subjectUnderTest.fetchWeatherInformationFor("Anything", completion: {(result) in
+            do {
+                let weatherResponse = try result.get()
+                XCTAssertNil(weatherResponse)
+            } catch {
+                XCTAssertEqual(error as? NetworkError, NetworkError.failedToCreateURL)
+            }
+        })
+    }
+    
+    func testWeatherNetworkManager_fetchWeatherInformationForUserLocation_buildOpenWeatherUrlMustReturnNil() {
+        mockSession = createMockSession(fromJsonFile: "WeatherResponse", andStatusCode: 200, andError: nil)
+        subjectUnderTest = WeatherNetworkManager(networkManager: NetworkManager(withSession: mockSession), weatherUrlProvider: WeatherUrlProviderMock())
+        
+        subjectUnderTest.fetchWeatherInformationForUserLocation(longitude: "Anything", latitude: "Anything", completion: {(result) in
+            do {
+                let weatherResponse = try result.get()
+                XCTAssertNil(weatherResponse)
+            } catch {
+                XCTAssertEqual(error as? NetworkError, NetworkError.failedToCreateURL)
+            }
+        })
+    }
 }

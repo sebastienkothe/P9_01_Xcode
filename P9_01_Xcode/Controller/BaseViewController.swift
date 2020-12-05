@@ -1,5 +1,5 @@
 //
-//  RootController.swift
+//  BaseViewController.swift
 //  P9_01_Xcode
 //
 //  Created by Fanny BANTREIL on 29/10/2020.
@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class RootController: UIViewController {
+class BaseViewController: UIViewController {
     
     /// Used to handle errors from the viewcontrollers
     func handleError(error: NetworkError) {

@@ -15,3 +15,5 @@
 "navigation_item_title_translate" = "Traduction";
 "placeholder_sourceCurrencyTextField" = "De";
 "placeholder_targetCurrencyTextField" = "Vers";
+"placeholder_translationTextView" = "Entrez une phrase à traduire...";
+"placeholder_targetLanguageTextField" = "Sélectionnez la langue cible...";

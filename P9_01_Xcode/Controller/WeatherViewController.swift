@@ -1,7 +1,7 @@
 import UIKit
 import CoreLocation
 
-final class WeatherViewController: RootController {
+final class WeatherViewController: BaseViewController {
     
     // MARK: - Properties
     private let geolocationProvider = GeolocationProvider()
@@ -27,7 +27,7 @@ final class WeatherViewController: RootController {
         
         self.navigationItem.title = "navigation_item_title_weather".localized
         
-        weatherSearchTextField.attributedPlaceholder = NSAttributedString(string: "Perpignan, Paris...", attributes: [NSAttributedString.Key.foregroundColor : UIColor.gray.withAlphaComponent(0.8)])
+        weatherSearchTextField.attributedPlaceholder = NSAttributedString(string: "Perpignan, Paris...", attributes: [NSAttributedString.Key.foregroundColor : UIColor.gray])
     }
 }
 
@@ -46,7 +46,7 @@ extension WeatherViewController {
         let weatherNetworkManager = WeatherNetworkManager()
         
         weatherNetworkManager.fetchWeatherInformationFor(city, completion: { [weak self] (result) in
-            guard let self = self else {return}
+            guard let self = self else { return }
             
             DispatchQueue.main.async {
                 self.toggleActivityIndicator(shown: false, activityIndicator: self.searchAcivityIndicator, button: self.weatherSearchButton)

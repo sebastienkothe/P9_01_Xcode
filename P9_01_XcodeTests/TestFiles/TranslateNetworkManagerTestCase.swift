@@ -68,4 +68,18 @@ class TranslateNetworkManagerTestCase: XCTestCase {
         })
     }
     
+    func testTranslateNetworkManager_fetchTranslationInformationFor_buildGoogleTranslateUrlMustReturnNil() {
+        mockSession = createMockSession(fromJsonFile: "TranslateResponse", andStatusCode: 200, andError: nil)
+        subjectUnderTest = TranslateNetworkManager(networkManager: NetworkManager(withSession: mockSession), translateUrlProvider: TranslateUrlProviderMock())
+        
+        subjectUnderTest.fetchTranslationInformationFor(expression: "Anything", languageCode: "Anything", completion: {(result) in
+            do {
+                let translateResponse = try result.get()
+                XCTAssertNil(translateResponse)
+            } catch {
+                XCTAssertEqual(error as? NetworkError, NetworkError.failedToCreateURL)
+            }
+        })
+    }
+    
 }

@@ -1,6 +1,6 @@
 import UIKit
 
-final class CurrencyViewController: RootController {
+final class CurrencyViewController: BaseViewController {
     
     // MARK: - IBOutlets
     @IBOutlet weak private var currencyTextField: UITextField!
@@ -27,8 +27,8 @@ final class CurrencyViewController: RootController {
         
         self.navigationItem.title = "navigation_item_title_currency".localized
         
-        sourceCurrencyTextField.attributedPlaceholder = NSAttributedString(string: "placeholder_sourceCurrencyTextField".localized, attributes: [NSAttributedString.Key.foregroundColor : UIColor.gray.withAlphaComponent(0.8)])
-        targetCurrencyTextField.attributedPlaceholder = NSAttributedString(string: "placeholder_targetCurrencyTextField".localized, attributes: [NSAttributedString.Key.foregroundColor : UIColor.gray.withAlphaComponent(0.8)])
+        sourceCurrencyTextField.attributedPlaceholder = NSAttributedString(string: "placeholder_sourceCurrencyTextField".localized, attributes: [NSAttributedString.Key.foregroundColor : UIColor.gray])
+        targetCurrencyTextField.attributedPlaceholder = NSAttributedString(string: "placeholder_targetCurrencyTextField".localized, attributes: [NSAttributedString.Key.foregroundColor : UIColor.gray])
     }
     
     private func setupCurrencyPicker(picker: UIPickerView, textField: UITextField) {

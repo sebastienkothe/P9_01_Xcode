@@ -15,3 +15,5 @@
 "navigation_item_title_translate" = "Translation";
 "placeholder_sourceCurrencyTextField" = "From";
 "placeholder_targetCurrencyTextField" = "To";
+"placeholder_translationTextView" = "Enter a sentence to translate...";
+"placeholder_targetLanguageTextField" = "Select target language...";

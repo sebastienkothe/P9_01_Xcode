@@ -53,4 +53,18 @@ class CurrencyNetworkManagerTestCase: XCTestCase {
         })
     }
     
+    func testCurrencyNetworkManager_fetchCurrencyInformation_buildFixerUrlMustReturnNil() {
+        mockSession = createMockSession(fromJsonFile: "CurrencyResponse", andStatusCode: 200, andError: nil)
+        subjectUnderTest = CurrencyNetworkManager(networkManager: NetworkManager(withSession: mockSession), currencyUrlProvider: CurrencyUrlProviderMock())
+        
+        subjectUnderTest.fetchCurrencyInformation(completion: {(result) in
+            do {
+                let currencyResponse = try result.get()
+                XCTAssertNil(currencyResponse)
+            } catch {
+                XCTAssertEqual(error as? NetworkError, NetworkError.failedToCreateURL)
+            }
+        })
+    }
+    
 }
