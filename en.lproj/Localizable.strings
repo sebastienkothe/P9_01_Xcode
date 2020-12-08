@@ -17,3 +17,4 @@
 "placeholder_targetCurrencyTextField" = "To";
 "placeholder_translationTextView" = "Enter a sentence to translate...";
 "placeholder_targetLanguageTextField" = "Select target language...";
+"placeholder_currencyTextView" = "Amount";

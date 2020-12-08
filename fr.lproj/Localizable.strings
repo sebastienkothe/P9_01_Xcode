@@ -17,3 +17,4 @@
 "placeholder_targetCurrencyTextField" = "Vers";
 "placeholder_translationTextView" = "Entrez une phrase à traduire...";
 "placeholder_targetLanguageTextField" = "Sélectionnez la langue cible...";
+"placeholder_currencyTextView" = "Montant";

@@ -1,3 +1,5 @@
+// Encoded data from the Google Translate API
+
 struct TranslateResponse: Codable {
     var data: TranslationData
 }
@@ -8,5 +10,4 @@ struct TranslationData: Codable {
 
 struct Translations: Codable {
     var translatedText: String
-    var detectedSourceLanguage: String
 }

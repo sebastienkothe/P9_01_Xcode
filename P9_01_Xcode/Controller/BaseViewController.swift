@@ -24,4 +24,9 @@ class BaseViewController: UIViewController {
         activityIndicator.isHidden = !shown
         button.isHidden = shown
     }
+    
+    /// Used to set up the placeholder from the textField
+    func setUpPlaceholderFrom(_ textField: UITextField, placeholderString: String) {
+        textField.attributedPlaceholder = NSAttributedString(string: placeholderString.localized, attributes: [NSAttributedString.Key.foregroundColor : UIColor.gray])
+    }
 }

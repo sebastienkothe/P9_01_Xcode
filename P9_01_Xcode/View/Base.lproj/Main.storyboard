@@ -67,7 +67,7 @@
                                             <outlet property="delegate" destination="EXp-gn-jEo" id="yfo-Zb-YpH"/>
                                         </connections>
                                     </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WOC-gn-Myf">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WOC-gn-Myf">
                                         <rect key="frame" x="0.0" y="46" width="280" height="0.0"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
@@ -103,14 +103,15 @@
                                     <action selector="didTapOnSearchButton" destination="EXp-gn-jEo" eventType="touchUpInside" id="Grd-aG-tkg"/>
                                 </connections>
                             </button>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="mnV-2w-enk">
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="mnV-2w-enk">
                                 <rect key="frame" x="141.5" y="131.5" width="37" height="37"/>
+                                <color key="color" systemColor="systemYellowColor"/>
                             </activityIndicatorView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="905-CQ-QXR">
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="905-CQ-QXR">
                                 <rect key="frame" x="141.5" y="450.5" width="37" height="37"/>
                                 <color key="color" systemColor="systemYellowColor"/>
                             </activityIndicatorView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j7m-Ol-OoZ">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j7m-Ol-OoZ">
                                 <rect key="frame" x="20" y="429" width="280" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -188,11 +189,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="BXf-ch-htv">
-                                <rect key="frame" x="20" y="54" width="280" height="116"/>
+                                <rect key="frame" x="20" y="54" width="280" height="323"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="From" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="VSR-my-M12" userLabel="From">
                                         <rect key="frame" x="0.0" y="0.0" width="280" height="34"/>
                                         <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="34" id="mva-5M-lZe"/>
+                                        </constraints>
                                         <color key="textColor" systemColor="systemGrayColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -204,31 +208,30 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="🔢" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="Jaz-3s-1ML" userLabel="Amount">
-                                        <rect key="frame" x="0.0" y="86" width="280" height="30"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="yRA-St-oSZ">
+                                        <rect key="frame" x="0.0" y="86" width="280" height="34"/>
                                         <color key="backgroundColor" systemColor="systemGray5Color"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="iG6-jq-Z5p"/>
-                                        </constraints>
                                         <color key="textColor" systemColor="systemGrayColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardType="numberPad"/>
                                         <connections>
-                                            <outlet property="delegate" destination="QBn-Jr-a9r" id="nPO-Jr-cnT"/>
+                                            <outlet property="delegate" destination="QBn-Jr-a9r" id="VvP-zg-UBF"/>
                                         </connections>
-                                    </textField>
+                                    </textView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Pi-0h-C1K">
+                                        <rect key="frame" x="0.0" y="129" width="280" height="194"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="textColor" systemColor="labelColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
                                 </subviews>
-                            </stackView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Pi-0h-C1K">
-                                <rect key="frame" x="20" y="180" width="280" height="100"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="23U-Ff-aYl"/>
+                                    <constraint firstItem="yRA-St-oSZ" firstAttribute="height" secondItem="VSR-my-M12" secondAttribute="height" id="Bq0-ca-yDB"/>
+                                    <constraint firstAttribute="height" constant="323" id="f3h-Ky-6OF"/>
+                                    <constraint firstItem="TCj-ix-aqq" firstAttribute="height" secondItem="VSR-my-M12" secondAttribute="height" id="iJn-Ys-TfQ"/>
                                 </constraints>
-                                <color key="textColor" systemColor="labelColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
+                            </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QfK-e6-i6r" userLabel="Convert Button">
                                 <rect key="frame" x="20" y="439" width="280" height="60"/>
                                 <color key="backgroundColor" systemColor="systemYellowColor"/>
@@ -240,10 +243,10 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="didTapOnSearchButton" destination="QBn-Jr-a9r" eventType="touchUpInside" id="76e-6Z-1yw"/>
+                                    <action selector="didTapOnConvertButton" destination="QBn-Jr-a9r" eventType="touchUpInside" id="76e-6Z-1yw"/>
                                 </connections>
                             </button>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Fn2-Oa-L9F">
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Fn2-Oa-L9F">
                                 <rect key="frame" x="141.5" y="450.5" width="37" height="37"/>
                                 <color key="color" systemColor="systemYellowColor"/>
                             </activityIndicatorView>
@@ -252,10 +255,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="1Pi-0h-C1K" firstAttribute="top" secondItem="BXf-ch-htv" secondAttribute="bottom" constant="10" id="0LK-9H-86S"/>
                             <constraint firstItem="3zx-2R-XK0" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="QfK-e6-i6r" secondAttribute="trailing" constant="20" id="8MU-8u-uoa"/>
-                            <constraint firstItem="1Pi-0h-C1K" firstAttribute="leading" secondItem="3zx-2R-XK0" secondAttribute="leading" constant="20" id="AcU-qS-zfF"/>
-                            <constraint firstItem="3zx-2R-XK0" firstAttribute="trailing" secondItem="1Pi-0h-C1K" secondAttribute="trailing" constant="20" id="B1i-tP-yVl"/>
                             <constraint firstItem="BXf-ch-htv" firstAttribute="top" secondItem="3zx-2R-XK0" secondAttribute="top" constant="10" id="PsK-ky-VYT"/>
                             <constraint firstItem="Fn2-Oa-L9F" firstAttribute="centerX" secondItem="QfK-e6-i6r" secondAttribute="centerX" id="QwZ-3p-K1v"/>
                             <constraint firstItem="Fn2-Oa-L9F" firstAttribute="centerY" secondItem="QfK-e6-i6r" secondAttribute="centerY" id="U6N-F1-oCX"/>
@@ -271,7 +271,7 @@
                     <navigationItem key="navigationItem" id="fiw-ei-F9c"/>
                     <connections>
                         <outlet property="conversionResultTextView" destination="1Pi-0h-C1K" id="3Fl-hX-hTt"/>
-                        <outlet property="currencyTextField" destination="Jaz-3s-1ML" id="2ii-Cj-Qxt"/>
+                        <outlet property="currencyTextView" destination="yRA-St-oSZ" id="Uhv-nf-DO1"/>
                         <outlet property="searchActivityIndicator" destination="Fn2-Oa-L9F" id="MpQ-e9-40n"/>
                         <outlet property="searchButton" destination="QfK-e6-i6r" id="PmR-7e-jmJ"/>
                         <outlet property="sourceCurrencyTextField" destination="VSR-my-M12" id="oX6-3t-CUn"/>
@@ -302,7 +302,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FPU-Xm-Xaa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-223" y="602"/>
+            <point key="canvasLocation" x="-259" y="575"/>
         </scene>
         <!--Translate View Controller-->
         <scene sceneID="LQ9-d0-eo2">
@@ -312,7 +312,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="PbW-g4-FRS">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="PbW-g4-FRS" userLabel="Translation Stack View">
                                 <rect key="frame" x="20" y="54" width="280" height="300"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="SM3-f4-T2G">
@@ -326,7 +326,7 @@
                                                 <rect key="frame" x="40" y="0.0" width="240" height="100"/>
                                                 <color key="backgroundColor" systemColor="systemGray5Color"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="100" id="3UD-sZ-R3Q"/>
+                                                    <constraint firstAttribute="height" constant="100" identifier="height of the view of the text field to translate" id="3UD-sZ-R3Q"/>
                                                 </constraints>
                                                 <color key="textColor" systemColor="systemGrayColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -345,7 +345,7 @@
                                                 <rect key="frame" x="40" y="0.0" width="240" height="50"/>
                                                 <color key="backgroundColor" systemColor="systemGray5Color"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="50" id="gpo-KH-1AJ"/>
+                                                    <constraint firstAttribute="height" constant="50" identifier="height of the desired language selection view" id="gpo-KH-1AJ"/>
                                                 </constraints>
                                                 <color key="textColor" systemColor="systemGrayColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -364,7 +364,7 @@
                                                 <rect key="frame" x="40" y="0.0" width="240" height="100"/>
                                                 <color key="backgroundColor" systemColor="systemGray5Color"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="100" id="m5G-qn-4mb"/>
+                                                    <constraint firstAttribute="height" constant="100" identifier="height of the view of the translated field" id="m5G-qn-4mb"/>
                                                 </constraints>
                                                 <color key="textColor" systemColor="systemGrayColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -378,7 +378,7 @@
                                 <rect key="frame" x="20" y="439" width="280" height="60"/>
                                 <color key="backgroundColor" systemColor="systemYellowColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="O9n-Ty-7m6"/>
+                                    <constraint firstAttribute="height" constant="60" identifier="height of the &quot;translate&quot; button" id="O9n-Ty-7m6"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="28"/>
                                 <state key="normal" title="Translate">
@@ -388,7 +388,7 @@
                                     <action selector="didTapOnTranslateButton" destination="lO3-6c-dbe" eventType="touchUpInside" id="hsv-84-V2K"/>
                                 </connections>
                             </button>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="PxD-1g-Y9N">
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="PxD-1g-Y9N">
                                 <rect key="frame" x="141.5" y="450.5" width="37" height="37"/>
                                 <color key="color" systemColor="systemYellowColor"/>
                             </activityIndicatorView>
@@ -397,14 +397,14 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="PbW-g4-FRS" firstAttribute="top" secondItem="Zkl-LF-vGi" secondAttribute="top" constant="10" id="1Pp-KS-hzQ"/>
-                            <constraint firstItem="Zkl-LF-vGi" firstAttribute="trailing" secondItem="PbW-g4-FRS" secondAttribute="trailing" constant="20" id="22i-Tr-HA7"/>
-                            <constraint firstItem="fVf-9l-PNt" firstAttribute="leading" secondItem="PbW-g4-FRS" secondAttribute="leading" id="3E2-nN-K5j"/>
-                            <constraint firstItem="fVf-9l-PNt" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="PbW-g4-FRS" secondAttribute="trailing" id="HLY-vx-fuk"/>
-                            <constraint firstItem="PbW-g4-FRS" firstAttribute="leading" secondItem="Zkl-LF-vGi" secondAttribute="leading" constant="20" id="OYr-o5-rt7"/>
-                            <constraint firstItem="PxD-1g-Y9N" firstAttribute="centerY" secondItem="fVf-9l-PNt" secondAttribute="centerY" id="cDQ-zO-6rH"/>
-                            <constraint firstItem="PxD-1g-Y9N" firstAttribute="centerX" secondItem="fVf-9l-PNt" secondAttribute="centerX" id="fUa-Eg-uaZ"/>
-                            <constraint firstItem="Zkl-LF-vGi" firstAttribute="bottom" secondItem="fVf-9l-PNt" secondAttribute="bottom" constant="20" id="tvY-WQ-8X4"/>
+                            <constraint firstItem="PbW-g4-FRS" firstAttribute="top" secondItem="Zkl-LF-vGi" secondAttribute="top" constant="10" identifier="distance between the top of &quot;translation stack view&quot; and the safe area" id="1Pp-KS-hzQ"/>
+                            <constraint firstItem="Zkl-LF-vGi" firstAttribute="trailing" secondItem="PbW-g4-FRS" secondAttribute="trailing" constant="20" identifier="distance between the right side of &quot;translate stack view&quot; and the secure area" id="22i-Tr-HA7"/>
+                            <constraint firstItem="fVf-9l-PNt" firstAttribute="leading" secondItem="PbW-g4-FRS" secondAttribute="leading" identifier="distance between the left side of &quot;translate&quot; button and the left side of &quot;translation stack view&quot;" id="3E2-nN-K5j"/>
+                            <constraint firstItem="fVf-9l-PNt" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="PbW-g4-FRS" secondAttribute="trailing" identifier="distance between the right side of &quot;translate&quot; button and the right side of &quot;translation stack view&quot;" id="HLY-vx-fuk"/>
+                            <constraint firstItem="PbW-g4-FRS" firstAttribute="leading" secondItem="Zkl-LF-vGi" secondAttribute="leading" constant="20" identifier="distance between the left side of &quot;translation stack view&quot; and the safe area" id="OYr-o5-rt7"/>
+                            <constraint firstItem="PxD-1g-Y9N" firstAttribute="centerY" secondItem="fVf-9l-PNt" secondAttribute="centerY" identifier="&quot;Translate Activity indicator&quot; center Y equal to &quot;Translate button&quot; center Y" id="cDQ-zO-6rH"/>
+                            <constraint firstItem="PxD-1g-Y9N" firstAttribute="centerX" secondItem="fVf-9l-PNt" secondAttribute="centerX" identifier="&quot;Translate Activity indicator&quot; center X equal to &quot;Translate button&quot; center X" id="fUa-Eg-uaZ"/>
+                            <constraint firstItem="Zkl-LF-vGi" firstAttribute="bottom" secondItem="fVf-9l-PNt" secondAttribute="bottom" constant="20" identifier="distance between the &quot;translate&quot; button and the safe area" id="tvY-WQ-8X4"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="PXD-X3-k76" appends="YES" id="eOp-EB-mze"/>

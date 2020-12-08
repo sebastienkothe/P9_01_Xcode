@@ -24,7 +24,7 @@
 "QfK-e6-i6r.normalTitle" = "Convertir";
 
 /* Class = "UIButton"; normalTitle = "Update my location"; ObjectID = "RIW-Bk-qx5"; */
-"RIW-Bk-qx5.normalTitle" = "Mettre à jour ma position";
+"RIW-Bk-qx5.normalTitle" = "Géolocalisation";
 
 /* Class = "UILabel"; text = "Meteorological information the selected location"; ObjectID = "WOC-gn-Myf"; */
 "WOC-gn-Myf.text" = "Informations météorologiques de l'emplacement sélectionné";

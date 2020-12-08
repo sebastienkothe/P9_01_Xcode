@@ -5,7 +5,7 @@ enum Language: CaseIterable {
     case Arabe
     case Afrikaans
     
-    var displayNane: String {
+    var displayName: String {
         switch self {
         
         case .Français: return "Français"

@@ -3,7 +3,7 @@ import UIKit
 final class CurrencyViewController: BaseViewController {
     
     // MARK: - IBOutlets
-    @IBOutlet weak private var currencyTextField: UITextField!
+    @IBOutlet weak private var currencyTextView: UITextView!
     @IBOutlet weak private var conversionResultTextView: UITextView!
     @IBOutlet weak var searchActivityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var searchButton: UIButton!
@@ -17,18 +17,21 @@ final class CurrencyViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        searchActivityIndicator.isHidden = true
-        searchButton.layer.cornerRadius = 30
-        currencyTextField.addFinishButtonToKeyboard()
         
+        searchButton.layer.cornerRadius = 30
+        
+        currencyTextView.text = "placeholder_currencyTextView".localized
+        currencyTextView.textColor = UIColor.gray
+        currencyTextView.layer.cornerRadius = 5
+        currencyTextView.addFinishButtonToKeyboard()
+        
+        self.navigationItem.title = "navigation_item_title_currency".localized
         
         setupCurrencyPicker(picker: sourceCurrencyPickerView, textField: sourceCurrencyTextField)
         setupCurrencyPicker(picker: targetCurrencyPickerView, textField: targetCurrencyTextField)
         
-        self.navigationItem.title = "navigation_item_title_currency".localized
-        
-        sourceCurrencyTextField.attributedPlaceholder = NSAttributedString(string: "placeholder_sourceCurrencyTextField".localized, attributes: [NSAttributedString.Key.foregroundColor : UIColor.gray])
-        targetCurrencyTextField.attributedPlaceholder = NSAttributedString(string: "placeholder_targetCurrencyTextField".localized, attributes: [NSAttributedString.Key.foregroundColor : UIColor.gray])
+        setUpPlaceholderFrom(sourceCurrencyTextField, placeholderString: "placeholder_sourceCurrencyTextField")
+        setUpPlaceholderFrom(targetCurrencyTextField, placeholderString: "placeholder_targetCurrencyTextField")
     }
     
     private func setupCurrencyPicker(picker: UIPickerView, textField: UITextField) {
@@ -77,63 +80,60 @@ final class CurrencyViewController: BaseViewController {
 
 // MARK: - Exchange rate
 extension CurrencyViewController {
-    @IBAction private func didTapOnSearchButton() {
-        guard let amount =
-                currencyTextField.text?.trimmingCharacters(in: .whitespaces) else { return }
-        
-        // Used to handle the case where the text field is empty
-        guard amount != "" else {
+    @IBAction private func didTapOnConvertButton() {
+        guard let amount = currencyTextView.text else { return }
+        guard amount != "placeholder_currencyTextView".localized else {
             handleError(error: .emptyTextField)
             return
         }
-        
-        guard let convertedAmount = Double(amount) else { return }
-        
-        // To show the activity indicator and hide the button
-        toggleActivityIndicator(shown: true, activityIndicator: searchActivityIndicator, button: searchButton)
-        handleTheExchangeRateRequest(convertedAmount: convertedAmount)
-    }
     
-    private func handleTheExchangeRateRequest(convertedAmount: Double) {
-        let currencyNetworkManager = CurrencyNetworkManager()
+    guard let convertedAmount = Double(amount) else { return }
+    
+    // To show the activity indicator and hide the button
+    toggleActivityIndicator(shown: true, activityIndicator: searchActivityIndicator, button: searchButton)
+    handleTheExchangeRateRequest(convertedAmount: convertedAmount)
+}
+
+private func handleTheExchangeRateRequest(convertedAmount: Double) {
+    let currencyNetworkManager = CurrencyNetworkManager()
+    
+    currencyNetworkManager.fetchCurrencyInformation(completion: { [weak self] (result) in
+        guard let self = self else {return}
         
-        currencyNetworkManager.fetchCurrencyInformation(completion: { [weak self] (result) in
-            guard let self = self else {return}
+        DispatchQueue.main.async {
+            self.toggleActivityIndicator(shown: false, activityIndicator: self.searchActivityIndicator, button: self.searchButton)
             
-            DispatchQueue.main.async {
-                self.toggleActivityIndicator(shown: false, activityIndicator: self.searchActivityIndicator, button: self.searchButton)
+            switch result {
+            case .failure(let error):
+                self.handleError(error: error)
                 
-                switch result {
-                case .failure(let error):
-                    self.handleError(error: error)
-                    
-                case .success(let response):
-                    
-                    let sourceCurrency = self.getTheSelectedCurrency(serverResponse: response, pickerView: self.sourceCurrencyPickerView)
-                    
-                    let targetCurrency = self.getTheSelectedCurrency(serverResponse: response, pickerView: self.targetCurrencyPickerView)
-                    
-                    guard let sourceCurrencyAsDouble = sourceCurrency as? Double else {return}
-                    guard let targetCurrencyAsDouble = targetCurrency as? Double else {return}
-                    
-                    let result = self.currencyConverter.getTheConversionResult(sourceCurrency: sourceCurrencyAsDouble, targetCurrency: targetCurrencyAsDouble, amount: convertedAmount)
-                    guard let resultUnwrapped = result else { return }
-                    
-                    let currencyTargetSymbol = self.selectedTargetCurrency.symbol
-                    let currencySourceSymbol = self.selectedSourceCurrency.symbol
-                    
-                    self.conversionResultTextView.text =
-                        "\(convertedAmount)\(currencySourceSymbol) = \(resultUnwrapped)\(currencyTargetSymbol)"
-                }
+            case .success(let response):
+                
+                let sourceCurrency = self.getTheSelectedCurrency(serverResponse: response, pickerView: self.sourceCurrencyPickerView)
+                
+                let targetCurrency = self.getTheSelectedCurrency(serverResponse: response, pickerView: self.targetCurrencyPickerView)
+                
+                guard let sourceCurrencyAsDouble = sourceCurrency as? Double else {return}
+                guard let targetCurrencyAsDouble = targetCurrency as? Double else {return}
+                
+                let result = self.currencyConverter.getTheConversionResult(sourceCurrency: sourceCurrencyAsDouble, targetCurrency: targetCurrencyAsDouble, amount: convertedAmount)
+                guard let resultUnwrapped = result else { return }
+                
+                let currencyTargetSymbol = self.selectedTargetCurrency.symbol
+                let currencySourceSymbol = self.selectedSourceCurrency.symbol
+                
+                self.conversionResultTextView.text =
+                    "\(convertedAmount)\(currencySourceSymbol) = \(resultUnwrapped)\(currencyTargetSymbol)"
             }
-        })
-    }
-    
-    /// Used to get the selected currency
-    private func getTheSelectedCurrency(serverResponse: CurrencyResponse, pickerView: UIPickerView) -> Any? {
-        let selectedCurrency = serverResponse.rates[Currency.allCases[pickerView.selectedRow(inComponent: 0)].code]
-        return selectedCurrency
-    }
+        }
+    })
+}
+
+/// Used to get the selected currency
+private func getTheSelectedCurrency(serverResponse: CurrencyResponse, pickerView: UIPickerView) -> Any? {
+    let selectedCurrency = serverResponse.rates[Currency.allCases[pickerView.selectedRow(inComponent: 0)].code]
+    return selectedCurrency
+}
 }
 
 // MARK: - PickerView
@@ -162,20 +162,23 @@ extension CurrencyViewController: UIPickerViewDelegate {
 }
 
 // MARK: - Keyboard
-extension CurrencyViewController: UITextFieldDelegate {
+extension CurrencyViewController: UITextViewDelegate {
     
     @IBAction private func dismissKeyboard(_ sender: UITapGestureRecognizer) {
-        currencyTextField.resignFirstResponder()
+        currencyTextView.resignFirstResponder()
     }
     
-    internal func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if textField == currencyTextField {
-            //any task to perform
-            
-            // Used to dismiss your keyboard
-            textField.resignFirstResponder()
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.text == "placeholder_currencyTextView".localized {
+            textView.text = nil
         }
-        return true
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.isEmpty {
+            currencyTextView.text = "placeholder_currencyTextView".localized
+            textView.textColor = UIColor.gray
+        }
     }
 }
 

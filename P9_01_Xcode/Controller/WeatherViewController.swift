@@ -17,17 +17,15 @@ final class WeatherViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         geolocationProvider.delegate = self
         
-        // Default values for the interface
-        searchAcivityIndicator.isHidden = true
-        updateLocationActivityIndicator.isHidden = true
         weatherSearchButton.layer.cornerRadius = 30
         updateMyLocationButton.layer.cornerRadius = 30
         
         self.navigationItem.title = "navigation_item_title_weather".localized
         
-        weatherSearchTextField.attributedPlaceholder = NSAttributedString(string: "Perpignan, Paris...", attributes: [NSAttributedString.Key.foregroundColor : UIColor.gray])
+        setUpPlaceholderFrom(weatherSearchTextField, placeholderString: "Perpignan, Paris...")
     }
 }
 

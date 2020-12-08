@@ -15,21 +15,19 @@ final class TranslateViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        translateActivityIndicator.isHidden = true
-        translateButton.layer.cornerRadius = 30
+        
         translationTextView.delegate = self
-        
-        translationTextView.addFinishButtonToKeyboard()
-        
         translationTextView.text = "placeholder_translationTextView".localized
         translationTextView.textColor = UIColor.gray
+        translationTextView.addFinishButtonToKeyboard()
         
-        targetLanguageTextField.attributedPlaceholder = NSAttributedString(string: "placeholder_targetLanguageTextField".localized, attributes: [NSAttributedString.Key.foregroundColor : UIColor.gray])
-        
-        
-        setupLanguagePicker()
+        translateButton.layer.cornerRadius = 30
         
         self.navigationItem.title = "navigation_item_title_translate".localized
+        
+        setUpPlaceholderFrom(targetLanguageTextField, placeholderString: "placeholder_targetLanguageTextField")
+        
+        setupLanguagePicker()
     }
     
     private func setupLanguagePicker() {
@@ -40,17 +38,19 @@ final class TranslateViewController: BaseViewController {
         
         let toolBar = UIToolbar()
         
-        let enptyBarButtonIte = UIBarButtonItem(
+        let emptyBarButtonItem = UIBarButtonItem(
             barButtonSystemItem: .flexibleSpace,
             target: self,
             action: nil
         )
-        let doneBarButtonIte = UIBarButtonItem(
+        
+        let doneBarButtonItem = UIBarButtonItem(
             barButtonSystemItem: .done,
             target: self,
             action: #selector(closeKeyboard)
         )
-        toolBar.items = [enptyBarButtonIte, doneBarButtonIte]
+        
+        toolBar.items = [emptyBarButtonItem, doneBarButtonItem]
         
         toolBar.sizeToFit()
         
@@ -63,7 +63,7 @@ final class TranslateViewController: BaseViewController {
     
     var selectedLanguage: Language = .Afrikaans {
         didSet {
-            targetLanguageTextField.text = selectedLanguage.displayNane
+            targetLanguageTextField.text = selectedLanguage.displayName
         }
     }
 }
@@ -72,19 +72,22 @@ final class TranslateViewController: BaseViewController {
 extension TranslateViewController {
     @IBAction private func didTapOnTranslateButton() {
         
+        guard let textToTranslate = translationTextView.text else { return }
+        guard textToTranslate != "placeholder_translationTextView".localized else {
+            handleError(error: .emptyTextField)
+            return
+        }
+        
         // To show the activity indicator and hide the button
         toggleActivityIndicator(shown: true, activityIndicator: translateActivityIndicator, button: translateButton)
-        handleTheTranslationRequest()
+        handleTheTranslationRequestFrom(textToTranslate)
     }
     
     /// Used to handle the translation request
-    private func handleTheTranslationRequest() {
+    private func handleTheTranslationRequestFrom(_ textToTranslate: String) {
         let translateNetworkManager = TranslateNetworkManager()
         
-        guard let expression = translationTextView.text else { return }
-        
-        
-        translateNetworkManager.fetchTranslationInformationFor(expression: expression, languageCode: selectedLanguage.code, completion: { [weak self] (result) in
+        translateNetworkManager.fetchTranslationInformationFor(expression: textToTranslate, languageCode: selectedLanguage.code, completion: { [weak self] (result) in
             guard let self = self else {return}
             
             DispatchQueue.main.async {
@@ -113,7 +116,7 @@ extension TranslateViewController: UIPickerViewDataSource {
     }
     
     internal func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return Language.allCases[row].displayNane
+        return Language.allCases[row].displayName
     }
 }
 
@@ -130,13 +133,13 @@ extension TranslateViewController: UITextViewDelegate {
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
-        if textView.textColor == UIColor.gray {
+        if textView.text == "placeholder_translationTextView".localized {
             textView.text = nil
         }
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
-        if textView.text.isEmpty {
+        if textView.text.trimmingCharacters(in: .whitespaces).isEmpty {
             translationTextView.text = "placeholder_translationTextView".localized
             textView.textColor = UIColor.gray
         }
