@@ -6,6 +6,7 @@ enum NetworkError: Error, CaseIterable {
     case emptyTextField
     case incorrectHttpResponseCode
     case locationServiceDisabled
+    case noLanguageSelected
     
     var title: String {
         switch self {
@@ -16,6 +17,7 @@ enum NetworkError: Error, CaseIterable {
         case .emptyTextField: return "error_empty_textfield_title".localized
         case .incorrectHttpResponseCode: return "error_incorrect_http_response_code_title".localized
         case .locationServiceDisabled: return "error_location_service_disabled_title".localized
+        case .noLanguageSelected: return "error_no_language_selected".localized
         }
     }
 }

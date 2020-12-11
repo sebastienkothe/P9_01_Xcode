@@ -7,9 +7,6 @@
 "error_location_service_disabled_title" = "The location service is disabled";
 "error_message" = "ERROR";
 "validation_message" = "Alright!";
-"close_keyboard_button_title" = "Close";
-"detected_source_language_title" = "Detected source language";
-"translated_text_title" = "Translated text";
 "navigation_item_title_weather" = "Weather";
 "navigation_item_title_currency" = "Currency";
 "navigation_item_title_translate" = "Translation";
@@ -18,3 +15,4 @@
 "placeholder_translationTextView" = "Enter a sentence to translate...";
 "placeholder_targetLanguageTextField" = "Select target language...";
 "placeholder_currencyTextView" = "Amount";
+"error_no_language_selected" = "No language selected";

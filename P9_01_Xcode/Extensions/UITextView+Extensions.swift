@@ -11,23 +11,36 @@ import UIKit
 
 extension UITextView {
     
-    /// Used to add a "finish" button to the keyboard
-    func addFinishButtonToKeyboard() {
+    /// Used to add a "Done" button to the keyboard
+    func addDoneButtonToKeyboard() {
         
         // ToolBar config
-        let toolBar = UIToolbar(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 40))
-        toolBar.tintColor = .systemYellow
-        toolBar.barStyle = .blackTranslucent
+        let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 35))
         
-        // Finish button
-        let finishButton = UIBarButtonItem(title: "close_keyboard_button_title".localized, style: .done, target: self, action: #selector(self.closeTheKeyboard))
-        toolBar.setItems([finishButton], animated: true)
-        toolBar.sizeToFit()
         
-        self.inputAccessoryView = toolBar
+        let emptyBarButtonItem = UIBarButtonItem(
+            barButtonSystemItem: .flexibleSpace,
+            target: self,
+            action: nil
+        )
+        
+        // Done button
+        let doneBarButtonItem = UIBarButtonItem(
+            barButtonSystemItem: .done,
+            target: self,
+            action: #selector(closeKeyboard)
+        )
+        
+        doneBarButtonItem.tintColor = .systemYellow
+        
+        toolbar.items = [emptyBarButtonItem, doneBarButtonItem]
+        toolbar.sizeToFit()
+        
+        self.inputAccessoryView = toolbar
     }
     
-    @objc func closeTheKeyboard()
+    /// Used to close the keyboard
+    @objc func closeKeyboard()
     {
         self.resignFirstResponder()
     }

@@ -16,6 +16,7 @@ class CurrencyConverter {
         return numberFormatter
     }()
     
+    /// Used to get the result of the conversion
     func getTheConversionResult(sourceCurrency: Double, targetCurrency: Double, amount: Double) -> String? {
         var result: Double
         
@@ -23,6 +24,7 @@ class CurrencyConverter {
         return formatTheConversionResult(result)
     }
     
+    /// Used to format the result of the conversion
     private func formatTheConversionResult(_ result: Double) -> String? {
         let resultAsNSNumber = NSNumber(value: result)
         let formattedResultAsString = numberFormatter.string(from: resultAsNSNumber)

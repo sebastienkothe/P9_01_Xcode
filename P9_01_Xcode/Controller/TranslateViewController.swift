@@ -19,7 +19,7 @@ final class TranslateViewController: BaseViewController {
         translationTextView.delegate = self
         translationTextView.text = "placeholder_translationTextView".localized
         translationTextView.textColor = UIColor.gray
-        translationTextView.addFinishButtonToKeyboard()
+        translationTextView.addDoneButtonToKeyboard()
         
         translateButton.layer.cornerRadius = 30
         
@@ -36,7 +36,7 @@ final class TranslateViewController: BaseViewController {
         
         targetLanguageTextField.inputView = selectionLanguagePickerView
         
-        let toolBar = UIToolbar()
+        let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 35))
         
         let emptyBarButtonItem = UIBarButtonItem(
             barButtonSystemItem: .flexibleSpace,
@@ -50,11 +50,13 @@ final class TranslateViewController: BaseViewController {
             action: #selector(closeKeyboard)
         )
         
-        toolBar.items = [emptyBarButtonItem, doneBarButtonItem]
+        doneBarButtonItem.tintColor = .systemYellow
         
-        toolBar.sizeToFit()
+        toolbar.items = [emptyBarButtonItem, doneBarButtonItem]
         
-        targetLanguageTextField.inputAccessoryView = toolBar
+        toolbar.sizeToFit()
+        
+        targetLanguageTextField.inputAccessoryView = toolbar
     }
     
     @objc private func closeKeyboard() {
@@ -72,15 +74,19 @@ final class TranslateViewController: BaseViewController {
 extension TranslateViewController {
     @IBAction private func didTapOnTranslateButton() {
         
-        guard let textToTranslate = translationTextView.text else { return }
-        guard textToTranslate != "placeholder_translationTextView".localized else {
+        guard targetLanguageTextField.text != "placeholder_targetLanguageTextField".localized, targetLanguageTextField.text != "".trimmingCharacters(in: .whitespaces) else {
+            return
+                handleError(error: .noLanguageSelected)
+        }
+        
+        guard translationTextView.text != "placeholder_translationTextView".localized, translationTextView.text != "".trimmingCharacters(in: .whitespaces) else {
             handleError(error: .emptyTextField)
             return
         }
         
         // To show the activity indicator and hide the button
         toggleActivityIndicator(shown: true, activityIndicator: translateActivityIndicator, button: translateButton)
-        handleTheTranslationRequestFrom(textToTranslate)
+        handleTheTranslationRequestFrom(translationTextView.text)
     }
     
     /// Used to handle the translation request

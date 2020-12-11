@@ -7,9 +7,6 @@
 "error_location_service_disabled_title" = "Le service de localisation est désactivé";
 "error_message" = "ERREUR";
 "validation_message" = "Entendu!";
-"close_keyboard_button_title" = "Fermer";
-"detected_source_language_title" = "Langue source détectée";
-"translated_text_title" = "Texte traduit";
 "navigation_item_title_weather" = "Météo";
 "navigation_item_title_currency" = "Devise";
 "navigation_item_title_translate" = "Traduction";
@@ -18,3 +15,4 @@
 "placeholder_translationTextView" = "Entrez une phrase à traduire...";
 "placeholder_targetLanguageTextField" = "Sélectionnez la langue cible...";
 "placeholder_currencyTextView" = "Montant";
+"error_no_language_selected" = "Aucune langue sélectionnée";

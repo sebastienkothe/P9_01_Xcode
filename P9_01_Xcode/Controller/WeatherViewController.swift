@@ -59,6 +59,7 @@ extension WeatherViewController {
             
         })
     }
+    
     /// Used to update weather informations
     private func updateWeatherInformation(weatherResponse: WeatherResponse, weatherDescription: String) -> String {
         "🗺 \(weatherResponse.name)\nℹ️ \(weatherDescription)\n🌡 \(weatherResponse.main.temp)°"

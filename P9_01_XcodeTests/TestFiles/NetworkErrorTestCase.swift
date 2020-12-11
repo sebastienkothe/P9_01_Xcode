@@ -15,8 +15,7 @@ class NetworkErrorTestCase: XCTestCase {
             ("The text field is empty!", "Le champ de texte est vide !"),
             ("Incorrect http response code", "Code de réponse http incorrect"),
             ("The location service is disabled", "Le service de localisation est désactivé"),
-            ("ERROR", "ERREUR"),
-            ("Alright!", "Entendu!")
+            ("No language selected", "Aucune langue sélectionnée")
         ]
         
         var i = 0

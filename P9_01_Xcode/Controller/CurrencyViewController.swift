@@ -23,7 +23,7 @@ final class CurrencyViewController: BaseViewController {
         currencyTextView.text = "placeholder_currencyTextView".localized
         currencyTextView.textColor = UIColor.gray
         currencyTextView.layer.cornerRadius = 5
-        currencyTextView.addFinishButtonToKeyboard()
+        currencyTextView.addDoneButtonToKeyboard()
         
         self.navigationItem.title = "navigation_item_title_currency".localized
         
@@ -40,24 +40,27 @@ final class CurrencyViewController: BaseViewController {
         
         textField.inputView = picker
         
-        let toolBar = UIToolbar()
+        let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 35))
         
         let emptyBarButtonItem = UIBarButtonItem(
             barButtonSystemItem: .flexibleSpace,
             target: self,
             action: nil
         )
+        
         let doneBarButtonItem = UIBarButtonItem(
             barButtonSystemItem: .done,
             target: self,
             action: #selector(closeKeyboard)
         )
         
-        toolBar.items = [emptyBarButtonItem, doneBarButtonItem]
+        doneBarButtonItem.tintColor = .systemYellow
         
-        toolBar.sizeToFit()
+        toolbar.items = [emptyBarButtonItem, doneBarButtonItem]
         
-        textField.inputAccessoryView = toolBar
+        toolbar.sizeToFit()
+        
+        textField.inputAccessoryView = toolbar
     }
     
     @objc private func closeKeyboard() {
@@ -86,54 +89,56 @@ extension CurrencyViewController {
             handleError(error: .emptyTextField)
             return
         }
-    
-    guard let convertedAmount = Double(amount) else { return }
-    
-    // To show the activity indicator and hide the button
-    toggleActivityIndicator(shown: true, activityIndicator: searchActivityIndicator, button: searchButton)
-    handleTheExchangeRateRequest(convertedAmount: convertedAmount)
-}
-
-private func handleTheExchangeRateRequest(convertedAmount: Double) {
-    let currencyNetworkManager = CurrencyNetworkManager()
-    
-    currencyNetworkManager.fetchCurrencyInformation(completion: { [weak self] (result) in
-        guard let self = self else {return}
         
-        DispatchQueue.main.async {
-            self.toggleActivityIndicator(shown: false, activityIndicator: self.searchActivityIndicator, button: self.searchButton)
+        guard let convertedAmount = Double(amount) else { return }
+        
+        // To show the activity indicator and hide the button
+        toggleActivityIndicator(shown: true, activityIndicator: searchActivityIndicator, button: searchButton)
+        handleTheExchangeRateRequest(convertedAmount: convertedAmount)
+    }
+    
+    private func handleTheExchangeRateRequest(convertedAmount: Double) {
+        let currencyNetworkManager = CurrencyNetworkManager()
+        
+        currencyNetworkManager.fetchCurrencyInformation(completion: { [weak self] (result) in
+            guard let self = self else {return}
             
-            switch result {
-            case .failure(let error):
-                self.handleError(error: error)
+            DispatchQueue.main.async {
+                self.toggleActivityIndicator(shown: false, activityIndicator: self.searchActivityIndicator, button: self.searchButton)
                 
-            case .success(let response):
-                
-                let sourceCurrency = self.getTheSelectedCurrency(serverResponse: response, pickerView: self.sourceCurrencyPickerView)
-                
-                let targetCurrency = self.getTheSelectedCurrency(serverResponse: response, pickerView: self.targetCurrencyPickerView)
-                
-                guard let sourceCurrencyAsDouble = sourceCurrency as? Double else {return}
-                guard let targetCurrencyAsDouble = targetCurrency as? Double else {return}
-                
-                let result = self.currencyConverter.getTheConversionResult(sourceCurrency: sourceCurrencyAsDouble, targetCurrency: targetCurrencyAsDouble, amount: convertedAmount)
-                guard let resultUnwrapped = result else { return }
-                
-                let currencyTargetSymbol = self.selectedTargetCurrency.symbol
-                let currencySourceSymbol = self.selectedSourceCurrency.symbol
-                
-                self.conversionResultTextView.text =
-                    "\(convertedAmount)\(currencySourceSymbol) = \(resultUnwrapped)\(currencyTargetSymbol)"
+                switch result {
+                case .failure(let error):
+                    self.handleError(error: error)
+                    
+                case .success(let response):
+                    
+                    let sourceCurrency = self.getTheSelectedCurrency(serverResponse: response, pickerView: self.sourceCurrencyPickerView)
+                    
+                    let targetCurrency = self.getTheSelectedCurrency(serverResponse: response, pickerView: self.targetCurrencyPickerView)
+                    
+                    guard let sourceCurrencyAsDouble = sourceCurrency as? Double else {return}
+                    guard let targetCurrencyAsDouble = targetCurrency as? Double else {return}
+                    
+                    let result = self.currencyConverter.getTheConversionResult(sourceCurrency: sourceCurrencyAsDouble, targetCurrency: targetCurrencyAsDouble, amount: convertedAmount)
+                    guard let resultUnwrapped = result else { return }
+                    
+                    let currencyTargetSymbol = self.selectedTargetCurrency.symbol
+                    let currencySourceSymbol = self.selectedSourceCurrency.symbol
+                    
+                    self.conversionResultTextView.text =
+                        "\(convertedAmount)\(currencySourceSymbol) = \(resultUnwrapped)\(currencyTargetSymbol)"
+                }
             }
-        }
-    })
-}
-
-/// Used to get the selected currency
-private func getTheSelectedCurrency(serverResponse: CurrencyResponse, pickerView: UIPickerView) -> Any? {
-    let selectedCurrency = serverResponse.rates[Currency.allCases[pickerView.selectedRow(inComponent: 0)].code]
-    return selectedCurrency
-}
+        })
+    }
+    
+    /// Used to get the selected currency
+    private func getTheSelectedCurrency(serverResponse: CurrencyResponse, pickerView: UIPickerView) -> Any? {
+        let qsdqds = pickerView.selectedRow(inComponent: 0)
+        let qdsiqdsk = Currency.allCases[qsdqds]
+        let selectedCurrency = serverResponse.rates[qdsiqdsk.code]
+        return selectedCurrency
+    }
 }
 
 // MARK: - PickerView

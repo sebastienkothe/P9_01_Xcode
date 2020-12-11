@@ -40,7 +40,6 @@ class NetworkManagerTestCase: XCTestCase {
                 let currencyResponse = try result.get()
                 XCTAssertNotNil(currencyResponse)
                 XCTAssertTrue(currencyResponse.success)
-                XCTAssertTrue(currencyResponse.rates.EUR == 1)
             } catch {
                 XCTAssertNil(error)
             }
