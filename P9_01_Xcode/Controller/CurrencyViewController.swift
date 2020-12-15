@@ -5,15 +5,26 @@ final class CurrencyViewController: BaseViewController {
     // MARK: - IBOutlets
     @IBOutlet weak private var currencyTextView: UITextView!
     @IBOutlet weak private var conversionResultTextView: UITextView!
-    @IBOutlet weak var searchActivityIndicator: UIActivityIndicatorView!
-    @IBOutlet weak var searchButton: UIButton!
-    @IBOutlet weak var sourceCurrencyTextField: UITextField!
-    @IBOutlet weak var targetCurrencyTextField: UITextField!
+    @IBOutlet weak private var searchActivityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak private var searchButton: UIButton!
+    @IBOutlet weak private var sourceCurrencyTextField: UITextField!
+    @IBOutlet weak private var targetCurrencyTextField: UITextField!
     
     private let sourceCurrencyPickerView = UIPickerView()
     private let targetCurrencyPickerView = UIPickerView()
-    
     private let currencyConverter = CurrencyConverter()
+    
+    var selectedSourceCurrency: Currency = .Euro {
+        didSet {
+            sourceCurrencyTextField.text = selectedSourceCurrency.displayName
+        }
+    }
+    
+    var selectedTargetCurrency: Currency = .Euro {
+        didSet {
+            targetCurrencyTextField.text = selectedTargetCurrency.displayName
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +45,7 @@ final class CurrencyViewController: BaseViewController {
         setUpPlaceholderFrom(targetCurrencyTextField, placeholderString: "placeholder_targetCurrencyTextField")
     }
     
+    /// Used to configure the pickerview
     private func setupCurrencyPicker(picker: UIPickerView, textField: UITextField) {
         picker.delegate = self
         picker.dataSource = self
@@ -63,26 +75,17 @@ final class CurrencyViewController: BaseViewController {
         textField.inputAccessoryView = toolbar
     }
     
+    /// Used to close the keyboard
     @objc private func closeKeyboard() {
         view.endEditing(true)
-    }
-    
-    var selectedSourceCurrency: Currency = .Euro {
-        didSet {
-            sourceCurrencyTextField.text = selectedSourceCurrency.displayName
-        }
-    }
-    
-    var selectedTargetCurrency: Currency = .Euro {
-        didSet {
-            targetCurrencyTextField.text = selectedTargetCurrency.displayName
-        }
     }
     
 }
 
 // MARK: - Exchange rate
 extension CurrencyViewController {
+    
+    /// Used when the user presses the convert button
     @IBAction private func didTapOnConvertButton() {
         guard let amount = currencyTextView.text else { return }
         guard amount != "placeholder_currencyTextView".localized else {
@@ -97,6 +100,7 @@ extension CurrencyViewController {
         handleTheExchangeRateRequest(convertedAmount: convertedAmount)
     }
     
+    /// Used to handle the request and show the result to the user
     private func handleTheExchangeRateRequest(convertedAmount: Double) {
         let currencyNetworkManager = CurrencyNetworkManager()
         

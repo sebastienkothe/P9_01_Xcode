@@ -5,7 +5,7 @@ final class NetworkManager {
     // MARK: - Properties
     private let session: URLSessionProtocol
     
-     // Any class that adopts the URLSessionProtocol can replace URLSession.shared
+    // Any class that adopts the URLSessionProtocol can replace URLSession.shared
     init(withSession session: URLSessionProtocol = URLSession.shared) {
         self.session = session
     }
@@ -28,9 +28,9 @@ final class NetworkManager {
             guard
                 let httpResponse = response as? HTTPURLResponse,
                 200...299 ~= httpResponse.statusCode
-                else {
-                    completion(.failure(.incorrectHttpResponseCode))
-                    return
+            else {
+                completion(.failure(.incorrectHttpResponseCode))
+                return
             }
             
             guard let result = try? JSONDecoder().decode(T.self, from: data) else {

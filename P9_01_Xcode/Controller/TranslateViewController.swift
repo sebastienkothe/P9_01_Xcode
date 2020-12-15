@@ -30,6 +30,7 @@ final class TranslateViewController: BaseViewController {
         setupLanguagePicker()
     }
     
+    /// Used to configure the pickerview
     private func setupLanguagePicker() {
         selectionLanguagePickerView.delegate = self
         selectionLanguagePickerView.dataSource = self
@@ -72,16 +73,18 @@ final class TranslateViewController: BaseViewController {
 
 // MARK: - Translation
 extension TranslateViewController {
+    
+    /// Used when the user presses the translate button
     @IBAction private func didTapOnTranslateButton() {
-        
-        guard targetLanguageTextField.text != "placeholder_targetLanguageTextField".localized, targetLanguageTextField.text != "".trimmingCharacters(in: .whitespaces) else {
-            return
-                handleError(error: .noLanguageSelected)
-        }
         
         guard translationTextView.text != "placeholder_translationTextView".localized, translationTextView.text != "".trimmingCharacters(in: .whitespaces) else {
             handleError(error: .emptyTextField)
             return
+        }
+        
+        guard targetLanguageTextField.text != "placeholder_targetLanguageTextField".localized, targetLanguageTextField.text != "".trimmingCharacters(in: .whitespaces) else {
+            return
+                handleError(error: .noLanguageSelected)
         }
         
         // To show the activity indicator and hide the button

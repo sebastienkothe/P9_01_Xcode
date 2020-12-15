@@ -34,7 +34,7 @@ final class WeatherNetworkManager {
     
     /// Used to get weather information based on the user's current location
     internal func fetchWeatherInformationForUserLocation(longitude: String, latitude: String, completion: @escaping (Result<WeatherResponse, NetworkError>) -> Void) {
-    
+        
         guard let url = weatherUrlProvider.buildOpenWeatherUrl(longitude: longitude, latitude: latitude) else {
             completion(.failure(.failedToCreateURL))
             return

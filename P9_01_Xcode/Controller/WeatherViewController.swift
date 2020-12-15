@@ -39,6 +39,7 @@ extension WeatherViewController {
         handleTheRequestFortheSelectedCity()
     }
     
+    /// Handle the request and show the result to the user
     private func handleTheRequestFortheSelectedCity() {
         guard let city = weatherSearchTextField.text else { return }
         let weatherNetworkManager = WeatherNetworkManager()
@@ -85,6 +86,8 @@ extension WeatherViewController: UITextFieldDelegate {
 
 // MARK: - Localization
 extension WeatherViewController: WeatherDelegate {
+    
+    // The delegate (VC) receives the new coordinates of the location from the user's device
     internal func didChangeLocation(longitude: String, latitude: String) {
         let weatherNetworkManager = WeatherNetworkManager()
         
